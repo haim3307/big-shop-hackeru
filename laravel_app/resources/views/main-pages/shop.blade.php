@@ -12,7 +12,8 @@
         </div>
     </div>
 @endsection
-@section('script')
+
+@push('styles')
 
     <style>
         .container-1112 {
@@ -35,4 +36,4 @@
 
     </style>
 
-@endsection
+@endpush

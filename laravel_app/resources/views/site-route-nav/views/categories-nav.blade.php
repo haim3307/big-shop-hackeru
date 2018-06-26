@@ -8,7 +8,7 @@
             <option value="">Lorem ipsum dolor.</option>
         </select>--}}
     <div class="d-flex align-items-center" style="flex: 1 33.333%; height: 100%; margin: 0 10px;">
-        <select name="order-by-price" id="" class="custom-select">
+        <select name="order-by-price" onchange="this.form.submit()" id="orderByPrice" class="custom-select">
             <option value="">Order By Price..</option>
             <option value="high" @if(old('order-by-price') == 'high') selected="selected" @endif>High to low</option>
             <option value="low" @if(old('order-by-price') == 'low') selected="selected" @endif>Low to high</option>

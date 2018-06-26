@@ -93,7 +93,6 @@
                     load.js('https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js').then(function () {
                         jQuery(function ($) {
                             tplJQBT();
-                            $('.addToCartB').on('click', addToCartEvent);
                             $('.quickViewB').on('click', function (e) {
                                 e.preventDefault();
                                 e.stopPropagation();
@@ -112,6 +111,8 @@
                 });
             });
             jQuery(function ($) {
+                tplJQ();
+                $('.addToCartB').on('click', addToCartEvent);
 
                 load.js('https://code.jquery.com/ui/1.12.1/jquery-ui.min.js')
                     .then(function () {
@@ -161,7 +162,6 @@
                     });
                 });
             });
-            tplJQ();
             load.js('https://cdnjs.cloudflare.com/ajax/libs/flickity/2.1.2/flickity.pkgd.min.js')
                 .then(function () {
                     load.js('https://unpkg.com/flickity-bg-lazyload@1/bg-lazyload.js').then(function () {

@@ -54,9 +54,7 @@
 				if (item.main_category && typeof item.main_category === 'string') item.main_category = JSON.parse(item.main_category);
 				return item;
 			});
-			console.log('before:',localList);
 			localStorage.setItem('cartItems',JSON.stringify(localList));
-            console.log('after:',localList);
 
 
     </script>
