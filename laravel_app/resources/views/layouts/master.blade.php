@@ -48,13 +48,15 @@
 			}
     </script>
     <script>
-			var localList = JSON.parse(localStorage.getItem('cartItems') || '[]').filter(function (item) {
+			var localList = (JSON.parse(localStorage.getItem('cartItems')) || []).filter(function (item) {
 				return item.id;
 			}).map(function (item) {
 				if (item.main_category && typeof item.main_category === 'string') item.main_category = JSON.parse(item.main_category);
 				return item;
 			});
-			localStorage.setItem('cartItems',localList);
+			console.log('before:',localList);
+			localStorage.setItem('cartItems',JSON.stringify(localList));
+            console.log('after:',localList);
 
 
     </script>
