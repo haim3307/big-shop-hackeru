@@ -21,7 +21,7 @@ class CartController extends MainController
 
         if(count($order)){
             $order = collect($order)->map(function ($item){
-                $product = Product::from('products as p')->where('p.id',$item->id)->join('categories as c','p.category_id','=','c.id')->select('p.title','p.price','p.main_img','p.url','c.url as c_url')->first();
+                $product = Product::from('products as p')->withoutDeleted('p')->where('p.id',$item->id)->join('categories as c','p.category_id','=','c.id')->select('p.title','p.price','p.main_img','p.url','c.url as c_url')->first();
                 if(isset($product->id)) {
                     $product->quantity -= $item->quantity;
                     $product->save();
