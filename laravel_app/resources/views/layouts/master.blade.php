@@ -5,20 +5,8 @@
     <meta name="description" content="{{$metaDesc??$defaultMetaDesc}}">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     {{--global lists--}}
-    @php
-        $brands = \App\Brand::all()->reverse();
-        $allCategories = \App\Category::take(15)->get();
-        $menus = \App\Menu::with('items')->get()->keyBy('url');
-        $menus->transform(function ($menu){
-            $menu->items->transform(function ($item,$key) use ($menu){
-                $item->calc_url = $item->customUrl();
-                if($item->calc_url) return $item;
-            });
-            return $menu;
-        });
-    @endphp
+    @inject('masterLayout','App\Services\MasterData')
     {{--!global lists--}}
-
     <meta name="keywords" content="life style store,sport,camping,playground,JavaScript">
     @if(isset($title))
         @isset($page->title)

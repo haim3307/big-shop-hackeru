@@ -21,7 +21,7 @@
                  data-flickity='{ "groupCells": true , "pageDots": false,"contain": true}'
                  style="overflow: hidden; max-width: 100vw;">
 
-                @foreach ($brands as $brandItem)
+                @foreach ($masterLayout->brands as $brandItem)
                     <div class="carousel-cell d-grid align-items-center" style="padding: 37px;min-height: 100px;">
                         <img class="" style="max-height: 50px; " src="{{asset('_img/brands/'.$brandItem['main_img'])}}">
                     </div>
@@ -50,9 +50,9 @@
                 <ul>
                     @for ($x = 0; $x < 15; $x++)
                         <li class="text-capitalize"><a
-                                    href="{{isset($allCategories[$x]->url)?url('shop/'.$allCategories[$x]->url):'#'}}"
+                                    href="{{isset($masterLayout->allCategories[$x]->url)?url('shop/'.$masterLayout->allCategories[$x]->url):'#'}}"
                                     class="my-text-overflow d-block" style="    white-space: nowrap;
-;max-width: 100px;">{{$allCategories[$x]->name??''}}</a></li>
+;max-width: 100px;">{{$masterLayout->allCategories[$x]->name??''}}</a></li>
                     @endfor
                 </ul>
 
@@ -82,7 +82,7 @@
             <div class="copyRights">Copyrights. © {{date("Y")}} by HTProjects</div>
             <div class="f-row justify-content-center align-items-center">
                 <ul class="f-row align-items-center justify-content-center">
-                    @foreach ($menus['footer-nav']->items as $item)
+                    @foreach ($masterLayout->menus['footer-nav']->items as $item)
                         @if($item)
                             <li>
                                 <a href="{{url($item->calc_url)}}">{{ucwords($item->title)}}</a>

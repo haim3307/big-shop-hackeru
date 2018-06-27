@@ -22,8 +22,8 @@
 @section('content')
     <div id="page" class="hfeed site page-home-1" style="background-color:#fff;">
         <section id="main" class="site-main">
-            <section id="main-container" class="container inner mainright">
-                <div class="f-row">
+            <section id="main-container" class="d-flex justify-content-center inner mainright">
+                <div class="f-row container-1112">
                     @include('blog.side-bar')
 
 
@@ -31,15 +31,14 @@
                         <div id="primary" class="content-area">
                             <div id="content" class="site-content" role="main">
 
-                                @if($posts->count())
                                 <div class="g-row" style="grid-gap: 20px;">
-                                    @foreach($posts as $post)
+                                    @forelse($posts as $post)
                                         @include('items.post')
-                                    @endforeach
+                                        @empty
+                                        <h3 class="text-center g-col-12">No posts were found..</h3>
+                                    @endforelse
                                 </div>
-                                    @else
-                                    <h3 class="text-center">No posts were found..</h3>
-                                @endif
+
 
                                 <nav class="navigation paging-navigation clearfix" role="navigation">
                                     <h1 class="screen-reader-text">Posts navigation</h1>
@@ -61,35 +60,4 @@
         </section>
         <!-- #main -->
     </div>
-@endsection
-@section('script')
-    <script type='text/javascript'
-            src='http://demo3.wpopal.com/exgym/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
-    <script type='text/javascript'
-            src='http://demo3.wpopal.com/exgym/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
-    <script type='text/javascript'
-            src='http://demo3.wpopal.com/exgym/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.tools.min.js?ver=5.4'></script>
-    <style>
-        .f-row {
-            display: flex !important;
-            flex-wrap: wrap;
-        }
-        #addedToCartModal{
-            display: none !important;
-        }
-    </style>
-    <script>
-			function tpl() {
-
-			}
-
-			function tplJQ() {
-
-				load.js('http://demo3.wpopal.com/exgym/wp-content/plugins/kingcomposer/includes/frontend/vendors/waypoints/waypoints.min.js?ver=2.6.17').then(function () {
-					load.js('http://demo3.wpopal.com/exgym/wp-content/plugins/kingcomposer/assets/frontend/js/counter.up.min.js?ver=2.6.17');
-
-
-				});
-			}
-    </script>
 @endsection

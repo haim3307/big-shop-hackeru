@@ -8,7 +8,7 @@
             <div class="d-grid grid-col-4" style="    height: 100%;">
                 {{--                <div class="carousel-cell d-grid align-items-center" style="padding: 37px;min-height: 100px;"> </div>
     --}}
-                @foreach($brands as $brand)
+                @foreach($masterLayout->brands as $brand)
                     <a style="padding: 20px 37px;" class="allCentered"><img class=""
                                                                             style="max-height: 50px; width: 100%"
                                                                             src="{{asset('_img/brands/'.$brand['main_img'])}}"></a>

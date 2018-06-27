@@ -1,3 +1,4 @@
+
 @extends('layouts.master')
 @section('title')
      {{$store_name}} | Page Not Found
