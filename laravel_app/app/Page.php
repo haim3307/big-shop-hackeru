@@ -18,6 +18,9 @@ class Page extends CMSModel
     }
     static public function getListsItems($url, &$data, $modifyListsKeys = true)
     {
+        $test = collect(['items'=>collect([1,2,3,4,5])]);
+        $test['items'] = null;
+        //dd($test);
         $data['page'] = self::with('lists', 'lists.items','lists.entity')->where('url', $url)->first();
         $data['lists'] = $data['page']->lists;
         if ($modifyListsKeys) $data['lists'] = $data['lists']->keyBy('url');
@@ -37,11 +40,14 @@ class Page extends CMSModel
                 $item->list_item_id = $item->id;
                 $item->list_id = $item->page_list_id;
                 $item->hasOptions = $list->options_layout ? true : false;
-                return $item;
+                if(!empty($list->entity_id)){
+                    if(!empty($item->entityItem)){
+                        return $item;
+                    }return false;
+                }else return $item;
 
             });
            return !$modifyListsKeys?$list:$list->items;
-
         });
 
     }

@@ -52,9 +52,11 @@
 
                                                                         <div class="row products-inner">
                                                                             @foreach($lists['sales'] as $product)
+
                                                                                 <div class="col-sm-6 col-md-3 ">
                                                                                     @include('items.special-item')
                                                                                 </div>
+
                                                                             @endforeach
                                                                         </div>
                                                                         <div id="more_products">

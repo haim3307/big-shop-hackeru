@@ -2,7 +2,6 @@
 @section('content')
 
     @include('inc.main-slide')
-
     <div class="home_page">
         <h1 class="d-none">Home</h1>
         <main class="home_page_grid" id="app">

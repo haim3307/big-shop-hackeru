@@ -26,7 +26,7 @@ class PageListItem extends MainModel
 
     public function setEntityItem()
     {
-        if(!isset($this->entity_item_id)) return ;
+        if(!isset($this->entity_item_id)) return;
         $query = call_user_func("App\\".$this->entity->model . '::where', "{$this->entity->table}.id",$this->entity_item_id);
         if (method_exists(self::class, $this->entity->name)) $query = call_user_func(self::class . '::' . $this->entity->name, $query);
         return $this->entityItem = $query->first();
@@ -51,44 +51,20 @@ class PageListItem extends MainModel
             }
         } else return 'false';
     }
-    public function updateItemOptions1($request,$pageList){
-        if ($optionsLayout = json_decode($pageList->options_layout, true)) {
-            foreach ($request->all() as $key => $param) {
-                if (array_key_exists($key, $optionsLayout)) {
-                    if ($optionsLayout[$key]["type"] == "img") {
-                        if ($request->hasFile($key) && !empty($pageList->img_path)) {
-                            $file = $request->file($key);
-                            $fileName = self::randomFileName($file);
-                            $path = public_path('_img/'.$pageList->img_path);
-                            if($file->move($path,$fileName)){
-                                $optionsLayout[$key]["value"] = $fileName;
-                                self::rebuildImage(['width'=>1920],$path,$fileName);
-                            }else{
-                                $optionsLayout[$key]["value"] = $request->{'old_' . $key};
-                            }
-                        }else{
-                            $optionsLayout[$key]["value"] = $request->{'old_' . $key};
-                        }
-                    } else {
-                        $optionsLayout[$key]["value"] = $param;
-                    }
-                }
-            }
-            $this->update(['options' => json_encode($optionsLayout)]);
-        }
-    }
     public function updateItemOptions($request,$pageList){
         if ($optionsLayout = json_decode($pageList->options_layout, true)) {
             foreach ($optionsLayout as $key => $param){
-                if(!empty($request->$key) && $optionsLayout[$key]["type"] == "img" && $request->hasFile($key) && !empty($pageList->img_path)){
-                    $file = $request->file($key);
-                    $fileName = self::randomFileName($file);
-                    $path = public_path('_img/'.$pageList->img_path);
-                    if($file->move($path,$fileName)){
-                        $optionsLayout[$key]["value"] = $fileName;
-                        self::rebuildImage(['width'=>1920],$path,$fileName);
-                    }else $optionsLayout[$key]["value"] = $request->{'old_'.$key}??'';
-                } else $optionsLayout[$key]['value'] = !empty($request->{'old_'.$key})?$request->{'old_'.$key}:'';
+                if($optionsLayout[$key]["type"] == "img"){
+                    if(!empty($request->$key) && $request->hasFile($key) && !empty($pageList->img_path)){
+                        $file = $request->file($key);
+                        $fileName = self::randomFileName($file);
+                        $path = public_path('_img/'.$pageList->img_path);
+                        if($file->move($path,$fileName)){
+                            $optionsLayout[$key]["value"] = $fileName;
+                            self::rebuildImage(['width'=>1920],$path,$fileName);
+                        }else $optionsLayout[$key]["value"] = !empty($request->{'old_'.$key})?$request->{'old_'.$key}:'';
+                    }else $optionsLayout[$key]['value'] = !empty($request->{'old_'.$key})?$request->{'old_'.$key}:'';
+                }else $optionsLayout[$key]['value'] = $request->$key??'';
             }
             $this->update(['options' => json_encode($optionsLayout)]);
         }

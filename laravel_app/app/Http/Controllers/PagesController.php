@@ -36,18 +36,24 @@ class PagesController extends MainController
 
     public function sale() {
         self::connectPage('sale');
+        self::$data['lists']['sales']->filter(function ($item){
+            return isset($item->options);
+        });
         return view('main-pages.sale',self::$data);
     }
     public function deals() {
         self::connectPage('deals');
         self::$data['expired_deals'] = [];
+        self::$data['lists']['deals'] = self::$data['lists']['deals']->filter(function ($item){
+            if (isset($item) && isset($item->options) && isset($item->entityItem)) {
+                $cond = date($item->options->end_date->value) > date(Carbon::now());
+                if(!$cond) self::$data['expired_deals'][] = $item;
+                return $cond ;
+            }
+            else return false;
+        });
         self::$data['lists']['deals'] = self::$data['lists']['deals']->sortBy(function ($item){
             return date($item->options->end_date->value);
-        });
-        self::$data['lists']['deals'] = self::$data['lists']['deals']->filter(function ($item){
-            $cond = date($item->options->end_date->value) > date(Carbon::now());
-            if(!$cond) self::$data['expired_deals'][] = $item;
-            return $cond;
         });
         return view('main-pages.deals',self::$data);
     }

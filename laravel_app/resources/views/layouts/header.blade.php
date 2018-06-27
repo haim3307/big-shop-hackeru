@@ -145,7 +145,9 @@
                                     }
 
                                     setTimeout(function () {
-                                        load.js('//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit');
+                                        ready(function () {
+                                            load.js('//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit')
+                                        });
                                     })
                                 </script>
                                 <style>
@@ -198,7 +200,7 @@
                                 <li><a href="{{url('user/orders')}}">My Orders</a>
                                 </li>
 
-                                @if(Auth::check())
+                                @auth
                                     <li>
                                         <a>
                                             <form action="{{route('logout')}}" method="POST">
@@ -208,7 +210,7 @@
                                             </form>
                                         </a>
                                     </li>
-                                @endif
+                                @endauth
                             </ul>
                         </li>
                         <li class="dropdown shopCartMenu">
