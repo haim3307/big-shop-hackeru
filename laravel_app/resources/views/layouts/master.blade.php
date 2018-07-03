@@ -83,6 +83,7 @@
 			console.log(categoriesWithFilters);
 			window.BASEURL = '{{url('')}}';
 			window.BASE_URL = window.BASEURL;
+			window.loggedIn = '{{Auth::check()?1:0}}';
 
     </script>
 
@@ -195,6 +196,9 @@
     }
 </style>
 <style>
+    .itemMessage{
+        position: absolute;top: {{$top??0}}; right: {{$right??0}}; z-index: 100; padding: 10px; color: white; background-color: rgba(111,111,111,0.7);
+    }
     .quickViewB{
         height: 46px;
         width: 46px;

@@ -7,7 +7,7 @@
             <button class="btn btn-danger" @click="emitDeleteItem"><i class="fa fa-trash"></i></button>
         </div>
         <div class="card-body"><!--| capitalize-->
-            <h3 class="card-title" v-if="listItem && listItem.title || (product && (product.title || product.name))">{{!listItem.title?product.title?product.title:product.name:listItem.title | striphtml | capitalize}}</h3>
+            <h3 class="card-title" v-if="listItem && listItem.title || (product && (product.title || product.name))">{{$options.filters.striphtml(listItem.title).trim().length?listItem.title:product.title?product.title:product.name | striphtml | capitalize}}</h3>
             <div style="overflow:hidden;min-height: 250px;" v-if="product && product.c_url">
                 <img :src="main_img"
                      class="card-img-top img-fluid dealImg" alt="">

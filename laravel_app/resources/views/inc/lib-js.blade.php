@@ -133,8 +133,11 @@
                     });
                 });
                 $('.addToWishB').on('click', function (e) {
-
                     var wishId = $(this).data('wish-id'), wishUrl = $(this).data('wish-url');
+                    if(loggedIn == 0) {$('.signToWish[data-wish-id='+wishId+']').removeClass('fade').delay(1000);
+                    setTimeout(function () {
+                        $('.signToWish[data-wish-id='+wishId+']').addClass('fade')
+                    },1000); return;}
                     $.ajax({
                         url: BASE_URL + '/user/wishlist',
                         method: 'POST',

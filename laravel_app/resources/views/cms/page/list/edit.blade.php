@@ -14,7 +14,7 @@
         {{csrf_field()}}
         {{isset($listItem)?method_field('PATCH'):''}}
         <friendly-title :title="'title'"></friendly-title>
-        <input class="form-control" type="text" name="title" value="{{old('title',$listItem->title??'')}}">
+        <textarea data-type="html-input" class="form-control" type="text" name="title">{{old('title',$listItem->title??'')}}</textarea>
         @isset($listItem)   <input type="hidden" name="item_id" value="{{$listItem->id}}">@endisset
         @foreach($pageList->options_layout as $extraAttrTitle=>$extraAttr)
             <friendly-title :title="'{{$extraAttrTitle}}'"></friendly-title>

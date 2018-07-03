@@ -1,1 +1,1 @@
-@if(Session::get('addedToWishList') && Session::get('addedToWishList') == $product->id) <div class="addedToWishMessage" style="position: absolute;top: {{$top??0}}; right: {{$right??0}}; z-index: 100; padding: 10px; color: white; background-color: rgba(111,111,111,0.7);">Added to wish list!</div> @endif
+@if(Session::get('addedToWishList') && Session::get('addedToWishList') == $product->id) <div class="addedToWishMessage itemMessage">{{$message??'Added to wish list!'}}</div> @endif
