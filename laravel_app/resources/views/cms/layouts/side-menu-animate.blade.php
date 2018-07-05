@@ -254,7 +254,7 @@
             font-size: 1.1em;
             display: block;
         }
-        #sidebar ul li.active > a, a[aria-expanded="true"] {
+        #sidebar ul li.active > a, #sidebar a[aria-expanded="true"] {
             color: #fff;
         }
 
