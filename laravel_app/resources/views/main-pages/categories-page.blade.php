@@ -5,10 +5,11 @@
             @include('site-route-nav.views.categories-nav')
             <nav class="filters">
                 <div id="filterActions" class="d-grid-row grid-col-2 text-center" style="height: 80px;">
-                    <button id="expendAll" class="allCentered materialButton">Expand All</button>
                     <button id="minimizeAll"
                             class="allCentered materialButton">Minimize All
                     </button>
+                    <button id="expendAll" class="allCentered materialButton">Expand All</button>
+
                 </div>
                 <ul class="d-grid filtersUl" style="    padding-bottom: 57px;">
                     <li>

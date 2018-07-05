@@ -2298,3 +2298,10 @@ input[type=range].mainRange:-moz-focusring {
   outline: 1px solid white;
   outline-offset: -1px;
 }
+
+/*bypass bs4*/
+h1, h2, h3, h4, h5, h6 {
+  font-size: initial;
+}
+
+/*!bypass bs4*/

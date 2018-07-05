@@ -59,9 +59,9 @@
 </head>
 <body>
 <div>
-    <div class="flex-nowrap display-table g-row">
-        @include('cms.layouts.side-nav')
-        <div class="g-col-12 g-col-sm-10 g-col-lg-10 dtc d-grid"
+    <div class="wrapper">
+        @include('cms.layouts.side-menu-animate')
+        <div class="col dtc d-grid"
              style="grid-template-rows: auto 1fr;padding: 0;height: 100vh;">
             @include('cms.layouts.header')
             <main style="overflow-y: scroll; padding-bottom: 50px;">

@@ -81,7 +81,7 @@
                                                 align-items: center;
                                                 justify-content: flex-end;
                 ">
-                    <ul class="topBarNav">
+                    <ul class="topBarNav fade">
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
@@ -139,7 +139,7 @@
                                     function googleTranslateElementInit() {
                                         new google.translate.TranslateElement({
                                             pageLanguage: 'en',
-                                            includedLanguages: 'en,es,fr,iw,ru',
+                                            includedLanguages: 'en,es,fr,ru',
                                             layout: google.translate.TranslateElement.InlineLayout.SIMPLE
                                         }, 'google_translate_element');
                                     }
@@ -163,7 +163,6 @@
                                         color: #878c94 !important;
                                         padding-right: 10px;
                                     }
-
                                     .goog-te-menu-value span:nth-of-type(2) {
                                         display: none !important;
                                         color: #878c94 !important;

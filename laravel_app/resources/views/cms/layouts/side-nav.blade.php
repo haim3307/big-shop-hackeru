@@ -1,5 +1,5 @@
 <div id="side-menu" style="overflow-y: scroll; height: 100vh;"
-     class="g-col-sm-2  g-col-md-1  g-col-lg-2 collapse navbar-collapse d-sm-block">
+     class="g-col-sm-2  g-col-md-1  g-col-lg-2">
     <h1 style="text-align: inherit;padding: 13px 20px; " class="d-none d-lg-block text-white">Big Shop</h1>
     <hr style="border-top: 1px solid rgba(255,255,255,.1);">
 

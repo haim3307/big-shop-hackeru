@@ -1,5 +1,6 @@
 <div class="product-wrapper product"  style="position: relative;">
     @include('items.inc.wishlist-message',['product'=>$product->entityItem,'top'=>'150px','right'=>'10px'])
+    @auth @else <div class="itemMessage signToWish fade" data-wish-id="{{$product->entityItem->id}}">Please <a style="color: #007bff !important;" href="{{url('login')}}" class="link">login</a> in order to use the wish list</div> @endauth
 
     <div class="product-block"
          data-product-id="{{$product->entityItem->id}}">
@@ -18,9 +19,10 @@
                                   class="image-hover wp-post-image"
                                   alt=""/>
                 <span class="onsale-wrap">
-<span class="onsale">
--  {{$product->options->discount->value}}%		    </span>
-</span>
+                <span class="onsale">
+                -  {{$product->options->discount->value}}%		    </span>
+                </span>
+
             </a>
 
             <div class="button-action button-groups clearfix">
@@ -83,12 +85,12 @@
                             <span>Compare</span>
                         </a>
                     </div>--}}
-                    <div class="add-cart addToCartB" @include('inc.print-object',['product'=> $product->entityItem->getAttributes()]) >
+                    <div class="add-cart">
                         <a title="Add to cart"
                            rel="nofollow"
-                           class="button product_type_external btn btn-primary"><i
+                           class="button product_type_external btn btn-primary addToCartB" @include('inc.print-object',['product'=> $product->entityItem->getAttributes()])><i
                                     class="fa fa-shopping-cart"></i><span
-                                    class="title-cart">Add To Cart</span></a>
+                                    class="title-cart btnTitle">Add To Cart</span></a>
                     </div>
                 </div>
 
@@ -138,8 +140,7 @@
             <div class="myRating f-row justify-content-center">
                 <star-rating :border-width="1" :show-rating="false" :rating="{{$product->entityItem->rating}}" :round-start-rating="false" :star-size="20" :read-only="true"></star-rating>
             </div>
-
-            <h3 class="name"><a href="{{url("shop/{$product->entityItem->c_url}/{$product->entityItem->url}")}}">{{$product->entityItem->title}}</a></h3>
+            <h3 class="name"><a href="{{url("shop/{$product->entityItem->c_url}/{$product->entityItem->url}")}}">{!! !strip_tags($product->title)?$product->entityItem->title:$product->title !!}</a></h3>
 
             <div class="category-name">
                 <a href="{{url("shop/{$product->entityItem->c_url}")}}">{{$product->entityItem->c_url}}</a>
