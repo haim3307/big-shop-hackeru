@@ -225,6 +225,7 @@
                             };
                             jQuery(function ($) {
                                 $('.menuBoard').menuBoard($('.mainNav ul li'));
+                                $('.topBarNav').removeClass('fade');
                                 $(window).on('resize', function () {
                                     if (window.innerWidth >= 1111) $('.mainNav').children('ul').css('display', 'flex');
                                     else $('.mainNav').children('ul').css('display', 'grid');

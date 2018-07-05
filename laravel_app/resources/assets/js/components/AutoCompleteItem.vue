@@ -36,7 +36,9 @@
 	}
 </script>
 
-<style>
-
+<style scoped>
+    h6{
+        word-wrap: break-word;
+    }
 
 </style>
