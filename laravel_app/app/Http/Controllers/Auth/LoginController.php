@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\MainController;
 use App\Http\Requests\SigninRequest;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-
+use Socialite,Auth;
 class LoginController extends MainController
 {
     /*
@@ -85,5 +86,37 @@ class LoginController extends MainController
     protected function authenticated(Request $request, $user)
     {
         return $user->allowedCMS();
+    }
+    /**
+     * Redirect the user to the Facebook authentication page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function redirectToProvider()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    /**
+     * Obtain the user information from Facebook.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallback()
+    {
+        try{
+            $user = Socialite::driver('facebook')->user();
+        }catch (\Exception $e){
+            return redirect('login/facebook');
+        }
+        $authUser = ($findUser = User::where('email',$user->email)->first())?$findUser:new User([
+            'name' => $user->name,
+            'email' => $user->email,
+            'password' => bcrypt('123456'),
+        ]);
+        Auth::login($authUser);
+        Session::put('user',auth()->user());
+        // $user->token;
+        return redirect('/');
     }
 }

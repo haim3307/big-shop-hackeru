@@ -1,59 +1,40 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+<h1><img src="https://laravel.com/assets/img/components/logo-laravel.svg"> e-commerce shop</h1>
+<h4>Shop contains :</h4>
+<h5>Main pages:</h5> 
+<ul>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
-
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Pulse Storm](http://www.pulsestorm.net/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<li>Home - present products that the owner whats to put at the head of the site like featured and best sellers.</li>
+<li>About - talks about the web shop with content selected by owner and edited from cms.</li>
+<li>Deals - present deals for limited times defined by the owner , while deals that expired have their tab.</li>
+<li>Sales - deals the the owner wants to give discounts at dynamic times or strict times like seasons.</li>
+<li>Contact us - contains content from DB managed by owner and a form to pass messages to the shop team.</li>
+<li>Shop - presents the categories of the site .</li>
+<li>Category page - presents products of a selected category contains filters , pagination , search and a side menu to select other categories</li>
+</ul>
+<h5>Extras : </h5>
+<ul>
+    <li>Search bar at the head of the site to search any category or products using ajax for auto complete.</li>
+    <li>Wish List.</li>
+    <li>Cart based on localstorage and Vue.js which means no calls to server , user can CRUD without making the server busy which reduces a lot of load.</li>
+    <li>Full user profile management :
+        <ul>
+            <li>Upload profile image</li>
+            <li>Edit personal details</li>
+            <li>Manage Wish List</li>
+            <li>Watch all orders</li>
+        </ul>
+    </li>
+</ul>
+<h2>CMS</h2>
+<p>Content Managment System contains:</p>
+<h5>Main sections:</h5> 
+<ul>
+    <li>Table Management :
+        <ul>
+            <li>Products</li>
+            <li>Categories</li>
+            <li>Pages</li>
+            <li>Posts</li>
+        </ul>
+    </li>
+</ul>
