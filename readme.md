@@ -35,6 +35,9 @@
             <li>Categories</li>
             <li>Pages</li>
             <li>Posts</li>
+            <li>Users</li>
+            <li>Tags</li>
+            <li>Links</li>
         </ul>
     </li>
 </ul>
