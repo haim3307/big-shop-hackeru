@@ -109,13 +109,20 @@ class LoginController extends MainController
         }catch (\Exception $e){
             return redirect('login/facebook');
         }
-        $authUser = ($findUser = User::where('email',$user->email)->first())?$findUser:new User([
-            'name' => $user->name,
-            'email' => $user->email,
-            'password' => bcrypt('123456'),
-        ]);
+        $findUser = User::where('email',$user->email)->first();
+        if($findUser){
+            $authUser = $findUser;
+        }else{
+            $authUser = new User([
+                'name' => $user->name,
+                'email' => $user->email,
+                'password' => bcrypt('123456'),
+            ]);
+            $authUser->save();
+        }
         Auth::login($authUser);
         Session::put('user',auth()->user());
+
         // $user->token;
         return redirect('/');
     }

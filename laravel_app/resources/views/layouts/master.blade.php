@@ -90,6 +90,7 @@
     <script>
 			var shopAppOBJ = {el: '#shopApp', data: {}, methods: {}, computed: {}, filters: {}};
     </script>
+
     <link rel="stylesheet" href="{{asset('css/app.min.css')}}">
     <link href="{{ asset('css/styles1.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2.1.1/dist/flickity.min.css">

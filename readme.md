@@ -29,7 +29,7 @@
 <p>Content Managment System contains:</p>
 <h5>Main sections:</h5> 
 <ul>
-    <li>Table Management :
+    <li><h5>Table Management :</h5>
         <ul>
             <li>Products</li>
             <li>Categories</li>
@@ -39,5 +39,50 @@
             <li>Tags</li>
             <li>Links</li>
         </ul>
+        <br>
     </li>
+    <li><h5>Pages Management :</h5>
+        <p>Each Core Page is built out of lists ,
+                    the home page for example has the featured list of products and a list for the main slider ,
+                    a list could be dadicated to one entity like products or to multiple entities like products and categories , 
+                    this way the main slide at the home page could contain prodoct items and categories,
+                    they could be edited from cms while the owner could use all CRUD on any list of core page,
+                    The Main feature of those lists is the owner can drag items to order them the way he sees best.</p>
+                    All Page lists managment is built using Vue.js.
+                    <h6> Extra Features : </h5>
+                    <ul>
+                        <li>Split mode : 
+                        <p> Owner can chose between between three modes:</p>
+                        <ol>
+                            <li>Edit mode - where he could order and CRUD.</li>
+                            <li>Watch mode - where he could watch the same page on the site using iframe. </li>
+                            <li>Both - where he could edit on half screen and edit on the other</li>
+                        </ol></li><li>
+                        Auto complete items : 
+                        Owner can add items using auto complete search that is built on vue js. 
+                        
+  </li>
+                        </ul> <br> 
+    </li>
+    <li>Menus Managment : <br>
+    <h6>Features :</h5>
+    <ul>
+        <li>Full CRUD - create menu item , read menu , update it and delete items</li>
+        <li>Adding entities wordpress style - Owner has a side menu where he could choose what to add from the following entities :
+            <ul>
+                 <li>Pages</li>
+                <li>Products</li>
+                <li>Categories</li>
+                <li>Custom Links</li>
+            </ul>
+            <br>
+        </li>
+            <li>Drag And Drop Menu:
+                <p>Like page lists owner can drag a menu item to take it to the end of the list and order the menu the way he wants.
+                 </p>
+        </li>
+        <!--<li>Users</li>
+        <li>Tags</li>
+        <li>Links</li>-->
+    </ul>
 </ul>
