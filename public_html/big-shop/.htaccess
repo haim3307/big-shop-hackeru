@@ -2,10 +2,7 @@
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>
-
     RewriteEngine On
-    RewriteCond %{SERVER_PORT} 80
-    RewriteRule ^(.*)$ https://haim-taragano.tk/big-shop/$1 [R=301,L]
 #bad bots start
 #programmed by tab-studio.com public  version 2017.12
 #1 new rule every 500 entries
