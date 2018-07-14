@@ -15,7 +15,7 @@
     </div>
     <div class="col-md-2 d-flex" style="text-align: right;flex-flow: column;">
 
-        <nav class="navbar bg-faded d-sm-none">
+        <nav class="navbar bg-faded d-md-none">
             <button style="z-index: 99999999999; position: relative;" type="button" id="sidebarCollapse" class="navbar-btn">
                 <span></span>
                 <span></span>

@@ -93,6 +93,10 @@
                     load.js('https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js').then(function () {
                         jQuery(function ($) {
                             tplJQBT();
+                            $('#translateLi a>i.fa-language').on('click',function (e) {
+                                e.preventDefault();
+                                $("#google_translate_element .goog-te-menu-value > span").click();
+                            });
                             $('.quickViewB').on('click', function (e) {
                                 e.preventDefault();
                                 e.stopPropagation();
@@ -112,6 +116,28 @@
             });
             jQuery(function ($) {
                 tplJQ();
+                load.js('https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js').then(function () {
+                    $('#footer-carousel').owlCarousel({
+                        loop:true,
+                        margin:10,
+                        nav:true,
+                        responsive:{
+                            0:{
+                                items:1
+                            },
+                            600:{
+                                items:3
+                            },
+                            1000:{
+                                items:4
+                            }
+                        },
+                        navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+                        dots: false
+
+                    });
+                });
+
                 $('.addToCartB').on('click', addToCartEvent);
 
                 load.js('https://code.jquery.com/ui/1.12.1/jquery-ui.min.js')
@@ -167,6 +193,14 @@
             });
             load.js('https://cdnjs.cloudflare.com/ajax/libs/flickity/2.1.2/flickity.pkgd.min.js')
                 .then(function () {
+                    $('.footer-carousel').flickity({ "groupCells": true , "pageDots": false,"contain": true});
+/*                    window.addEventListener('load', function() {
+                        var elements = document.getElementsByClassName('js-flickity');
+                        for (var i = 0; i < elements.length; i++) {
+                            var flkty = Flickity.data(elements[i]);
+                            flkty.resize();
+                        }
+                    });*/
                     load.js('https://unpkg.com/flickity-bg-lazyload@1/bg-lazyload.js').then(function () {
                         jQuery(function ($) {
                             tplFlick();
@@ -188,11 +222,29 @@
                                 if (window.scrollY > 200) $('.thirdNav').addClass('fixedBar');
                                 else $('.thirdNav').removeClass('fixedBar');
                             }
+                            var $backToTop = $('.backToTop');
+                            $backToTop.on('click',function (e) {
+                                e.preventDefault();
+                                $(window).scrollTop(0);
+                            });
+                            function toggleBackToTop(e) {
+                                console.log($(document).height() - $(window).height() - $(this).scrollTop());
+                                if($(this).scrollTop() > 300 && ($(document).height() - $(window).height() - $(this).scrollTop()) > 300){
+                                    $backToTop
+                                        .css({'position':'fixed',top:0,height:'100%',margin:'auto',right:0});
+                                    $backToTop.children('img').css({'position':'absolute',top:0,bottom:0,margin:'auto',right:0,'border-radius':'100%'})
+                                }else{
+                                    $backToTop
+                                        .css({'position':'initial',top:0,height:'100%',margin:'auto',right:0});
+                                    $backToTop.children('img').css({'position':'initial',top:0,bottom:0,margin:'auto',right:0,'border-radius':'initial'});
+                                }
+                            }
 
                             toggleThirdNav();
-
-                            $(window).on('scroll', function (e) {
+                            toggleBackToTop();
+                            $(window).on('scroll',function(e){
                                 toggleThirdNav(e);
+                                toggleBackToTop(e);
                             });
                             $.ajaxSetup({
                                 headers: {

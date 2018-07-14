@@ -94,6 +94,7 @@
     <link rel="stylesheet" href="{{asset('css/app.min.css')}}">
     <link href="{{ asset('css/styles1.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2.1.1/dist/flickity.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css">
 

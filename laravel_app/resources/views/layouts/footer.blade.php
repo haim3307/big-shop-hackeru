@@ -17,17 +17,50 @@
         </style>--}}
     <div class="container-1112-footer">
         <section class="companiesSlider">
-            <div class=" footer-carousel carousel-cell"
-                 data-flickity='{ "groupCells": true , "pageDots": false,"contain": true}'
-                 style="overflow: hidden; max-width: 100vw;">
+            <div class="carousel-cell owl-carousel" id="footer-carousel"  style="overflow: hidden; max-width: 98vw;">
 
                 @foreach ($masterLayout->brands as $brandItem)
-                    <div class="carousel-cell d-grid align-items-center" style="padding: 37px;min-height: 100px;">
+                    <div class="carousel-cell d-flex justify-content-center align-items-center" style="padding: 10px;min-height: 100px;">
                         <img class="" style="max-height: 50px; " src="{{asset('_img/brands/'.$brandItem['main_img'])}}">
                     </div>
                 @endforeach
             </div>
+            @push('styles')
+                <style>
+                    .owl-prev {
+                        left: 5px;
+                    }
 
+                    .owl-next {
+                        /*width: 15px;*/
+                        right: 5px;
+                    }
+                    .owl-prev i, .owl-next i { font-size: 3em; color: #333;}
+                    .owl-nav > button {
+                        position: absolute;
+                        background: hsla(0,0%,100%,.75) !important;
+                        border: none;
+                        top: 0;
+                        bottom: 0;
+                        width: 54px;
+                        height: 54px;
+                        border-radius: 50%;
+                        margin: auto;
+                        display: flex !important;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    .owl-nav > button:focus {
+                        outline: 0;
+                        box-shadow: 0 0 0 5px #19f;
+                    }
+                    .companiesSlider{
+                        height: initial;
+                        padding: 18px 0;
+
+                    }
+                </style>
+                @endpush
         </section>
         <div class="siteMap grid-items-3">
 
