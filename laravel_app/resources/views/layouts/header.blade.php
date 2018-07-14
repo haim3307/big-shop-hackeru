@@ -87,7 +87,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                                data-close-others="false"> <i class="fa fa-usd mr-1"></i><span
                                         class="d-none d-sm-inline-block">USD</span><i
-                                        class="fa fa-angle-down ml-5 d-none d-sm-inline-block"></i>
+                                        class="fa fa-angle-down ml-2 mr-2 d-none d-sm-inline-block"></i>
                             </a>
                             <ul class="dropdown-menu w-100" role="menu">
 {{--                                <li><a href="#"><i class="fa fa-eur mr-1"></i>EUR</a>
@@ -134,7 +134,7 @@
                                                 </li>
                         --}}
                         <li id="translateLi">
-                            <a href="" class="d-sm-flex align-items-center">
+                            <span style="cursor: pointer;" href="" class="d-sm-flex align-items-center">
                                 <i class="fa fa-language" style="position: relative; top: -3px;"></i>
                                 @push('scripts')
                                     <script>
@@ -145,13 +145,18 @@
                                                 includedLanguages: 'en,es,fr,ru',
                                                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE
                                             }, 'google_translate_element');
+
                                         }
 
-                                        setTimeout(function () {
-                                            ready(function () {
-                                                load.js('//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit')
-                                            });
-                                        })
+                                        window.addEventListener('load',function () {
+                                                ready(function () {
+                                                    load.js('//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit').then(function () {
+                                                        setTimeout(function () {
+                                                            document.querySelector('.topBarNav').classList.add('show');
+                                                        },150);
+                                                    });
+                                                });
+                                        });
                                     </script>
                                     <style>
                                         .goog-te-menu-value {
@@ -175,7 +180,10 @@
                                             background-color: transparent !important;
                                             border: 0 !important;
                                         }
-                                        @media (max-width: 575px) {
+                                        .goog-te-menu-value span[aria-hidden="true"]{
+                                            display: none;
+                                        }
+                                        @media (max-width: 576px) {
                                             #google_translate_element {
                                                 position: absolute;
                                                 visibility: hidden;
@@ -184,14 +192,16 @@
                                     </style>
                                 @endpush
                                 <div id="google_translate_element"></div>
-                            </a>
+                                <i
+                                        class="fa fa-angle-down ml-2 mr-2 d-none d-sm-inline-block"></i>
+                            </span>
 
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                                data-close-others="false"> <i class="fa fa-user mr-1"></i><span
                                         class="d-none d-sm-inline-flex align-items-center"><span>My Account</span><i
-                                            class="fa fa-angle-down ml-1"></i></span> </a>
+                                            class="fa fa-angle-down ml-2 mr-2"></i></span> </a>
                             <ul class="dropdown-menu w-150" role="menu">
                                 @if(!Auth::check())
                                     <li><a href="{{url('login')}}">Login</a></li>

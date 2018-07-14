@@ -17,7 +17,7 @@
         </style>--}}
     <div class="container-1112-footer">
         <section class="companiesSlider">
-            <div class="carousel-cell owl-carousel" id="footer-carousel"  style="overflow: hidden; max-width: 98vw;">
+            <div class="carousel-cell owl-carousel owl-hide" id="footer-carousel"  style="overflow: hidden; max-width: 98vw;">
 
                 @foreach ($masterLayout->brands as $brandItem)
                     <div class="carousel-cell d-flex justify-content-center align-items-center" style="padding: 10px;min-height: 100px;">
@@ -27,6 +27,10 @@
             </div>
             @push('styles')
                 <style>
+                    .owl-hide{
+                        opacity: 0 !important;
+                        transition: 0.7s all;
+                    }
                     .owl-prev {
                         left: 5px;
                     }
@@ -57,7 +61,7 @@
                     .companiesSlider{
                         height: initial;
                         padding: 18px 0;
-
+                        min-height: 136px;
                     }
                 </style>
                 @endpush

@@ -93,7 +93,10 @@
                     load.js('https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js').then(function () {
                         jQuery(function ($) {
                             tplJQBT();
-                            $('#translateLi a>i.fa-language').on('click',function (e) {
+                            $('#translateLi>a').on('click',function (e) {
+                                //e.preventDefault();
+                            });
+                            $('#translateLi').find('i.fa-language,i.fa-angle-down').on('click',function (e) {
                                 e.preventDefault();
                                 $("#google_translate_element .goog-te-menu-value > span").click();
                             });
@@ -117,7 +120,8 @@
             jQuery(function ($) {
                 tplJQ();
                 load.js('https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js').then(function () {
-                    $('#footer-carousel').owlCarousel({
+                    var $footerCarousel = $('#footer-carousel');
+                    $footerCarousel.owlCarousel({
                         loop:true,
                         margin:10,
                         nav:true,
@@ -136,6 +140,8 @@
                         dots: false
 
                     });
+                    $footerCarousel.removeClass('owl-hide');
+                    $('.owl-hide').removeClass('owl-hide');
                 });
 
                 $('.addToCartB').on('click', addToCartEvent);
@@ -229,10 +235,10 @@
                             });
                             function toggleBackToTop(e) {
                                 console.log($(document).height() - $(window).height() - $(this).scrollTop());
-                                if($(this).scrollTop() > 300 && ($(document).height() - $(window).height() - $(this).scrollTop()) > 300){
+                                if($(this).scrollTop() > 300){
                                     $backToTop
                                         .css({'position':'fixed',top:0,height:'100%',margin:'auto',right:0});
-                                    $backToTop.children('img').css({'position':'absolute',top:0,bottom:0,margin:'auto',right:0,'border-radius':'100%'})
+                                    $backToTop.children('img').css({'position':'absolute',top:0,bottom:0,margin:'auto',right:'10px','border-radius':'100%'})
                                 }else{
                                     $backToTop
                                         .css({'position':'initial',top:0,height:'100%',margin:'auto',right:0});
@@ -277,7 +283,6 @@
                             };
                             jQuery(function ($) {
                                 $('.menuBoard').menuBoard($('.mainNav ul li'));
-                                $('.topBarNav').removeClass('fade');
                                 $(window).on('resize', function () {
                                     if (window.innerWidth >= 1111) $('.mainNav').children('ul').css('display', 'flex');
                                     else $('.mainNav').children('ul').css('display', 'grid');
@@ -374,4 +379,5 @@
             });
 
         });
+    /*!lib-js*/
 </script>

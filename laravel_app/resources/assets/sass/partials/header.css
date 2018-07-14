@@ -511,7 +511,7 @@
         height: 5em;
     }
 
-    .topBar ul.topBarNav > li > a > i {
+    .topBar ul.topBarNav > li > a > i,.topBar ul.topBarNav > li > span > i {
         font-size: 2em;
     }
 }
