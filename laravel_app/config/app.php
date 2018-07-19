@@ -167,6 +167,7 @@ return [
         Watson\Active\ActiveServiceProvider::class,
         'Intervention\Image\ImageServiceProvider',
         'Kamaln7\Toastr\ToastrServiceProvider',
+        Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
 
 
     ],
@@ -219,6 +220,7 @@ return [
 
         'Image' => Intervention\Image\Facades\Image::class,
         'Toastr' => 'Kamaln7\Toastr\Facades\Toastr',
+        'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
 
     ],
 

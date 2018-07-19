@@ -55,12 +55,13 @@
             var $toDisable = [];
             $mainBTN.forEach(function ($findBtn) {
                 if ($findBtn.dataset.id == window.shopAppOBJ.data.cartItems[index].id) {
-                    $mainBTN = $findBtn;
                     $toDisable.push($findBtn);
                 }
             });
+            console.log(new Date().toLocaleTimeString(),'toDisable:',$toDisable,$mainBTN);
 
             function disable($btnI) {
+                console.log('$btnI',$btnI);
                 if ($btnI.querySelectorAll('.buyNow').length) $btnI = document.querySelector('.addToCartProductPage');
                 $btnI.setAttribute('disabled', 'disabled');
                 var $btnTitle = $btnI.getElementsByClassName('btnTitle');
@@ -93,6 +94,7 @@
                     load.js('https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js').then(function () {
                         jQuery(function ($) {
                             tplJQBT();
+                            @if(Session::has('ms')) $('#addedToCartModal').modal('show'); @endif
                             $('#translateLi>a').on('click',function (e) {
                                 //e.preventDefault();
                             });
@@ -115,6 +117,9 @@
                             });
                         });
                     });
+                });
+                load.js('//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js').then(function () {
+                    {!! strip_tags(Toastr::render()) !!}
                 });
             });
             jQuery(function ($) {
@@ -142,6 +147,24 @@
                     });
                     $footerCarousel.removeClass('owl-hide');
                     $('.owl-hide').removeClass('owl-hide');
+                    $('#postcarousel-DU3uE .owl-carousel').owlCarousel({
+                        margin:10,
+                        nav:true,
+                        responsive:{
+                            0:{
+                                items:1
+                            },
+                            600:{
+                                items:2
+                            },
+                            1000:{
+                                items:2
+                            }
+                        },
+                        navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+                        dots: false
+                    });
+
                 });
 
                 $('.addToCartB').on('click', addToCartEvent);
@@ -231,10 +254,11 @@
                             var $backToTop = $('.backToTop');
                             $backToTop.on('click',function (e) {
                                 e.preventDefault();
-                                $(window).scrollTop(0);
+                                $('html,body').animate({
+                                    scrollTop: 0
+                                },500);
                             });
                             function toggleBackToTop(e) {
-                                console.log($(document).height() - $(window).height() - $(this).scrollTop());
                                 if($(this).scrollTop() > 300){
                                     $backToTop
                                         .css({'position':'fixed',top:0,height:'100%',margin:'auto',right:0});
@@ -270,7 +294,7 @@
                                             _self.html($('div[data-board-id="' + boardId + '"]').html());
                                             _self.show();
                                         } else _self.hide();
-                                        _self.on('mouseleave', (e) => {
+                                        _self.on('mouseleave', function(e) {
                                             //$(this).removeClass('menuBtnActive');
                                             _self.hide();
                                             /*						$(this).on('mouseleave',function (e) {
@@ -302,57 +326,7 @@
                                     });
                                 })
                             });
-
-                            (($, n, e) => {
-                                var o = $();
-                                $.fn.dropdownHover = function (e) {
-                                    return "ontouchstart" in document ? this : (o = o.add(this.parent()) && this.each(function () {
-                                        function t(e) {
-                                            o.find(":focus").blur(), h.instantlyCloseOthers === !0 && o.removeClass("open"), n.clearTimeout(c), i.addClass("open"), r.trigger(a)
-                                        }
-
-                                        var r = $(this),
-                                            i = r.parent(),
-                                            d = {
-                                                delay: 100,
-                                                instantlyCloseOthers: !0
-                                            },
-                                            s = {
-                                                delay: $(this).data("delay"),
-                                                instantlyCloseOthers: $(this).data("close-others")
-                                            },
-                                            a = "show.bs.dropdown",
-                                            u = "hide.bs.dropdown",
-                                            h = $.extend(!0, {}, d, e, s),
-                                            c;
-                                        i.hover(function (n) {
-                                            return i.hasClass("open") || r.is(n.target) ? void t(n) : !0
-                                        }, function () {
-                                            c = n.setTimeout(function () {
-                                                i.removeClass("open");
-                                                r.trigger(u);
-                                            }, h.delay)
-                                        }), r.hover(function (n) {
-                                            return i.hasClass("open") || i.is(n.target) ? void t(n) : !0
-                                        }), i.find(".dropdown-submenu").each(function () {
-                                            var e = $(this),
-                                                o;
-                                            e.hover(function () {
-                                                n.clearTimeout(o), e.children(".dropdown-menu").show(), e.siblings().children(".dropdown-menu").hide()
-                                            }, function () {
-                                                var t = e.children(".dropdown-menu");
-                                                o = n.setTimeout(function () {
-                                                    t.hide()
-                                                }, h.delay)
-                                            })
-                                        })
-                                    }))
-                                };
-                                jQuery(function ($) {
-                                    $('[data-hover="dropdown"]').dropdownHover()
-                                });
-                            })(jQuery, this);
-
+                            //dropdown(jQuery, this);
                             $(window).on('load', function () {
                                 // noinspection JSPotentiallyInvalidConstructorUsage
 

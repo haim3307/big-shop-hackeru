@@ -1,6 +1,6 @@
 <div class="product-wrapper product"  style="position: relative;">
-    @include('items.inc.wishlist-message',['product'=>$product->entityItem,'top'=>'150px','right'=>'10px'])
-    @auth @else <div class="itemMessage signToWish fade" data-wish-id="{{$product->entityItem->id}}">Please <a style="color: #007bff !important;" href="{{url('login')}}" class="link">login</a> in order to use the wish list</div> @endauth
+    @include('items.inc.wishlist-message',['product'=>$product->entityItem,'style'=>'top:150px'])
+    @auth @else <div class="itemMessage signToWish fade" data-wish-id="{{$product->entityItem->id}}">Please <a style="top: 150px; color: #007bff !important;" href="{{url('login')}}" class="link">login</a> in order to use the wish list</div> @endauth
 
     <div class="product-block"
          data-product-id="{{$product->entityItem->id}}">
@@ -47,7 +47,7 @@
                                data-product-id="{{$product->entityItem->id}}"
                                data-product-type="simple"
                                class="add_to_wishlist">
-                                <i class="fa @if(\App\WishListItem::inWishList($product->entityItem->id)) fa-heart @else fa-heart-o @endif"></i><span>Wishlist</span></a>
+                                <i class="fa @if($product->entityItem->inWishList) fa-heart @else fa-heart-o @endif"></i><span>Wishlist</span></a>
                         </div>
 
                         <div class="yith-wcwl-wishlistaddedbrowse hide"

@@ -52,7 +52,14 @@ class Product extends CMSModel
     {
         $this->relatedProducts = self::inRandomOrder()->take(4)->addCategory($this->category_id)->where('products.id', '!=', $this->id)->select('products.*', 'c.url as c_url')->get();
     }
-
+    public function setExtraProps(){
+        $this->inWishList =  WishListItem::inWishList($this->id);
+    }
+    static function setExtraPropsAll($data){
+        foreach ($data as $item){
+            $item->setExtraProps();
+        }
+    }
     static public function deals(&$data)
     {
         $data = self::from('products as p')->join('deals as d', 'p.id', '=', 'd.product_id')->join('categories as c', 'p.category_id', '=', 'c.id')->select('p.*', 'd.*', 'c.url as c_url')->orderBy('order')->get();
@@ -64,6 +71,7 @@ class Product extends CMSModel
                     ->join('products as p', 'p.id', '=', 'pt.product_id')->join('categories as c', 'c.id', '=', 'p.category_id')
                     ->join('tags as t', 't.id', '=', 'pt.tag_id')->select('p.*', 'c.url as c_url')->where('t.name', '=', $tag_name)
                     ->withoutDeleted('p')->limit(4)->get();
+        self::setExtraPropsAll($data);
     }
 
     static public function searchProductWithRoute($id)

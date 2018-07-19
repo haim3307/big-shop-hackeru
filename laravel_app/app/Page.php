@@ -18,9 +18,6 @@ class Page extends CMSModel
     }
     static public function getListsItems($url, &$data, $modifyListsKeys = true)
     {
-        $test = collect(['items'=>collect([1,2,3,4,5])]);
-        $test['items'] = null;
-        //dd($test);
         $data['page'] = self::with('lists', 'lists.items','lists.entity')->where('url', $url)->first();
         $data['lists'] = $data['page']->lists;
         if ($modifyListsKeys) $data['lists'] = $data['lists']->keyBy('url');
@@ -28,8 +25,11 @@ class Page extends CMSModel
         $data['lists']->transform(function ($list) use($modifyListsKeys) {
             $list->items->transform(function ($item) use ($list,$modifyListsKeys) {
                 if($item->entity_id) $item->setEntityItem();
-                if(isset($item->entityItem))$item->entityItem->setItemBaseUrl($item->entity);
-                if (isset($item->entityItem))$item->entityItem->setItemImgPath($item->entity);
+                if(isset($item->entityItem)) {
+                    $item->entityItem->setItemBaseUrl($item->entity);
+                    $item->entityItem->setItemImgPath($item->entity);
+                    if($item->entity->name == 'product') $item->entityItem->setExtraProps();
+                }
                 $item = (object)$item->toArray();
                 if (!empty($item->options)) {
                     $item->options = json_decode($item->options);

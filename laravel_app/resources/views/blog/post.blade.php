@@ -2253,7 +2253,7 @@
                     <section id="main-container" class="container mainright">
                         <div class="row">
                             @include('blog.side-bar')
-                            <div id="main-content" class="main-content col-sm-12 col-lg-9 col-md-9">
+                            <div id="main-content" style="overflow: hidden;max-width: 100vw;" class="main-content col-sm-12 col-lg-9 col-md-9">
 
                                 <div id="primary" class="content-area">
                                     <div id="content" class="site-content" role="main">
@@ -2504,22 +2504,14 @@
                                                 <h4 class="related-post-title widget-title">
                                                     <span>Related posts</span>
                                                 </h4>
+                                                <div style="max-width: 94vw;" class="related-posts-content widget-content  owl-carousel-play" id="postcarousel-DU3uE" data-ride="carousel">
 
-                                                <div class="related-posts-content widget-content"
-                                                     id="postcarousel-JNunA" data-ride="carousel">
-                                                    <div class="owl-theme" data-slide="2"
-                                                         data-singleitem="true" data-navigation="true"
-                                                         data-pagination="true" style="opacity: 1; display: block;">
-                                                        <div class="owl-wrapper-outer autoHeight">
-                                                            <div id="relatedPostsCarousel" class="carousel">
-                                                                @foreach($post->relatedPosts as $relatedPost)
-                                                                    <div style="width: 448px; margin-right: 20px;">
-                                                                        @include('items.post',['post'=>$relatedPost])
-                                                                    </div>
-                                                                @endforeach
-
+                                                    <div class="owl-carousel" data-slide="2"  data-singleItem="true" data-navigation="true" data-pagination="true">
+                                                        @foreach($post->relatedPosts as $relatedPost)
+                                                            <div class="carouse-item">
+                                                            @include('items.post',['post'=>$relatedPost])
                                                             </div>
-                                                        </div>
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                             </div>
@@ -2548,14 +2540,13 @@
 
         function tplJQ() {
 
-
         }
 
         function tplFlickJQ() {
-            $('#relatedPostsCarousel').flickity({imagesLoaded: true, pageDots: false,groupCells:2});
-            setTimeout(function () {
-                $('#relatedPostsCarousel .flickity-slider').css('transform', 'translateX(0)');
-            }, 500)
+
+            /*            setTimeout(function () {
+                            $('#relatedPostsCarousel .flickity-slider').css('transform', 'translateX(0)');
+                        }, 500)*/
         }
     </script>
     <style>

@@ -71,9 +71,13 @@ class LoginController extends MainController
         $request->session()->regenerate();
 
         $this->clearLoginAttempts($request);
-
-        return $this->authenticated($request, $this->guard()->user())
-            ? redirect()->route('cms.home'): redirect()->intended($this->redirectPath());
+        if ($this->authenticated($request, $this->guard()->user())){
+            return redirect()->route('cms.home');
+        }else if ($request->has('rt') && !empty($request->rt)){
+            return redirect($request->rt);
+        }else{
+            return redirect()->intended($this->redirectPath());
+        }
     }
 
     /**
@@ -92,8 +96,9 @@ class LoginController extends MainController
      *
      * @return \Illuminate\Http\Response
      */
-    public function redirectToProvider()
+    public function redirectToProvider(Request $request)
     {
+        if($request->rt) Session::put('rt',$request->rt);
         return Socialite::driver('facebook')->redirect();
     }
 
@@ -102,7 +107,7 @@ class LoginController extends MainController
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback(Request $request)
     {
         try{
             $user = Socialite::driver('facebook')->user();
@@ -122,8 +127,13 @@ class LoginController extends MainController
         }
         Auth::login($authUser);
         Session::put('user',auth()->user());
-
-        // $user->token;
-        return redirect('/');
+        if ($this->authenticated($request, $this->guard()->user())){
+            return redirect()->route('cms.home');
+        }else if (Session::has('rt') && !empty(Session::get('rt'))){
+            Session::flash('scrollToId',1);
+            return redirect(Session::get('rt'));
+        }else{
+            return redirect()->intended($this->redirectPath());
+        }
     }
 }

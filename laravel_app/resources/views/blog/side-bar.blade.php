@@ -35,7 +35,7 @@
 
                             </div>
                             <div class="bottom-blog">
-                                <h3 class="title-post"><a href="{{url('post/'.$post->url)}}"
+                                <h3 class="title-post"><a href="{{url('blog/post/'.$post->url)}}"
                                                           rel="bookmark">{{$post->title}}</a></h3>
                                 <div class="author">
                                     <i class="fa fa-file-text-o" aria-hidden="true"></i> By <a href="#admin"

@@ -25,7 +25,8 @@
     "laravel/tinker": "^1.0",
     "oriceon/toastr-5-laravel": "dev-master",
     "watson/active": "^2.0",
-    "wpb/string-blade-compiler": "3.5.x-dev"
+    "wpb/string-blade-compiler": "3.5.x-dev",
+    "cartalyst/stripe-laravel": "7.0.*"
   },
   "require-dev": {
     "filp/whoops": "^2.0",

@@ -83,24 +83,36 @@
                                 {{--                                <input type="number" min="1" value="1"
                                                                        style="text-align: center; margin-right: 14px; width: 46px;">--}}
                                 <div style="margin-right: 10px;" @include('inc.print-object',['product'=>(object) $item->toArray()]) class="addToCartB buyPageButtons d-flex mb-md-2 mb-lg-0">
-                                    <button class="btn allCentered addToCartProductPage"
-                                            style="flex-basis: 173px; padding: 0; justify-content: stretch; margin-right: 10px; border-radius: 0">
-                                        <div class="allCentered"
-                                             style="height: 38px; width: 42px; background-color: rgb(247, 24, 24);">
+                                    @push('styles')
+                                        <style>
+                                            .storeBTN{
+                                                height: 38px; flex-basis: 173px; padding: 0; justify-content: stretch; border-radius: 0;
+                                            }
+                                            .storeBTN>div,.storeBTN>span{
+                                                height: 38px;
+                                            }
+                                            .storeBTN>span{
+                                                background-color: #e1e1e1; padding: 0 11px;
+                                            }
+                                            .storeBTN>div{
+                                                background-color: rgb(247, 24, 24);
+                                                width: 42px;
+                                            }
+                                        </style>
+                                    @endpush
+                                    <button class="btn allCentered addToCartProductPage storeBTN mr-md-2">
+                                        <div class="allCentered">
                                             <img src="{{asset('_img/Shopping Cart 3.png')}}" alt=""></div>
-                                        <span class="allCentered btnTitle"
-                                              style=" background-color: #e1e1e1; padding: 0 11px;">Add to cart</span>
+                                        <span class="allCentered btnTitle">Add to cart</span>
                                     </button>
-                                    <button class="btn allCentered buyNow"
-                                            style="flex-basis: 173px; padding: 0; justify-content: stretch; border-radius: 0">
-                                        <div class="allCentered"
-                                             style="height: 38px; width: 42px; background-color: rgb(247, 24, 24);">
+                                    <button class="btn allCentered buyNow storeBTN">
+                                        <div class="allCentered">
                                             <img src="{{asset('_img/Shopping Cart 3.png')}}" alt=""></div>
-                                        <span class="allCentered buyNow"
-                                              style=" background-color: #e1e1e1; padding: 0 11px;">Buy Now</span>
+                                        <span class="allCentered buyNow">Buy Now</span>
                                     </button>
                                 </div>
-                                @include('items.buttons.add-to-wish')
+                                @include('items.buttons.add-to-wish',['style'=>'top:50px;']){{--,'top'=>'150px','right'=>'10px','top'=>'100px','right'=>'-140px'--}}
+
                             </div>
                         </div>
                     </div>
@@ -123,7 +135,7 @@
                                 @endforeach
 
                                 @if (Auth::check())
-                                    <section>
+                                    <section id="userReview">
                                         @include('auth.errors')
                                         <form action="{{url()->current()}}/review"
                                               class="addComment d-grid productConShadow" method="post">
@@ -164,7 +176,7 @@
                                         </form>
                                     </section>
                                 @else
-                                    <p>You have to <a href="{{route('login')}}">login</a> in order to add a review</p>
+                                    <p>You have to <a class="link" href="{{route('login',['rt'=>url()->current().'#userReview'])}}">login</a> in order to add a review</p>
                                 @endif
                             </div>
                         </div>
@@ -213,6 +225,9 @@
 @endsection
 @section('style')
     <style>
+        .ui-widget-content a {
+            color: #007bff;
+        }
         .frameMy {
             top: 50px;
             left: 38px;

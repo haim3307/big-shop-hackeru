@@ -1,4 +1,4 @@
-<footer  id="mainFooter">
+<footer  id="mainFooter" style="overflow:hidden;">
     {{--    @push('styles')
             <style>
                 @media (max-width: 1112px) {
@@ -62,6 +62,11 @@
                         height: initial;
                         padding: 18px 0;
                         min-height: 136px;
+                    }
+                    #footer-carousel.owl-carousel .owl-item img {
+                        display: block;
+                        max-width: 100%;
+                        width: initial;
                     }
                 </style>
                 @endpush

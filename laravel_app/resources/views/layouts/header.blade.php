@@ -134,8 +134,8 @@
                                                 </li>
                         --}}
                         <li id="translateLi">
-                            <span style="cursor: pointer;" href="" class="d-sm-flex align-items-center">
-                                <i class="fa fa-language" style="position: relative; top: -3px;"></i>
+                            <a style="cursor: pointer;" href="javascript:void(0)" class="d-sm-flex align-items-center">
+                                <i class="fa fa-language ml-2" style="position: relative; top: -3px;"></i>
                                 @push('scripts')
                                     <script>
 
@@ -145,15 +145,15 @@
                                                 includedLanguages: 'en,es,fr,ru',
                                                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE
                                             }, 'google_translate_element');
-
+                                            setTimeout(function () {
+                                                document.querySelector('.topBarNav').classList.add('show');
+                                            },250);
                                         }
 
                                         window.addEventListener('load',function () {
                                                 ready(function () {
                                                     load.js('//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit').then(function () {
-                                                        setTimeout(function () {
-                                                            document.querySelector('.topBarNav').classList.add('show');
-                                                        },150);
+
                                                     });
                                                 });
                                         });
@@ -194,7 +194,7 @@
                                 <div id="google_translate_element"></div>
                                 <i
                                         class="fa fa-angle-down ml-2 mr-2 d-none d-sm-inline-block"></i>
-                            </span>
+                            </a>
 
                         </li>
                         <li class="dropdown">

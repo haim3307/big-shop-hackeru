@@ -1,9 +1,9 @@
 <div class="g-row review">
-    <div style=" width: 100px; height: 100px;" class="g-col-md-2">
+    <div style="height: 100px;" class="g-col-2 g-col-lg-3">
         <img style=" border: 1px lightgrey solid;" class="img-fluid" width="100"
              src="{{asset("_img/profiles/{$review->user->profile_img}")}}" alt=""></div>
     <div style="font-family: Arial; background: radial-gradient(ellipse at center, #fafafa 0%,#eeeeee 100%); "
-         class="g-col-md-10 reviewContent productConShadow p-md-3">
+         class="g-col-md-10 g-col-lg-9 reviewContent productConShadow p-md-3">
         <div class="f-row justify-content-between">
             <h3 class="reviewerName">{{ucwords($review->user->name)}}</h3>
             @empty($postMode)

@@ -7,7 +7,7 @@
                     <h3 class="modal-title">{{product.title | capitalize}}</h3>
                 </div>
                 <div class="modal-body" style="min-height: 50vh;">
-                    <div class="row">
+                    <div class="g-row">
                         <div class="g-col-md-6 product_img">
                             <img :src="url+'/_img/products/'+product.c_url+'/'+product.main_img"
                                  class="img-responsive" style="    max-width: 203px;margin: 0 auto;height: auto;">
@@ -57,12 +57,12 @@
                             </div>-->
                             <div class="space-ten"></div>
                             <div class="btn-ground" data-dismiss="modal">
-                                <button  type="button" class="btn btn-primary addToCartB" :data-product="jsonProduct()"><span
-                                        class="fa fa-shopping-cart"></span> Add To Cart
+                                <button type="button" class="btn btn-primary addToCartB" :data-product="jsonProduct()" :data-id="product.id"><span
+                                        class="fa fa-shopping-cart"></span> <span class="btnTitle">Add To Cart</span>
                                 </button>
                                 <button type="button" class="btn btn-primary addToWishB" :data-wish-id="product.id"
-                                        :data-wish-url="product.url"><span class="fa fa-heart"></span> Add To
-                                    Wishlist
+                                        :data-wish-url="product.url"><span class="fa fa-heart"></span><span v-if="!product.inWishList && !product.inwishlist">Add To
+                                    Wishlist</span><span v-else>Remove From Wishlist</span>
                                 </button>
 <!--                                <button class="btn allCentered addToWishB" :data-wish-id="product.id"
                                         style="position: relative; padding: 0; justify-content: stretch; border-radius: 0; font-size: 16px;font-weight: 400;color: #FFFFFF;">
@@ -85,13 +85,20 @@
 		name: "quick-product-view-modal",
 		props: ['product'],
 		mounted() {
-
 		},
+        watch: {
+            product: function updateCart(newVal, oldVal) {
+               Vue.nextTick(updateCartedButtons);
+               console.log('try to update quick watch');
+                console.log('here:',this.product);
+
+            }
+        },
 		methods: {
 			jsonProduct() {
 				return JSON.stringify(this.product);
-			}
-		}
+			},
+        }
 	}
 </script>
 

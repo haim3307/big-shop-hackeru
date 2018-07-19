@@ -84,6 +84,7 @@
 			window.BASEURL = '{{url('')}}';
 			window.BASE_URL = window.BASEURL;
 			window.loggedIn = '{{Auth::check()?1:0}}';
+            @if(Session::has('clear_cart')) window.clearCart = true; @endif
 
     </script>
 
@@ -125,6 +126,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
     @yield('head')
     @stack('styles')
     <style type="text/css">
@@ -133,7 +135,7 @@
         }
 
         body {
-            top: 0px !important;
+            top: 0 !important;
         }
 
         .goog-te-gadget-icon {
@@ -154,7 +156,7 @@
         @yield('content')
     </main>
     @include('layouts.footer')
-    <added-to-cart-modal :product="product"></added-to-cart-modal>
+    <added-to-cart-modal :product="product" :message="'{{Session::get('ms')}}'"></added-to-cart-modal>
     <quick-product-view-modal :product="quickProduct"></quick-product-view-modal>
 
 </div>

@@ -29,6 +29,7 @@ String.prototype.capitalize = function () { return this.charAt(0).toUpperCase() 
 
 
 window.VueComponents = function () {
+    Vue.config.devtools = true;
 	Vue.filter('formatDate', function(value) {
 		if (value) {
 			return moment(String(value)).format('MM/DD/YYYY hh:mm')
@@ -57,6 +58,8 @@ window.VueComponents = function () {
 	Vue.component('added-to-cart-modal', require('./components/AddedToCartModal'));
 	Vue.component('quick-product-view-modal', require('./components/QuickProductViewModal'));
 	Vue.component('auto-complete-menu', require('./components/AutoCompleteMenu'));
+    Vue.component('card-element', require('./components/CardElement.vue'));
+    Vue.component('payment-form', require('./components/PaymentForm.vue'));
 
 	//cms components
 	Vue.use(Datetime);
@@ -167,3 +170,37 @@ window.VueComponents = function () {
             `
 	});
 };
+window.vueShopCart = function(shopAppOBJ) {
+	console.log('got:',shopAppOBJ);
+    shopAppOBJ.data.cartItems = (Array.isArray(localList) ? localList : []).filter(function (item) {
+        return item && item.id && item.title;
+    });
+    shopAppOBJ.data.product = {"title": "", "main_img": ""};
+    shopAppOBJ.data.addedToCart = false;
+    shopAppOBJ.data.cartCount = shopAppOBJ.data.cartItems.length;
+
+    shopAppOBJ.computed.cartItemsLength = function () {
+        return shopAppOBJ.data.cartItems.length;
+    };
+    shopAppOBJ.computed.totalSubPriceCoined = function () {
+        return shopAppOBJ.data.cartItems.reduce((accumulator, currentValue, currentIndex, array) => accumulator + (currentValue.quantity * currentValue.price), 0);
+    };
+    shopAppOBJ.computed.totalPriceCoined = function () {
+        return this.totalSubPriceCoined * 1.18;
+    };
+    shopAppOBJ.computed.totalQuantity = () => shopAppOBJ.data.cartItems.reduce((accumulator, currentValue, currentIndex, array) => accumulator + currentValue.quantity, 0);
+
+    shopAppOBJ.methods.deleteitem = function (item) {
+        shopAppOBJ.data.cartItems = shopAppOBJ.data.cartItems.filter(i => i.id !== item.id);
+    };
+    shopAppOBJ.methods.emitDeleteItem = function () {
+        this.$emit('deleteitem', this.cartItem);
+    };
+    shopAppOBJ.methods.updateItemQuantity = function () {
+        this.totalSubPrice = 1;
+    };
+    shopAppOBJ.methods.addToCartEvent = addToCartEvent;
+    console.log('returning:',shopAppOBJ);
+    return shopAppOBJ;
+};
+
