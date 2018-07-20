@@ -33999,7 +33999,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['orderId'],
+  props: ['orderId', 'info', 'email'],
   data: function data() {
     return {
       csrf: document.head.querySelector('meta[name="csrf-token"]').content,
@@ -34064,7 +34064,15 @@ var render = function() {
         domProps: { value: _vm.orderId }
       }),
       _vm._v(" "),
-      _vm._m(0),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "email" } }, [_vm._v("Email Address")]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { type: "email", id: "email" },
+          domProps: { value: _vm.email }
+        })
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "form-group" }, [
         _c("label", { attrs: { for: "name_on_card" } }, [
@@ -34094,7 +34102,81 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _vm._m(1),
+      _c("div", { staticClass: "g-row", staticStyle: { "grid-gap": "15px" } }, [
+        _c("div", { staticClass: "g-col-md-6" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "address" } }, [_vm._v("Address")]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", id: "address", name: "address" },
+              domProps: { value: _vm.info.address }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "g-col-md-3" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "city" } }, [_vm._v("City")]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", id: "city", name: "city" },
+              domProps: { value: _vm.info.city }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "g-col-md-3" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "province" } }, [_vm._v("Province")]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", id: "province", name: "province" },
+              domProps: { value: _vm.info.province }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "g-col-md-4" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "postalcode" } }, [
+              _vm._v("Postal Code")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", id: "postalcode", name: "postalcode" },
+              domProps: { value: _vm.info.postal_code }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "g-col-md-4" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "country" } }, [_vm._v("Country")]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", id: "country", name: "country" },
+              domProps: { value: _vm.info.country }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "g-col-md-4" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "phone" } }, [_vm._v("Phone")]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", id: "phone", name: "phone" },
+              domProps: { value: _vm.info.phone }
+            })
+          ])
+        ])
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -34124,99 +34206,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "email" } }, [_vm._v("Email Address")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "email", id: "email" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "g-row", staticStyle: { "grid-gap": "15px" } },
-      [
-        _c("div", { staticClass: "g-col-md-6" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "address" } }, [_vm._v("Address")]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "address", name: "address" }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "g-col-md-3" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "city" } }, [_vm._v("City")]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "city", name: "city" }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "g-col-md-3" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "province" } }, [_vm._v("Province")]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "province", name: "province" }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "g-col-md-4" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "postalcode" } }, [
-              _vm._v("Postal Code")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "postalcode", name: "postalcode" }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "g-col-md-4" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "country" } }, [_vm._v("Country")]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "country", name: "country" }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "g-col-md-4" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "phone" } }, [_vm._v("Phone")]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "phone", name: "phone" }
-            })
-          ])
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

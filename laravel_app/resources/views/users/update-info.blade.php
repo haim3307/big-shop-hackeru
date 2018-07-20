@@ -25,30 +25,22 @@
                    {{csrf_field()}}
                    <div class="g-row" style="grid-column-gap: 20px;">
                        <div class="g-col-12 g-col-md-6">
-                           <div class="form-group">
-                               <label for="first_name">First Name</label>
-                               <input type="text" class="form-control" name="first_name" id="first_name" value="{{$userInfo->first_name??''}}">
-                               @if($errors->has('first_name')) <div class="text-danger">{{$errors->first('first_name')}}</div> @endif
-                           </div>
+                           @include('forms.form-unit',['name'=>'first_name','value'=>$userInfo->first_name??'','display'=>'First Name'])
                        </div>
                        <div class="g-col-12 g-col-md-6">
-                           <div class="form-group">
-                               <label for="last_name">Last Name</label>
-                               <input type="text" class="form-control" name="last_name" id="last_name" value="{{$userInfo->last_name??''}}">
-                               @if($errors->has('last_name')) <div class="text-danger">{{$errors->first('last_name')}}</div> @endif
-
-                           </div>
+                           @include('forms.form-unit',['name'=>'last_name','value'=>$userInfo->last_name??'','display'=>'Last Name'])
                        </div>
                    </div>
                    <div class="form-group">
                        <label for="email">Email address</label>
                        <input type="email" class="form-control" id="email" value="{{Session::get('user')->email}}" disabled="disabled">
                    </div>
-                   <div class="form-group">
-                       <label for="p_number">Phone Number</label>
-                       <input type="tel" class="form-control" id="p_number" name="phone" value="{{$userInfo->phone??''}}">
-                       @if($errors->has('phone')) <div class="text-danger">{{$errors->first('phone')}}</div> @endif
-                   </div>
+                   @include('forms.form-unit',['name'=>'phone','value'=>$userInfo->phone??''])
+                   @include('forms.form-unit',['name'=>'address','value'=>$userInfo->address??''])
+                   @include('forms.form-unit',['name'=>'city','value'=>$userInfo->city??''])
+                   @include('forms.form-unit',['name'=>'province','value'=>$userInfo->province??''])
+                   @include('forms.form-unit',['name'=>'postal_code','value'=>$userInfo->postal_code??'','display'=>'Postal Code'])
+                   @include('forms.form-unit',['name'=>'country','value'=>$userInfo->country??''])
                    <button type="submit" class="btn btn-success w-100 submit">Update Information</button>
                </form>
            </div>

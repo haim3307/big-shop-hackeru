@@ -48,7 +48,7 @@ class CartController extends MainController
         $args = ['view'=>'errors.any','data'=>[]];
         if($request->order_id){
             $order = OrderList::find($request->order_id);
-            if(auth()->user()->id === $order->user_id){
+            if(auth()->user()->id == $order->user_id){
                 if(empty($order->step) || Session::has('orderPayed')) {
                     $args['view'] = 'main-pages.checkout-vue';
                 }else $args['data']['msg'] = 'This order was already paid';

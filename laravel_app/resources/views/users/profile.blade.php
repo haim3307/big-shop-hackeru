@@ -1,7 +1,4 @@
 @extends('layouts.master')
-@section('head')
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-@endsection
 @section('content')
 
     <div class="profilePage container-1112 f-row" style="padding-top: 20px; background-color: #fff;">

@@ -23,7 +23,7 @@
                     </ul>
                 </div>
             @endif
-            <payment-form :order-id="{{request()->order_id}}"></payment-form>
+            <payment-form :order-id="{{request()->order_id}}" :info="{{auth()->user()->info}}" :email="'{{auth()->user()->email}}'"></payment-form>
         </div>
     </div>
 
