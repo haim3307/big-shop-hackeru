@@ -70,11 +70,15 @@
                     </div>
 
                     <div class="form-group row mb-0">
-                        <div class="g-col-md-6 offset-md-4">
+                        <div class="g-col-md-6 f-row justify-content-around">
                             <button type="submit" class="btn btn-primary">
                                 {{ __('Register') }}
                             </button>
+                            <br>
+                            @include('forms.buttons.fb-btn')
+
                         </div>
+
                     </div>
                 </form>
             </div>

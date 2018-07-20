@@ -26,7 +26,7 @@ class UserController extends MainController
         return view('users.orders',self::$data);
     }
     public function updateInfoPost(UpdateUserInfoRequest $request){
-        $user = User::find(Session::get('user')->id);
+        $user = auth()->user();
         $userInfo = $user->info;
         $requestAll = $request->all();
         //isset($userInfo)?$userInfo->update($request->all()):(new UserInfo($request->all()))->save()->attach(Session::get('user'));
@@ -34,8 +34,7 @@ class UserController extends MainController
             $user->uploadImg($request,'_img/profiles',['width'=>300],'profile_img');
         }
         if(empty($userInfo)){
-            $userInfo = new UserInfo($requestAll);
-            $userInfo->user_id = $user->id;
+            $userInfo = new $user->info($requestAll);
             $userInfo->save();
         }else $userInfo->update($requestAll);
         Session::put('userInfo',$userInfo);

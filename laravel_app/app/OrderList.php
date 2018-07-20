@@ -11,7 +11,9 @@ class OrderList extends MainModel
     {
         return $this->belongsTo(User::class);
     }
-
+    public function info(){
+        return $this->hasOne();
+    }
     static public function getAllOrdersPaginate(&$page,$userId = null,$limit = 3)
     {
 

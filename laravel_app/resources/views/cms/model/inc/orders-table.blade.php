@@ -6,7 +6,18 @@
                     <a data-toggle="collapse" href="#orderList{{$order->id}}">
                         <div class="f-row justify-content-between">
                             <span>{{$order->created_at}}</span>
-                            @if(!empty($cmsMode)) <span>{{$order->user->name}}</span> @endif
+                            @if(!empty($cmsMode))
+                                <span>{{$order->user->name}}</span>
+                            @endif
+                            <span class="f-row align-items-center"><strong class="mr-1">Status: </strong>
+                                @if($order->step == 1)
+                                    <span class="badge badge-success">Payed</span>
+                                @else
+                                    <span class="badge badge-warning">Waiting for payment</span>
+                                @endif
+                            </span>
+
+
                         </div>
                         <div id="orderList{{$order->id}}" class="collapse">
                             <table class="table table-striped">

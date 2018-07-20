@@ -8,7 +8,7 @@
             <div class="card m-0-auto" style=" min-height: 40vh;  width: 100%; max-width: 400px;">
                 <div class="card-header">{{ __('Login') }}</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}" novalidate="novalidate">
+                    <form method="POST" action="{{ route('login',['rt'=>request()->rt]) }}" novalidate="novalidate">
                         {{csrf_field()}}
                         <div class="form-group f-row flex-column justify-content-center">
                                 <input id="email" type="email"
@@ -51,7 +51,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
+                                @include('forms.buttons.fb-btn')
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
@@ -64,6 +64,5 @@
         </div>
 
     </div>
-
 
 @endsection

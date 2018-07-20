@@ -167,6 +167,7 @@ return [
         Watson\Active\ActiveServiceProvider::class,
         'Intervention\Image\ImageServiceProvider',
         'Kamaln7\Toastr\ToastrServiceProvider',
+        Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
 
 
     ],
@@ -191,7 +192,6 @@ return [
         'Broadcast' => Illuminate\Support\Facades\Broadcast::class,
         'Bus' => Illuminate\Support\Facades\Bus::class,
         'Cache' => Illuminate\Support\Facades\Cache::class,
-        'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
         'Config' => Illuminate\Support\Facades\Config::class,
         'Cookie' => Illuminate\Support\Facades\Cookie::class,
         'Crypt' => Illuminate\Support\Facades\Crypt::class,
@@ -220,6 +220,7 @@ return [
 
         'Image' => Intervention\Image\Facades\Image::class,
         'Toastr' => 'Kamaln7\Toastr\Facades\Toastr',
+        'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
 
     ],
 

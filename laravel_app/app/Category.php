@@ -103,7 +103,6 @@ class Category extends MainModel
             else if (isset($request['min-price']) && is_numeric($request['min-price'])) $query->where('price', '>=', $request['min-price']);
 
         })->select('products.*');
-
         if ($request->{'order-by-price'} == 'high') $orderPrice = 'desc';
         elseif ($request->{'order-by-price'} == 'low') $orderPrice = 'asc';
         if (isset($orderPrice)) $main_items_collection->orderBy('price', $orderPrice);
@@ -112,9 +111,10 @@ class Category extends MainModel
             $merage += ['max-price' => $max_price, 'min-price' => $min_price, 'product-search' => ''];
         }
         if ($merage) $request->merge($merage);
-
+        $result = $main_items_collection->paginate(4);
+        Product::setExtraPropsAll($result);
         $data += [
-            'main_items' => $main_items_collection->paginate(4),
+            'main_items' => $result,
             'max_price' => $max_price,
             'min_price' => $min_price,
             'category' => $main_category,

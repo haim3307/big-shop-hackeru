@@ -2,7 +2,6 @@
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>
-
     RewriteEngine On
 #bad bots start
 #programmed by tab-studio.com public  version 2017.12

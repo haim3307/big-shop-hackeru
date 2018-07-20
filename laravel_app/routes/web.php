@@ -150,9 +150,14 @@ Route::get('cart', 'CartController@index');
 Route::prefix('cart')->middleware('auth')->group(function (){
     Route::post('/', 'CartController@storeOrderList');
 });
+Route::prefix('checkout')->middleware('auth')->group(function (){
+    Route::get('/', 'CartController@checkout');
+    Route::post('/', 'CartController@checkoutPost');
+});
 
 Auth::routes();
-
+Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
+Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::get('/api/tags',  'AjaxAutoCompleteController@getTags');
 Route::get('/api/entities/{search}', 'AjaxAutoCompleteController@searchEntities');

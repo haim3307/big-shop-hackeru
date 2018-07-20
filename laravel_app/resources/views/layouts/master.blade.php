@@ -84,15 +84,18 @@
 			window.BASEURL = '{{url('')}}';
 			window.BASE_URL = window.BASEURL;
 			window.loggedIn = '{{Auth::check()?1:0}}';
+            @if(Session::has('clear_cart')) window.clearCart = true; @endif
 
     </script>
 
     <script>
 			var shopAppOBJ = {el: '#shopApp', data: {}, methods: {}, computed: {}, filters: {}};
     </script>
+
     <link rel="stylesheet" href="{{asset('css/app.min.css')}}">
     <link href="{{ asset('css/styles1.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2.1.1/dist/flickity.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css">
 
@@ -123,6 +126,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
     @yield('head')
     @stack('styles')
     <style type="text/css">
@@ -131,7 +135,7 @@
         }
 
         body {
-            top: 0px !important;
+            top: 0 !important;
         }
 
         .goog-te-gadget-icon {
@@ -152,7 +156,7 @@
         @yield('content')
     </main>
     @include('layouts.footer')
-    <added-to-cart-modal :product="product"></added-to-cart-modal>
+    <added-to-cart-modal :product="product" :message="'{{Session::get('ms')}}'"></added-to-cart-modal>
     <quick-product-view-modal :product="quickProduct"></quick-product-view-modal>
 
 </div>

@@ -318,6 +318,17 @@
             }
         }
     </style>
+     <style>
+         body.kc-css-system .kc-css-702426 {
+             background: transparent url({{asset('_img/layout/contact.jpg')}}) center center/cover no-repeat fixed;
+         }
+         @media  only screen and (min-width: 1000px) and (max-width: 5000px) {
+
+             body.kc-css-system .kc-css-702426 {
+                 background: transparent url({{asset('_img/layout/contact.jpg')}}) center center/cover no-repeat fixed;
+             }
+         }
+     </style>
 @endsection
 @section('content')
     <div id="page" class="hfeed site page-home-1" style="background-color:#fff; padding-top: 0;">

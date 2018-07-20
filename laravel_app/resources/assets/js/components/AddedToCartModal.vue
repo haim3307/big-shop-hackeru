@@ -23,7 +23,8 @@
                             </svg>
 
                         </div>
-                        <p>{{product.title | capitalize}} is added to cart!</p>
+                        <p v-if="product.title.length">{{product.title | capitalize}} is added to cart!</p>
+                        <p v-else-if="message">{{message}}</p>
                     </div>
 
 
@@ -35,10 +36,9 @@
         </div>
     </div>
 </template>
-
 <script>
 	export default {
-		props: ['product'],
+		props: ['product','message'],
 		mounted() {
 			console.log('modal here!');
 		}

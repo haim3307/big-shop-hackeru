@@ -12,6 +12,13 @@
         }
     </style>
     <link rel='stylesheet' id="kc-css-render"  href={{asset('css/specialRender.css')}} type='text/css' media='all' />
+    <style>
+        body.kc-css-system .kc-css-277214 {
+            background: transparent url({{asset('_img/layout/about_us3.jpg')}}) center center/cover no-repeat fixed;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+    </style>
 @endsection
 @section('content')
     <div style="background-color: #fff;" id="page" class="hfeed site page-home-1">
@@ -20,8 +27,6 @@
             <section id="main" class="site-main">
                 <section id="main-container" class="container-fluid inner" style="padding: 0;">
                     <div class="row">
-
-
                         <div id="main-content" class="main-content col-xs-12 col-lg-12 col-md-12">
                             <div id="primary" class="content-area">
                                 <div id="content" class="site-content" role="main">
@@ -84,7 +89,7 @@
                                                                     <div class="kc-elm kc-css-848757 kc_col-sm-6 kc_column_inner kc_col-sm-6">
                                                                         <div class="kc_wrapper kc-col-inner-container">
                                                                             <div class="kc_shortcode kc_single_image effect-v8">
-                                                                                <img src="http://demo3.wpopal.com/exgym/wp-content/uploads/2014/06/about_us1.jpg"
+                                                                                <img src="{{asset('_img/layout/about_us1.jpg')}}"
                                                                                      class="" alt="banner"/></div>
                                                                         </div>
                                                                     </div>
@@ -272,8 +277,8 @@
                                                                     <div class="kc-elm kc-css-429683 kc_col-sm-6 kc_column_inner kc_col-sm-6">
                                                                         <div class="kc_wrapper kc-col-inner-container">
                                                                             <div class="kc_shortcode kc_single_image effect-v8">
-                                                                                <img src="http://demo3.wpopal.com/exgym/wp-content/uploads/2014/06/about_us2.jpg"
-                                                                                     class="" alt="banner"/></div>
+                                                                                <img src="{{asset('_img/layout/about_us2.jpg')}}"
+                                                                                      class="" alt="banner"/></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
