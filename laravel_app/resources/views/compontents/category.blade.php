@@ -1,4 +1,4 @@
-<li class="categoryModelItem">
+<li class="categoryModelItem animated fadeInUp">
     <a href="{{url("/shop/$category->url")}}" class="categoryFrame allCentered">
         <?php
             $path = "/_img/";

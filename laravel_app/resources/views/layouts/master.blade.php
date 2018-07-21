@@ -118,7 +118,72 @@
 
         }
     </style>
+    <style>
+        #mainSlideOwl{
+            /*transition: 0.7s all;*/
+            height: auto;
+        }
+        #mainSlideOwl.owl-hide{
+            height: 600px;
+            display: block;
+            opacity: 1 !important;
+            background: url({{asset("_img/layout/ajaxloader.gif")}}) no-repeat center center;
+        }
+        #mainSlideOwl.owl-hide::after{
+            content: '<h1>loading</h1>';
+        }
+        #mainSlideOwl .owl-item.loading{
+/*            min-height: 150px;
+            background: url({{asset("_img/layout/ajaxloader.gif")}}) no-repeat center center;*/
+        }
+        .owlHomeItem p a, .owlHomeItem .p a ,.shopNow{
+            margin-top: 31px;
+            border-radius: 10px;
+            background-color: #d70a0a;
+            color: white;
+            text-decoration: none;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-pack: distribute;
+            justify-content: space-around;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            width: 163px;
+            height: 45px;
+        }
+        @media (min-width: 992px) {
+            .owlHomeItem .container-1112{
+                display: grid;
+                grid-template-rows: 50px 1fr;
+                grid-template-columns: 1fr 1fr;
+                grid-row-gap: 22px;
+                direction: rtl;
+                padding: 55px 0;
+                min-height: 600px;
+            }
+            #mainSlideOwl{
+                transform: translateY(27px) scaleY(1.093);
+            }
+        }
+        .img{
+            display: inline;
+            width: initial;
+        }
+        .owl-carousel .owl-item img {
+            display: inline;
+            width: initial;
+        }
+        @media(max-width: 992px) {
+            .img-fluid{
+                max-height: 30vh;
+                width: auto;
+                max-width: initial;
+            }
 
+        }
+    </style>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>

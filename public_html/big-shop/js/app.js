@@ -29657,7 +29657,8 @@ var render = function() {
           expression: "loadedItem"
         }
       ],
-      staticClass: "catesItemR"
+      staticClass: "catesItemR animated",
+      class: { zoomIn: _vm.loadedItem }
     },
     [
       _c(

@@ -146,12 +146,16 @@
 
                     });
                     $('#mainSlideOwl').owlCarousel({
+                        loop:true,
+                        animateOut: 'slideOutDown',
+                        animateIn: 'flipInX',
                         items:1,
                         lazyLoad:true,
                         navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
                         nav:true,
-                        dots: false
-
+                        dots: false,
+                        autoplayTimeout:5000,
+                        autoplay: true
                     });
                     $('.owl-hide').removeClass('owl-hide');
                     $('#postcarousel-DU3uE .owl-carousel').owlCarousel({
@@ -229,7 +233,6 @@
             });
             load.js('https://cdnjs.cloudflare.com/ajax/libs/flickity/2.1.2/flickity.pkgd.min.js')
                 .then(function () {
-                    $('.footer-carousel').flickity({ "groupCells": true , "pageDots": false,"contain": true});
 /*                    window.addEventListener('load', function() {
                         var elements = document.getElementsByClassName('js-flickity');
                         for (var i = 0; i < elements.length; i++) {
@@ -249,7 +252,7 @@
 
                         (function mainJs() {
                             setTimeout(function () {
-                                window.dispatchEvent(new Event('resize'));
+                                //window.dispatchEvent(new Event('resize'));
                                 $('.carousel-cell').css('opacity', '1');
 
                             });

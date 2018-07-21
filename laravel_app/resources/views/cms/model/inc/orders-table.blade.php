@@ -3,7 +3,7 @@
         @foreach($orders as $order)
             @isset($order->id)
                 <li class="list-group-item">
-                    <a data-toggle="collapse" href="#orderList{{$order->id}}">
+                    <a data-toggle="collapse" class="container-fluid d-block" href="#orderList{{$order->id}}">
                         <div class="f-row justify-content-between">
                             <span>{{$order->created_at}}</span>
                             @if(!empty($cmsMode))
@@ -15,9 +15,7 @@
                                 @else
                                     <span class="badge badge-warning">Waiting for payment</span>
                                 @endif
-                            </span>
-
-
+                                </span>
                         </div>
                         <div id="orderList{{$order->id}}" class="collapse">
                             <table class="table table-striped">

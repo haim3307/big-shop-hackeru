@@ -59,7 +59,7 @@
 </head>
 <body>
 <div>
-    <div class="wrapper">
+    <div class="wrapper" style="display: flex;">
         @include('cms.layouts.side-menu-animate')
         <div class="col dtc d-grid"
              style="grid-template-rows: auto 1fr;padding: 0;height: 100vh;">
