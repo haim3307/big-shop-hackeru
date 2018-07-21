@@ -33617,7 +33617,7 @@ var render = function() {
     _c(
       "a",
       {
-        staticClass: "f-row",
+        staticClass: "f-row container-fluid",
         staticStyle: {
           "margin-bottom": "20px",
           cursor: "pointer",

@@ -2,7 +2,7 @@
 @section('content')
 
     @include('inc.main-slide')
-    <div class="home_page">
+    <div class="home_page" style="z-index: 1;">
         <h1 class="d-none">Home</h1>
         <main class="home_page_grid" id="app">
             <section class="featured" id="featured">
@@ -101,9 +101,9 @@
                 grid-row: 3;
             }
 
-            .mainSlidePImgFrame img {
+/*            .mainSlidePImgFrame img {
                 min-width: 67%;
-            }
+            }*/
         }
 
         @media (min-width: 810px) {
@@ -142,7 +142,7 @@
         }
 
         function tplFlick() {
-            var $mainSliderV = document.getElementById('mainSlider');
+/*            var $mainSliderV = document.getElementById('mainSlider');
             new Flickity($mainSliderV, {
                 "imagesLoaded": true,
                 "pageDots": false,
@@ -151,7 +151,7 @@
                 "bgLazyLoad": true
             });
             $mainSliderV.classList.add('show');
-            $mainSliderV.classList.remove('.beforeLoad');
+            $mainSliderV.classList.remove('.beforeLoad');*/
         }
 
         function tplFlickJQ() {

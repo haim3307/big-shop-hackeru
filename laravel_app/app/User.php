@@ -61,7 +61,7 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
     public function info(){
-        return $this->belongsTo(UserInfo::class,'id','user_id');
+        return $this->hasOne(UserInfo::class);
     }
     public function isAdministrator() {
         return $this->role()->where('id', 5)->exists();

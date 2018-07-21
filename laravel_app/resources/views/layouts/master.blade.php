@@ -43,8 +43,6 @@
 				return item;
 			});
 			localStorage.setItem('cartItems',JSON.stringify(localList));
-
-
     </script>
     @include('inc.load-script')
     <script>

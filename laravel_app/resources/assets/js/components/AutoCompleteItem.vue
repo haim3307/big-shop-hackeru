@@ -1,7 +1,7 @@
 <!--suppress ALL -->
 <template>
     <li>
-        <a :href="item_link" class="f-row" style="margin-bottom: 20px; cursor: pointer;text-decoration: none; color: white;" @click.prevent="checkCMS()">
+        <a :href="item_link" class="f-row container-fluid" style="margin-bottom: 20px; cursor: pointer;text-decoration: none; color: white;" @click.prevent="checkCMS()">
             <div class="col-2 allCentered">
                 <img style="position: absolute;" class="img-fluid" :src="main_img" alt="">
             </div>

@@ -71,7 +71,7 @@
                 </li>
                 @foreach(\App\Page::limit(10)->get()->except([4,9,5]) as $navItem)
                     <li class="f-row justify-content-between" title="{{ucwords($navItem->title)}}">
-                        <span>
+                        <span class="col-7 overflow-hidden">
                             <i>
                             {{--<div class="led-green" style="@if($navItem->active)background-color:#F00;@endif position: relative;top: -2px;"></div>--}}
                         </i>

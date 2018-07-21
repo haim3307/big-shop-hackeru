@@ -34,8 +34,8 @@ class UserController extends MainController
             $user->uploadImg($request,'_img/profiles',['width'=>300],'profile_img');
         }
         if(empty($userInfo)){
-            $userInfo = new $user->info($requestAll);
-            $userInfo->save();
+            $userInfo = new UserInfo($requestAll);
+            $user->info()->save($userInfo);
         }else $userInfo->update($requestAll);
         Session::put('userInfo',$userInfo);
         return redirect('user/profile');

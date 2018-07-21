@@ -145,7 +145,14 @@
                         dots: false
 
                     });
-                    $footerCarousel.removeClass('owl-hide');
+                    $('#mainSlideOwl').owlCarousel({
+                        items:1,
+                        lazyLoad:true,
+                        navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+                        nav:true,
+                        dots: false
+
+                    });
                     $('.owl-hide').removeClass('owl-hide');
                     $('#postcarousel-DU3uE .owl-carousel').owlCarousel({
                         margin:10,
@@ -308,7 +315,7 @@
                             jQuery(function ($) {
                                 $('.menuBoard').menuBoard($('.mainNav ul li'));
                                 $(window).on('resize', function () {
-                                    if (window.innerWidth >= 1111) $('.mainNav').children('ul').css('display', 'flex');
+                                    if (window.innerWidth >= 1112) $('.mainNav').children('ul').css('display', 'flex');
                                     else $('.mainNav').children('ul').css('display', 'grid');
                                 });
 
