@@ -107,6 +107,14 @@
 			var selectedSubCategory = '{{$category->url}}';
 			var items = {!! $main_items->toJson()??[] !!};
 			categoryImgRoute = '{{"_img/products/$category->url/"}}';
+            function tplVue() {
+                shopAppOBJ.data.selectedCategory = selectedCategory;
+                shopAppOBJ.data.selectedSubCategory = selectedSubCategory;
+                shopAppOBJ.data.items = items.data;
+                shopAppOBJ.data.categoryImgRoute = categoryImgRoute;
+                shopAppOBJ.data.itemsAvail = true;
+                shopAppOBJ.data.searchText = '{{old('product-search') }}';
+            }
     </script>
     <script>
 			function tplJQ() {
@@ -157,18 +165,6 @@
 				$("#amountMin").val($sliderRange.slider("values", 0));
 				$("#amountMax").val($sliderRange.slider("values", 1));
 			}
-
-			function tplVue() {
-				shopAppOBJ.data.selectedCategory = selectedCategory;
-				shopAppOBJ.data.selectedSubCategory = selectedSubCategory;
-				shopAppOBJ.data.items = items.data;
-				shopAppOBJ.data.categoryImgRoute = categoryImgRoute;
-				shopAppOBJ.data.itemsAvail = true;
-				shopAppOBJ.data.searchText = '{{old('product-search') }}';
-			}
-    </script>
-
-    <script>
 
 
     </script>

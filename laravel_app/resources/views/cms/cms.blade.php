@@ -46,7 +46,7 @@
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 
     <link rel="stylesheet" href="{{asset('css/cms/cms.css')}}">
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('css/app.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/partials/items.css')}}">
 
 
@@ -59,7 +59,7 @@
 </head>
 <body>
 <div>
-    <div class="wrapper">
+    <div class="wrapper" style="display: flex;">
         @include('cms.layouts.side-menu-animate')
         <div class="col dtc d-grid"
              style="grid-template-rows: auto 1fr;padding: 0;height: 100vh;">

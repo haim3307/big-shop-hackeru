@@ -29657,7 +29657,8 @@ var render = function() {
           expression: "loadedItem"
         }
       ],
-      staticClass: "catesItemR"
+      staticClass: "catesItemR animated",
+      class: { zoomIn: _vm.loadedItem }
     },
     [
       _c(
@@ -33617,7 +33618,7 @@ var render = function() {
     _c(
       "a",
       {
-        staticClass: "f-row",
+        staticClass: "f-row container-fluid",
         staticStyle: {
           "margin-bottom": "20px",
           cursor: "pointer",

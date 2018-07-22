@@ -7,112 +7,114 @@
                 @include('site-route-nav.views.general')
             </header>
             <main>
-                <div class="itemStage f-row">
-                    <div class="productImages container col-md-6">
-                        <div class="productImgStage p-md-4">
-                            <div class="frameMy" style="position: absolute; z-index: 2;">
-                                <img src="{{asset('_img/layout/price.png')}}" alt="">
-                                <p class="text-white" style="position: relative; top: -50px; left: 20px;">
-                                    ${{$item->price}}</p>
-                            </div>
-                            <div style="border: 1px lightgrey solid;      margin: 10px;">
-                                <img width="500"
-                                     src="{{isset($item->main_img)?asset('_img/products/'. $category->name .'/'.$item->main_img):'http://via.placeholder.com/1100x700?text=No Product Image'}}"
-                                     class="img-fluid" alt="">
-                            </div>
-                            {{--                            <div class="carousel carousel-main" style="border: 1px lightgrey solid;"
-                                                             data-flickity='{"pageDots": false,"imagesLoaded": true}'>
-                                                            @for ($i = 0; $i < 1; $i++)
-
-                                                                <div class="carousel-cell">
-                                                                    <img style="min-width: 500px" width="500" src="{{isset($item->main_img)?asset('_img/products/'. $category->name .'/'.$item->main_img):'http://via.placeholder.com/1100x700?text=No Product Image'}}"
-                                                                         class="img-fluid" alt="">
-                                                                </div>
-                                                            @endfor
-
-                                                        </div>--}}
-
-                        </div>
-                        <div class="productImagesMenu" style="display: none;">
-                            @isset($item->main_img)
-
-
-                                {{--                                <div class="carousel carousel-nav"
-                                                                     data-flickity='{ "asNavFor": ".carousel-main", "contain": true, "pageDots": false,"prevNextButtons": false
-                                 }'>
-                                                                    @for ($i = 0; $i < 4; $i++)
-                                                                        <div class="carousel-cell">
-                                                                            <div class="productImageSquare">
-                                                                                <img class="img-fluid"
-                                                                                     src="{{asset('_img/products/'. $category->name .'/'.$item->main_img)}}"
-                                                                                     alt="">
-                                                                            </div>
-                                                                        </div>
-                                                                    @endfor
-
-                                                                </div>--}}
-
-                            @else
-                                <h4>No Product Images Available</h4>
-                            @endisset
-
-                        </div>
-                    </div>
-                    <div class="productDesc col-md-6">
-                        <div class="productTitle d-grid">
-                            <h2 class="text-capitalize my-text-overflow">{{$item->title}}</h2>
-                            <div style="display: flex; justify-content: space-between;">
-                                <p>Posted in <span class="productAlert ">{{$category->name}}</span></p>
-                            </div>
-                            <div>
-                                <star-rating :show-rating="false" :rating="{{$item->rating}}"
-                                             :round-start-rating="false" :star-size="20"
-                                             :read-only="true"></star-rating>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="innerProductDesc">
-                            <div>{!! $item->description !!}</div>
-                            @if($item->stock)
-                                <p style="padding: 17px 0 22px 0;">In Stock - <span>{{$item->stock}}</span> available
-                                </p>
-                            @else
-                                <p class="text-danger">Out Of Stock!</p>
-                            @endif
-                            <div class="callToAction f-row">
-                                {{--                                <input type="number" min="1" value="1"
-                                                                       style="text-align: center; margin-right: 14px; width: 46px;">--}}
-                                <div style="margin-right: 10px;" @include('inc.print-object',['product'=>(object) $item->toArray()]) class="addToCartB buyPageButtons d-flex mb-md-2 mb-lg-0">
-                                    @push('styles')
-                                        <style>
-                                            .storeBTN{
-                                                height: 38px; flex-basis: 173px; padding: 0; justify-content: stretch; border-radius: 0;
-                                            }
-                                            .storeBTN>div,.storeBTN>span{
-                                                height: 38px;
-                                            }
-                                            .storeBTN>span{
-                                                background-color: #e1e1e1; padding: 0 11px;
-                                            }
-                                            .storeBTN>div{
-                                                background-color: rgb(247, 24, 24);
-                                                width: 42px;
-                                            }
-                                        </style>
-                                    @endpush
-                                    <button class="btn allCentered addToCartProductPage storeBTN mr-md-2">
-                                        <div class="allCentered">
-                                            <img src="{{asset('_img/Shopping Cart 3.png')}}" alt=""></div>
-                                        <span class="allCentered btnTitle">Add to cart</span>
-                                    </button>
-                                    <button class="btn allCentered buyNow storeBTN">
-                                        <div class="allCentered">
-                                            <img src="{{asset('_img/Shopping Cart 3.png')}}" alt=""></div>
-                                        <span class="allCentered buyNow">Buy Now</span>
-                                    </button>
+                <div class="container-fluid">
+                    <div class="itemStage f-row">
+                        <div class="productImages container col-md-6">
+                            <div class="productImgStage p-md-4">
+                                <div class="frameMy" style="position: absolute; z-index: 2;">
+                                    <img src="{{asset('_img/layout/price.png')}}" alt="">
+                                    <p class="text-white" style="position: relative; top: -50px; left: 20px;">
+                                        ${{$item->price}}</p>
                                 </div>
-                                @include('items.buttons.add-to-wish',['style'=>'top:50px;']){{--,'top'=>'150px','right'=>'10px','top'=>'100px','right'=>'-140px'--}}
+                                <div style="border: 1px lightgrey solid;      margin: 10px;">
+                                    <img width="500"
+                                         src="{{isset($item->main_img)?asset('_img/products/'. $category->name .'/'.$item->main_img):'http://via.placeholder.com/1100x700?text=No Product Image'}}"
+                                         class="img-fluid" alt="">
+                                </div>
+                                {{--                            <div class="carousel carousel-main" style="border: 1px lightgrey solid;"
+                                                                 data-flickity='{"pageDots": false,"imagesLoaded": true}'>
+                                                                @for ($i = 0; $i < 1; $i++)
 
+                                                                    <div class="carousel-cell">
+                                                                        <img style="min-width: 500px" width="500" src="{{isset($item->main_img)?asset('_img/products/'. $category->name .'/'.$item->main_img):'http://via.placeholder.com/1100x700?text=No Product Image'}}"
+                                                                             class="img-fluid" alt="">
+                                                                    </div>
+                                                                @endfor
+
+                                                            </div>--}}
+
+                            </div>
+                            <div class="productImagesMenu" style="display: none;">
+                                @isset($item->main_img)
+
+
+                                    {{--                                <div class="carousel carousel-nav"
+                                                                         data-flickity='{ "asNavFor": ".carousel-main", "contain": true, "pageDots": false,"prevNextButtons": false
+                                     }'>
+                                                                        @for ($i = 0; $i < 4; $i++)
+                                                                            <div class="carousel-cell">
+                                                                                <div class="productImageSquare">
+                                                                                    <img class="img-fluid"
+                                                                                         src="{{asset('_img/products/'. $category->name .'/'.$item->main_img)}}"
+                                                                                         alt="">
+                                                                                </div>
+                                                                            </div>
+                                                                        @endfor
+
+                                                                    </div>--}}
+
+                                @else
+                                    <h4>No Product Images Available</h4>
+                                @endisset
+
+                            </div>
+                        </div>
+                        <div class="productDesc col-md-6">
+                            <div class="productTitle d-grid">
+                                <h2 class="text-capitalize my-text-overflow">{{$item->title}}</h2>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <p>Posted in <span class="productAlert ">{{$category->name}}</span></p>
+                                </div>
+                                <div>
+                                    <star-rating :show-rating="false" :rating="{{$item->rating}}"
+                                                 :round-start-rating="false" :star-size="20"
+                                                 :read-only="true"></star-rating>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="innerProductDesc">
+                                <div>{!! $item->description !!}</div>
+                                @if($item->stock)
+                                    <p style="padding: 17px 0 22px 0;">In Stock - <span>{{$item->stock}}</span> available
+                                    </p>
+                                @else
+                                    <p class="text-danger">Out Of Stock!</p>
+                                @endif
+                                <div class="callToAction f-row">
+                                    {{--                                <input type="number" min="1" value="1"
+                                                                           style="text-align: center; margin-right: 14px; width: 46px;">--}}
+                                    <div style="margin-right: 10px;" @include('inc.print-object',['product'=>(object) $item->toArray()]) class="addToCartB buyPageButtons d-flex mb-md-2 mb-lg-0">
+                                        @push('styles')
+                                            <style>
+                                                .storeBTN{
+                                                    height: 38px; flex-basis: 173px; padding: 0; justify-content: stretch; border-radius: 0;
+                                                }
+                                                .storeBTN>div,.storeBTN>span{
+                                                    height: 38px;
+                                                }
+                                                .storeBTN>span{
+                                                    background-color: #e1e1e1; padding: 0 11px;
+                                                }
+                                                .storeBTN>div{
+                                                    background-color: rgb(247, 24, 24);
+                                                    width: 42px;
+                                                }
+                                            </style>
+                                        @endpush
+                                        <button class="btn allCentered addToCartProductPage storeBTN mr-md-2">
+                                            <div class="allCentered">
+                                                <img src="{{asset('_img/Shopping Cart 3.png')}}" alt=""></div>
+                                            <span class="allCentered btnTitle">Add to cart</span>
+                                        </button>
+                                        <button class="btn allCentered buyNow storeBTN">
+                                            <div class="allCentered">
+                                                <img src="{{asset('_img/Shopping Cart 3.png')}}" alt=""></div>
+                                            <span class="allCentered buyNow">Buy Now</span>
+                                        </button>
+                                    </div>
+                                    @include('items.buttons.add-to-wish',['style'=>'top:50px;']){{--,'top'=>'150px','right'=>'10px','top'=>'100px','right'=>'-140px'--}}
+
+                                </div>
                             </div>
                         </div>
                     </div>

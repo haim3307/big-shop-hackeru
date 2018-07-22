@@ -44,9 +44,15 @@
 .f-row{
   display: flex;
   flex-flow: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
 }
+
 .m-0-auto{
   margin: 0 auto;
+}
+.overflow-hidden{
+  overflow: hidden;
 }
 .all-g-centered{
   display: grid;

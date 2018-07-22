@@ -45,6 +45,7 @@ class CartController extends MainController
     }
 
     public function checkout(Request $request){
+        self::setTitle('checkout');
         $args = ['view'=>'errors.any','data'=>[]];
         if($request->order_id){
             $order = OrderList::find($request->order_id);

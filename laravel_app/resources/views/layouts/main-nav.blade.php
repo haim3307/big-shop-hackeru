@@ -1,5 +1,5 @@
 <nav class="mainNav">
-    <ul class="hideMenu" style="flex-wrap: wrap">
+    <ul class="hideMenu">
         @foreach($masterLayout->menus['main-nav']->items as $item)
             @if($item)
                 <li class="{{active($item->title != 'home'?$item->calc_url:[$item->calc_url,'/'],'menuBtnActive')}}"

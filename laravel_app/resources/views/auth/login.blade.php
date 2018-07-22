@@ -2,9 +2,9 @@
 
 @section('content')
 
-    <div class="container-fluid d-flex align-items-center"
+    <div class="container-fluid d-flex justify-content-center align-items-center"
          style="min-height: 70vh; background: url({{asset('_img/beach-832346_1920.jpg')}}) center;">
-        <div class="f-row" style="width: 100%">
+        <div class="f-row">
             <div class="card m-0-auto" style=" min-height: 40vh;  width: 100%; max-width: 400px;">
                 <div class="card-header">{{ __('Login') }}</div>
                 <div class="card-body">

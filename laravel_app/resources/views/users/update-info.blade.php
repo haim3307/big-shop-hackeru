@@ -33,7 +33,7 @@
                    </div>
                    <div class="form-group">
                        <label for="email">Email address</label>
-                       <input type="email" class="form-control" id="email" value="{{Session::get('user')->email}}" disabled="disabled">
+                       <input type="email" class="form-control" id="email" value="{{auth()->user()->email}}" disabled="disabled">
                    </div>
                    @include('forms.form-unit',['name'=>'phone','value'=>$userInfo->phone??''])
                    @include('forms.form-unit',['name'=>'address','value'=>$userInfo->address??''])

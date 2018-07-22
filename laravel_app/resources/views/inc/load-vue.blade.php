@@ -17,6 +17,13 @@
                     shopAppOBJ.data.autoCompleteFrontList = [];
                     shopAppOBJ.data.quickProduct = {};
                     var shopApp = new Vue(shopAppOBJ);
+                    Vue.nextTick(function (e) {
+                       load.css('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.6.2/animate.min.css').then(function () {
+                           document.querySelectorAll('.animate-loaded').forEach(function(el) {
+                               el.classList.remove('animate-loaded');
+                           });
+                       });
+                    });
                     shopApp.$watch('cartItems', function (newVal, oldVal) {
                         console.log('changed cart-list', newVal);
                         shopAppOBJ.data.cartCount = newVal;
