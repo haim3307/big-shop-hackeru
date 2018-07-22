@@ -127,7 +127,7 @@
             height: 600px;
             display: block;
             opacity: 1 !important;
-            background: url({{asset("_img/layout/ajaxloader.gif")}}) no-repeat center center;
+            background: url({{asset("_img/layout/Facebook-1s-200px.gif")}}) no-repeat center center;
         }
         #mainSlideOwl.owl-hide::after{
             content: '<h1>loading</h1>';
@@ -210,12 +210,18 @@
             flex-flow: row-reverse;
         }
     </style>
+    <style>
+        .animate-loaded{
+            display: block !important;
+        }
+    </style>
 </head>
 <body class="kc-css-system" style="top: 0 !important;">
-
+@include('scripts.vue-cart-script')
+@include('inc.load-vue')
 <div class="all_site" id="shopApp">
     @include('layouts.header')
-    <main>
+    <main style=" overflow: hidden;">
         @yield('content')
     </main>
     @include('layouts.footer')
@@ -247,8 +253,6 @@
 </script>
 
 @yield('script')
-@include('scripts.vue-cart-script')
-@include('inc.load-vue')
 @yield('style')
 <style>
     .topBarNav a:hover {
