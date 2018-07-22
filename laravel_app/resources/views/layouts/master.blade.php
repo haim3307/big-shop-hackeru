@@ -176,7 +176,7 @@
             width: initial;
         }
         @media(max-width: 992px) {
-            .img-fluid{
+            #mainSlideOwl.owl-carousel .img-fluid{
                 max-height: 30vh;
                 width: auto;
                 max-width: initial;
@@ -213,6 +213,9 @@
     <style>
         .animate-loaded{
             display: block !important;
+        }
+        .animate-loaded-hide{
+            display: none !important;
         }
     </style>
 </head>

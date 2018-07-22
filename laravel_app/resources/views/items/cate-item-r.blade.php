@@ -1,7 +1,7 @@
 <li class="catesItemR"{{-- v-show="loadedItem"--}}>
     @php($product->c_url = $product->c_url??$category->url)
-    <a href="{{url("shop/$product->c_url/$product->url")}}" style="text-decoration: none; color: black;">
-        <div class="innerCatesItemR animated zoomIn" style="background-image: url('{{asset("/_img/bg_items_white.png")}}');    background-size: cover;">
+    <a href="{{url("shop/$product->c_url/$product->url")}}" class="text-dark" style="text-decoration: none;">
+        <div class="innerCatesItemR animate-loaded-hide animated zoomIn" style="background-image: url('{{asset("/_img/bg_items_white.png")}}');    background-size: cover;">
             <div class="quickViewWrap" style="position: absolute; top: 10px; left: 10px;">
                 @include('items.buttons.quick-view')
             </div>

@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\OrderList;
 use App\Product;
-use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
-use Session;
-use Toastr,Stripe;
 use Cartalyst\Stripe\Exception\CardErrorException;
+use Illuminate\Http\Request;
+use Session;
+use Stripe;
+use Toastr;
 
 class CartController extends MainController
 {

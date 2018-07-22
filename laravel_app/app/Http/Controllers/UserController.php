@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\{
-    Http\Requests\UpdateUserInfoRequest, OrderList, User, UserInfo
+    Http\Requests\UpdateUserInfoRequest, OrderList, UserInfo
 };
 use Session;
 

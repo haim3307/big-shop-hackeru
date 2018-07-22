@@ -22,6 +22,9 @@
                            document.querySelectorAll('.animate-loaded').forEach(function(el) {
                                el.classList.remove('animate-loaded');
                            });
+                           document.querySelectorAll('.animate-loaded-hide').forEach(function(el) {
+                               el.classList.remove('animate-loaded-hide');
+                           });
                        });
                     });
                     shopApp.$watch('cartItems', function (newVal, oldVal) {
