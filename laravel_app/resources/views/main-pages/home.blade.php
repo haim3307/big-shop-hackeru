@@ -125,11 +125,18 @@
             shopAppOBJ.data.items = window.items;
             shopAppOBJ.data.itemsAvail = true;
             shopAppOBJ.methods.selectedTag = function (e) {
+                $('.animated-loop').children().addClass('animate-loaded-hide');
                 $.ajax({url: url + '/home/tags/' + $(e.target).data('tag')}).then(function (res) {
                     shopAppOBJ.data.items = res;
                     shopAppOBJ.data.itemsAvail = true;
+                    Vue.nextTick(function () {
+                        var $els = document.querySelectorAll('.animate-loaded-hide');
+                        if($els.length) shopAppOBJ.methods.animatedLoop($els[0]);
+                    });
+
                 }, function (e) {
-                    shopAppOBJ.data.itemsAvail = false
+                    shopAppOBJ.data.itemsAvail = false;
+                    if($els.length) shopAppOBJ.methods.animatedLoop($els[0]);
                 });
                 $('.trending ul li').removeClass('trendActive');
                 $(e.target).addClass('trendActive');

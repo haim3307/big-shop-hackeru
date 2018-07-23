@@ -16,31 +16,25 @@
                     }
                     shopAppOBJ.data.autoCompleteFrontList = [];
                     shopAppOBJ.data.quickProduct = {};
-                    var shopApp = new Vue(shopAppOBJ);
-                    Vue.nextTick(function (e) {
+                    function animatedLoop(el) {
+                    if(!el.classList) return;
+                    el.classList.remove('animate-loaded-hide');
+                    setTimeout(function () {
+                        if(el.nextElementSibling && el.parentElement.classList.contains('animated-loop')) animatedLoop(el.nextElementSibling);
+                        else document.querySelectorAll('.animate-loaded-hide').forEach(function(el) {
+                            el.classList.remove('animate-loaded-hide');
+                        });
+                    },200);
+                    }
+                    shopAppOBJ.methods.animatedLoop = animatedLoop;
+                var shopApp = new Vue(shopAppOBJ);
+
+                Vue.nextTick(function (e) {
                        load.css('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.6.2/animate.min.css').then(function () {
                            document.querySelectorAll('.animate-loaded').forEach(function(el) {
                                el.classList.remove('animate-loaded');
                            });
-                           /*                               document.querySelectorAll('.animate-loaded-hide').forEach(function(el) {
-                                   console.log(el.parentElement.classList.contains('animated-loop'));
-                                   if(el.parentElement.classList.contains('animated-loop')) setTimeout(function () {
-                                       el.classList.remove('animate-loaded-hide');
-                                   },500);
-                               });*/
                            var $els = document.querySelectorAll('.animate-loaded-hide');
-                           function animatedLoop(el) {
-                               //if(el.parentElement.classList.contains('animated-loop'))
-                               console.log('loop');
-                               console.dir(el.nextElementSibling);
-                               el.classList.remove('animate-loaded-hide');
-                               setTimeout(function () {
-                                   if(el.nextElementSibling && el.parentElement.classList.contains('animated-loop')) animatedLoop(el.nextElementSibling);
-                                   else document.querySelectorAll('.animate-loaded-hide').forEach(function(el) {
-                                       el.classList.remove('animate-loaded-hide');
-                                   });
-                               },200);
-                           }
                            animatedLoop($els[0]);
                        });
                     });
