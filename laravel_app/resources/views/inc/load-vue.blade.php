@@ -22,9 +22,26 @@
                            document.querySelectorAll('.animate-loaded').forEach(function(el) {
                                el.classList.remove('animate-loaded');
                            });
-                           document.querySelectorAll('.animate-loaded-hide').forEach(function(el) {
+                           /*                               document.querySelectorAll('.animate-loaded-hide').forEach(function(el) {
+                                   console.log(el.parentElement.classList.contains('animated-loop'));
+                                   if(el.parentElement.classList.contains('animated-loop')) setTimeout(function () {
+                                       el.classList.remove('animate-loaded-hide');
+                                   },500);
+                               });*/
+                           var $els = document.querySelectorAll('.animate-loaded-hide');
+                           function animatedLoop(el) {
+                               //if(el.parentElement.classList.contains('animated-loop'))
+                               console.log('loop');
+                               console.dir(el.nextElementSibling);
                                el.classList.remove('animate-loaded-hide');
-                           });
+                               setTimeout(function () {
+                                   if(el.nextElementSibling && el.parentElement.classList.contains('animated-loop')) animatedLoop(el.nextElementSibling);
+                                   else document.querySelectorAll('.animate-loaded-hide').forEach(function(el) {
+                                       el.classList.remove('animate-loaded-hide');
+                                   });
+                               },200);
+                           }
+                           animatedLoop($els[0]);
                        });
                     });
                     shopApp.$watch('cartItems', function (newVal, oldVal) {

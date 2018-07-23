@@ -83,7 +83,7 @@
             </nav>
             <main class="d-grid" style="grid-template-rows: 1fr auto;">
                 <div class="items" style="min-height: 95vh">
-                    <ul class="grid-items-4" v-if="items && items.length && itemsAvail">
+                    <ul class="grid-items-4 animated-loop" v-if="items && items.length && itemsAvail">
                         @foreach($main_items as $product)
                             @include('items.cate-item-r',['product'=>$product])
                         @endforeach

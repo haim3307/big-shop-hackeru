@@ -29588,6 +29588,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 // asset('_img/Shopping%20Cart%203.png') src="{{}}"
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -29648,18 +29649,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "li",
-    {
-      directives: [
-        {
-          name: "show",
-          rawName: "v-show",
-          value: _vm.loadedItem,
-          expression: "loadedItem"
-        }
-      ],
-      staticClass: "catesItemR animated",
-      class: { zoomIn: _vm.loadedItem }
-    },
+    { staticClass: "catesItemR animate-loaded-hide animated zoomIn" },
     [
       _c(
         "a",
