@@ -1,4 +1,5 @@
-<div onclick="window.location = '{{url("shop/$frameItem->c_url??{$frameItem->mainCategory->url}/$frameItem->url")}}'"
+@php($frameItem->c_url = $frameItem->c_url??$frameItem->mainCategory->url)
+<div onclick="window.location = '{{url("shop/{$frameItem->c_url}/$frameItem->url")}}'"
      class="frameItem dragItem carousel-cell">
     <div class="g-col-2 centered-g-items allCentered"
          style="overflow:hidden;background-color:#fff; height: 145px;">

@@ -100,6 +100,8 @@ $num-breakpoints: length($grid-breakpoints);
       .#{$class-slug}-#{$size-name} { grid-template-columns: repeat(1,1fr)}
       .#{$class-slug1}-#{$size-name} { grid-column: span 1 !important;}
       .#{$class-slug2}-#{$size-name} {grid-auto-flow: column}
+      .d-#{$size-name}-grid         { display: grid !important; }
+      .d-#{$size-name}-inline-grid  { display: inline-grid !important; }
       @for $i from 2 through $grid-columns {
         .#{$class-slug}-#{$size-name}-#{$i} { grid-template-columns: repeat(#{$i},1fr) }
         .#{$class-slug1}-#{$size-name}-#{$i} { grid-column: span #{$i} !important;}
@@ -109,6 +111,8 @@ $num-breakpoints: length($grid-breakpoints);
     .#{$class-slug}-#{$size-name} { grid-template-columns: repeat(1,1fr) }
     .#{$class-slug1}-#{$size-name} { grid-column: span 1 !important;}
     .#{$class-slug2}-#{$size-name} {grid-auto-flow: column}
+    .d-#{$size-name}-grid         { display: grid !important; }
+    .d-#{$size-name}-inline-grid  { display: inline-grid !important; }
     @for $i from 2 through $grid-columns {
       .#{$class-slug}-#{$i} { grid-template-columns: repeat(#{$i},1fr) }
       .#{$class-slug1}-#{$i} { grid-column: span #{$i} !important;}

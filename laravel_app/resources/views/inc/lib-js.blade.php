@@ -7,43 +7,6 @@
         return this.charAt(0).toUpperCase() + this.slice(1);
     };
 
-    function addToCartEvent(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        var id = $(this).data('id');
-        var categoryId = $(this).data('category-id');
-        var $btn = $(this);
-        var product = $btn.data('product') || $btn.get()[0].dataset;
-        if(!product) return;
-        product.quantity = typeof product.quantity !== "undefined"? Number(product.quantity) : 1;
-        var isExistCartItem = false;
-        for (var existingItem in shopAppOBJ.data.cartItems) {
-            var item = shopAppOBJ.data.cartItems[existingItem];
-            if (item.hasOwnProperty('id') && item.id == id) {
-                isExistCartItem = true;
-                break;
-            }
-        }
-        if (!isExistCartItem && product) {
-           // if (product.main_category && typeof product.main_category === 'string') product.main_category = JSON.parse(product.main_category);
-            if(product.main_category) product.c_url = typeof product.main_category === 'string'?JSON.parse(product.main_category).url:product.main_category.url;
-            shopAppOBJ.data.cartItems.push(product);
-            shopAppOBJ.data.addedToCart = true;
-
-            if (!$(e.target).hasClass('buyNow')) {
-                shopAppOBJ.data.product = product;
-                $('#addedToCartModal').modal('show');
-                updateCartedButtons(e);
-            } else {
-                window.location = BASEURL + '/cart';
-            }
-        } else if ($(e.target).hasClass('buyNow')) {
-            window.location = BASEURL + '/cart';
-
-        }
-
-    }
-
     function updateCartedButtons(e) {
         //console.log('--------update cart-----------');
         var dq = document.querySelectorAll;
