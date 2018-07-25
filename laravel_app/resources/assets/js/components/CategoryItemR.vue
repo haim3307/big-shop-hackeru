@@ -62,7 +62,7 @@
 				return `${this.url}/_img/Shopping%20Cart%203.png`;
 			},
 			url_item() {
-				!this.it['c_url'] && (this.it['c_url'] = selectedCategory);
+				!this.it['c_url'] && (this.it['c_url'] = typeof this.selectedCategory == "undefined"?this.it.main_category.url:this.selectedCategory);
 				return `${this.url}/shop/${this.it['c_url']}/${this.it['url']}`;
 			},
 			make_bgi() {

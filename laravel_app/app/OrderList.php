@@ -18,7 +18,7 @@ class OrderList extends MainModel
     {
 
         if($userId) $page = self::where('user_id',$userId);
-        $page = !empty($page)?$page->paginate($limit):self::paginate($limit);
+        $page = self::orderBy('created_at','desc')->paginate($limit);
         $page->getCollection()->transform(function ($order) {
             $order->list = collect(json_decode($order['list']));
             $order->subTotal = $order->list->sum(function ($listItem){

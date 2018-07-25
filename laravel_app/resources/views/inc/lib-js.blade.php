@@ -14,7 +14,8 @@
         var categoryId = $(this).data('category-id');
         var $btn = $(this);
         var product = $btn.data('product') || $btn.get()[0].dataset;
-        product.quantity = product.quantity ? Number(product.quantity) : 1;
+        if(!product) return;
+        product.quantity = typeof product.quantity !== "undefined"? Number(product.quantity) : 1;
         var isExistCartItem = false;
         for (var existingItem in shopAppOBJ.data.cartItems) {
             var item = shopAppOBJ.data.cartItems[existingItem];
@@ -24,6 +25,8 @@
             }
         }
         if (!isExistCartItem && product) {
+           // if (product.main_category && typeof product.main_category === 'string') product.main_category = JSON.parse(product.main_category);
+            if(product.main_category) product.c_url = typeof product.main_category === 'string'?JSON.parse(product.main_category).url:product.main_category.url;
             shopAppOBJ.data.cartItems.push(product);
             shopAppOBJ.data.addedToCart = true;
 
@@ -44,8 +47,8 @@
     function updateCartedButtons(e) {
         //console.log('--------update cart-----------');
         var dq = document.querySelectorAll;
-        document.querySelectorAll('.addToCartB').forEach(function ($el) {
-            $el.removeAttribute('disabled')
+        document.querySelectorAll('.addToCartB,.storeBTN').forEach(function ($el) {
+            $el.removeAttribute('disabled');
         });
         document.querySelectorAll('.addToCartB .btnTitle').forEach(function ($el) {
             $el.innerHTML = 'Add To Cart';

@@ -29620,7 +29620,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			return this.url + '/_img/Shopping%20Cart%203.png';
 		},
 		url_item: function url_item() {
-			!this.it['c_url'] && (this.it['c_url'] = selectedCategory);
+			!this.it['c_url'] && (this.it['c_url'] = typeof this.selectedCategory == "undefined" ? this.it.main_category.url : this.selectedCategory);
 			return this.url + '/shop/' + this.it['c_url'] + '/' + this.it['url'];
 		},
 		make_bgi: function make_bgi() {
@@ -32115,11 +32115,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	computed: {
 		main_img: function main_img() {
-			return this.url + '/_img/products/' + this.cartItem['c_url'] + '/' + this.cartItem['main_img'];
+			return this.url + '/_img/products/' + (this.cartItem['c_url'] ? this.cartItem['c_url'] : this.cartItem['main_category'].url) + '/' + this.cartItem['main_img'];
 		},
 		url_item: function url_item() {
 			//!this.cartItem['c_name'] && (this.cartItem['c_name'] = selectedCategory);
-			console.log(this.cartItem['main_category']);
+			console.log('cartItem:', this.cartItem['main_category']);
 			return this.url + '/shop/' + (this.cartItem['c_url'] ? this.cartItem['c_url'] : this.cartItem['main_category'].url) + '/' + this.cartItem['url'];
 		}
 	},

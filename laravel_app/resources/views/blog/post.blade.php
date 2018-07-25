@@ -1205,88 +1205,6 @@
             color: #7b7b7b;
         }
     </style>
-    {{--
-        <style>
-            .owl-carousel .owl-wrapper:after {
-                display: block;
-                clear: both;
-                visibility: hidden;
-                line-height: 0;
-                height: 0;
-            }
-
-            .owl-carousel-play:not(.image-additional) {
-                position: relative;
-                margin-right: -15px;
-                margin-left: -15px;
-            }
-
-            /* display none until init */
-            .owl-carousel {
-                display: none;
-                position: relative;
-                width: 100%;
-                -ms-touch-action: pan-y;
-            }
-
-            .owl-carousel .owl-wrapper {
-                display: none;
-                position: relative;
-                -webkit-transform: translateZ(0);
-            }
-
-            .owl-carousel .owl-wrapper-outer {
-                overflow: hidden;
-                position: relative;
-                width: 100%;
-                height: auto !important;
-                /*rtl:ignore*/
-                direction: ltr !important;
-                /*rtl:begin:ignore*/
-                /*rtl:end:ignore*/
-            }
-
-            .owl-carousel .owl-wrapper-outer .item, .owl-carousel .owl-wrapper-outer .product-carousel-item {
-                direction: ltr !important;
-            }
-
-            .owl-carousel .owl-wrapper-outer.autoHeight {
-                -webkit-transition: height .5s ease-in-out;
-                -moz-transition: height .5s ease-in-out;
-                -ms-transition: height .5s ease-in-out;
-                -o-transition: height .5s ease-in-out;
-                transition: height .5s ease-in-out;
-            }
-
-            .owl-carousel .owl-item {
-                /*rtl:ignore*/
-                float: left;
-                padding: 0 15px;
-            }
-
-            .owl-carousel.carousel-nopadding .owl-item {
-                padding: 0;
-            }
-
-            .owl-controls .owl-buttons div, .owl-controls .owl-page {
-                cursor: pointer;
-            }
-
-            .owl-controls .owl-buttons div {
-                position: absolute;
-            }
-
-            .owl-controls .owl-buttons .owl-prev {
-                left: 10px;
-                top: 50%;
-            }
-
-            .owl-controls .owl-buttons .owl-next {
-                right: 10px;
-                top: 50%;
-            }
-        </style>
-    --}}
     <style>
 
         .single-post .opal-social-share {
@@ -2351,7 +2269,7 @@
                                                         <!-- .entry-header -->
 
                                                         <div class="entry-meta meta-category">
-                                                            @if($post->categories->count())<span class="cat-links">Category :  @include('blog.inc.post-categories',['separator'=>','])</span>@endif
+                                                            @if($post->categories->count())<span class="cat-links d-block"><strong>Category :</strong>  @include('blog.inc.post-categories',['separator'=>','])</span>@endif
                                                         </div>
                                                         <!-- .entry-meta -->
 

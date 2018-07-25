@@ -1,9 +1,9 @@
-<div onclick="window.location = '{{url("shop/$frameItem->c_url/$frameItem->url")}}'"
+<div onclick="window.location = '{{url("shop/$frameItem->c_url??{$frameItem->mainCategory->url}/$frameItem->url")}}'"
      class="frameItem dragItem carousel-cell">
     <div class="g-col-2 centered-g-items allCentered"
          style="overflow:hidden;background-color:#fff; height: 145px;">
         <img style="max-width: 100%;"
-        {{isset($noSlideMode)?'src':'data-flickity-lazyload'}}="{{asset('_img/products/'.$frameItem->c_url.'/'.$frameItem->main_img)}}"
+        {{isset($noSlideMode)?'src':'data-flickity-lazyload'}}="{{asset('_img/products/'.($frameItem->c_url??$frameItem->mainCategory->url).'/'.$frameItem->main_img)}}"
         alt="">
     </div>
     <h3 class="my-text-overflow">{{ucfirst($frameItem->title)}}</h3>

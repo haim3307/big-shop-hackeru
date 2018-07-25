@@ -9,7 +9,6 @@ class Category extends MainModel
 {
     //
     protected $fillable = ['name', 'url', 'img'];
-
     public function products()
     {
         return $this->hasMany(Product::class);

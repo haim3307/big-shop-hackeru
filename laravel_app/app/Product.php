@@ -47,10 +47,12 @@ class Product extends CMSModel
     {
         return $this->where('category_id', '=', $category_id)->get();
     }
-
+    public function scopeWithMainCategory($query,$more=''){
+        return $query->with('mainCategory:id,url'.$more);
+    }
     public function setRelatedProducts()
     {
-        $this->relatedProducts = self::inRandomOrder()->take(4)->addCategory($this->category_id)->where('products.id', '!=', $this->id)->select('products.*', 'c.url as c_url')->get();
+        $this->relatedProducts = self::inRandomOrder()->withMainCategory()->where('id', '!=', $this->id)->limit(4)->get();
     }
     public function setExtraProps(){
         $this->inWishList =  WishListItem::inWishList($this->id);
@@ -60,17 +62,12 @@ class Product extends CMSModel
             $item->setExtraProps();
         }
     }
-    static public function deals(&$data)
-    {
-        $data = self::from('products as p')->join('deals as d', 'p.id', '=', 'd.product_id')->join('categories as c', 'p.category_id', '=', 'c.id')->select('p.*', 'd.*', 'c.url as c_url')->orderBy('order')->get();
-    }
 
     static public function getTagged($tag_name, &$data)
     {
-        $data = self::from('products_tags as pt')
-                    ->join('products as p', 'p.id', '=', 'pt.product_id')->join('categories as c', 'c.id', '=', 'p.category_id')
-                    ->join('tags as t', 't.id', '=', 'pt.tag_id')->select('p.*', 'c.url as c_url')->where('t.name', '=', $tag_name)
-                    ->withoutDeleted('p')->limit(4)->get();
+        $data = self::with(['tags','mainCategory:id,url'])->whereHas('tags',function ($query) use ($tag_name){
+            $query->where('name', '=', $tag_name);
+        })->limit(4)->get();
         self::setExtraPropsAll($data);
     }
 
@@ -81,8 +78,7 @@ class Product extends CMSModel
 
     static public function getItemPage($itemTitle, $mainCategory)
     {
-        return self::where('products.url', '=', $itemTitle)
-            ->join('categories as c', 'c.id', '=', 'products.category_id')->where('c.url', '=', $mainCategory)->select('products.*', 'c.url as c_url', 'c.name as c_name')->first();
+        return self::where('url', '=', $itemTitle)->withMainCategory(',name')->whereHas('mainCategory',function ($query) use($mainCategory){$query->where('url',$mainCategory);})->first();
     }
 
     static public function joinCategory($query)
@@ -104,19 +100,15 @@ class Product extends CMSModel
     static public function productsWithCategory()
     {
         return self::from('products')->join('categories as c', 'c.id', '=', 'products.category_id')->select('products.*', 'c.url as c_url');
+        //$product = Product::with('tags')->where('id',22)->tags->paginate(2);
+        //$produc;
+
     }
 
     static public function frameItems(&$data)
     {
-        $data['frameItems'] = self::from('products as p')->join('categories as c', 'p.category_id', '=', 'c.id')
-                ->select('p.*', 'c.url as c_url')
-                ->withoutDeleted('p')->limit(10)->get();
-}
-
-    /*    static public function headItems(&$data)
-        {
-            $data['headItems'] = DB::table('main_slide as ms')->join('products as p', 'p.id', '=', 'ms.product_id')->join('categories as c', 'p.category_id', '=', 'c.id')->select('p.*', 'c.url as c_url', 'ms.*')->get()->toArray();
-        }*/
+        $data['frameItems'] = self::withMainCategory()->limit(10)->get();
+    }
     static public function createNew($request)
     {
         $product = new self($request->all() + ['main_img' => 'default.png']);

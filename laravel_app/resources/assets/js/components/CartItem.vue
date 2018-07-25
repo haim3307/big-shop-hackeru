@@ -26,11 +26,11 @@
 		},
 		computed: {
 			main_img() {
-				return `${this.url}/_img/products/${this.cartItem['c_url']}/${this.cartItem['main_img']}`
+				return `${this.url}/_img/products/${this.cartItem['c_url']?this.cartItem['c_url']:this.cartItem['main_category'].url}/${this.cartItem['main_img']}`
 			},
 			url_item() {
 				//!this.cartItem['c_name'] && (this.cartItem['c_name'] = selectedCategory);
-                console.log(this.cartItem['main_category']);
+                console.log('cartItem:',this.cartItem['main_category']);
 				return `${this.url}/shop/${this.cartItem['c_url']?this.cartItem['c_url']:this.cartItem['main_category'].url}/${this.cartItem['url']}`;
 			}
 		},

@@ -18,7 +18,7 @@
                     @foreach ($lists['featured'] as $cubeItem)
                         @isset($cubeItem->id,$cubeItem->entityItem)
                             @php($cubeItem = $cubeItem->entityItem)
-                            <div class="frameItem gallery-cell  carousel-cell"
+                            <div class="frameItem gallery-cell carousel-cell"
                                  onclick="window.location = '{{url("$cubeItem->base_url$cubeItem->url")}}'">
                                 <div class="frameItemOverflow">
                                     <img data-flickity-lazyload="{{asset("_img/{$cubeItem->img_path}/$cubeItem->main_img")}}"
