@@ -25,7 +25,7 @@
                                       data-field="quant[1]">
                                   <i class="fa fa-plus"></i>
                               </button>
-                            </span>
+                </span>
             </div>
             <span v-text="itemPriceTimeQuantity"></span>
             <span @click="emitDeleteItem"><i class="fa fa-close"></i></span>

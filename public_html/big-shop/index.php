@@ -51,7 +51,7 @@ $app = require_once __DIR__.'/../../laravel_app/bootstrap/app.php';
 
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 $app->bind('path.public', function() {
-    return realpath(__DIR__);
+    return realpath(__DIR__ );
 });
 $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
