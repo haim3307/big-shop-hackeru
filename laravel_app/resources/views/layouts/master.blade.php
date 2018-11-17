@@ -4,10 +4,15 @@
     <meta charset="utf-8">
     <meta name="description" content="{{$metaDesc??$defaultMetaDesc}}">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="theme-color" content="#FE1F1F"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="keywords" content="life style store,sport,camping,playground,JavaScript">
+    <link rel="manifest" href="{{asset('/manifest.webmanifest')}}">
     {{--global lists--}}
     @inject('masterLayout','App\Services\MasterData')
     {{--!global lists--}}
-    <meta name="keywords" content="life style store,sport,camping,playground,JavaScript">
     @if(isset($title))
         @isset($page->title)
             <title>{{$title.ucwords($page->title)}}</title>
@@ -17,10 +22,7 @@
     @else
         <title>@yield('title')</title>
     @endif
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta name="theme-color" content="#d70a0a">
+
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}"/>
     <script src="https://scripts.sirv.com/sirv.js" defer></script>
     <script>

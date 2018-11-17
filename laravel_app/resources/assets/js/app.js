@@ -26,7 +26,14 @@ window.Popper = require('popper.js').default;
  */
 String.prototype.seoFriendly = function () {return this.replace(/\s+/g, ' ').trim().replace(/\s/g, '-').toLowerCase()};
 String.prototype.capitalize = function () { return this.charAt(0).toUpperCase() + this.slice(1)};
-
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker
+            .register(BASE_URL+'/js/sw_cached_site.js')
+            .then(reg => console.log('Service Worker: Registered (Pages)'))
+            .catch(err => console.log(`Service Worker: Error: ${err}`));
+    });
+}
 
 window.VueComponents = function () {
     Vue.config.devtools = true;

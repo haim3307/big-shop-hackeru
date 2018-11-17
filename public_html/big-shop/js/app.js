@@ -17338,6 +17338,15 @@ String.prototype.seoFriendly = function () {
 String.prototype.capitalize = function () {
 	return this.charAt(0).toUpperCase() + this.slice(1);
 };
+if ('serviceWorker' in navigator) {
+	window.addEventListener('load', function () {
+		navigator.serviceWorker.register(BASE_URL + '/js/sw_cached_site.js').then(function (reg) {
+			return console.log('Service Worker: Registered (Pages)');
+		}).catch(function (err) {
+			return console.log('Service Worker: Error: ' + err);
+		});
+	});
+}
 
 window.VueComponents = function () {
 	Vue.config.devtools = true;

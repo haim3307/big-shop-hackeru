@@ -1,0 +1,16 @@
+{
+  "name": "BigShop",
+  "short_name": "BigShop",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#EAEBEF",
+  "theme_color": "#FE1F1F",
+  "description": "a lifestyle e-commerce on test shop",
+  "icons": [
+    {
+      "src": "/_img/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
