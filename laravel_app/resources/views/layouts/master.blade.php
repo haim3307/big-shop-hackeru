@@ -97,7 +97,6 @@
     @include('inc.load-vue')
     @yield('script')
     @include('inc.lib-js')
-    @stack('scripts')
 
     {{--
         <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -272,6 +271,8 @@
     }
 </style>
 @stack('styles')
+@stack('scripts')
+
 <style>
     .goog-te-gadget {
         display: block !important;

@@ -90,54 +90,15 @@
                                         class="fa fa-angle-down ml-2 mr-2 d-none d-sm-inline-block"></i>
                             </a>
                             <ul class="dropdown-menu w-100" role="menu">
-{{--                                <li><a href="#"><i class="fa fa-eur mr-1"></i>EUR</a>
-                                </li>--}}
                                 <li class=""><a href="#"><i class="fa fa-usd mr-1"></i>USD</a>
                                 </li>
-{{--                                <li><a href="#"><i class="fa fa-gbp mr-1"></i>GBP</a>
-                                </li>--}}
                             </ul>
                         </li>
-                        {{--
-                                                <li class="dropdown">
-                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
-                                                       data-close-others="false"> <img style="    width: 2em;height: 1.3em;"
-                                                                                       src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/flags/1x1/us.svg"
-                                                                                       class="mr-2" alt=""> <span
-                                                                class="d-none d-sm-inline-block"> English <i
-                                                                    class="fa fa-angle-down ml-5 "></i></span> </a>
-                                                    <ul class="dropdown-menu w-100" role="menu">
-                                                        @foreach([['title'=>'English','img'=>'us.svg'],['title'=>'Hebrew','img'=>'il.svg']] as $langMenuItem)
-                                                            <li class="">
-                                                                <a href="#"><img style="width: 2em;height: 1.4em;"
-                                                                                 src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/flags/1x1/{{$langMenuItem['img']}}"
-                                                                                 class="mr-2" alt="">{{$langMenuItem['title']}}</a>
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
-                                                    @push('styles')
-                                                        <style>
-                                                            .goog-te-menu-frame {
-                                                                max-width: 100% !important;
-                                                            }
-
-                                                            .goog-te-menu2 {
-                                                                max-width: 100% !important;
-                                                                overflow: scroll !important;
-                                                                box-sizing: border-box !important;
-                                                                height: auto !important;
-                                                            }
-                                                        </style>
-                                                    @endpush
-
-
-                                                </li>
-                        --}}
                         <li id="translateLi">
                             <a style="cursor: pointer;" href="javascript:void(0)" class="d-sm-flex align-items-center">
                                 <i class="fa fa-language ml-2" style="position: relative; top: -3px;"></i>
                                 @push('scripts')
-                                    <script>
+                                    <script async defer>
 
                                         function googleTranslateElementInit() {
                                             new google.translate.TranslateElement({
@@ -145,18 +106,13 @@
                                                 includedLanguages: 'en,es,fr,ru',
                                                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE
                                             }, 'google_translate_element');
-                                            setTimeout(function () {
-                                                document.querySelector('.topBarNav').classList.add('show');
-                                            },250);
+                                            //document.querySelector('.topBarNav').classList.add('show');
+
+                                            document.getElementsByClassName('topBarNav')[0].classList.remove('fade');
+
                                         }
 
-                                        window.addEventListener('load',function () {
-                                                ready(function () {
-                                                    load.js('//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit').then(function () {
-
-                                                    });
-                                                });
-                                        });
+                                        load.js('//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit');
                                     </script>
                                     <style>
                                         .goog-te-menu-value {
