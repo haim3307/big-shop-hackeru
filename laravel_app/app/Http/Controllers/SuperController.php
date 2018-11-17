@@ -9,6 +9,7 @@ class SuperController extends Controller
 {
     static public $data = ['title'=>''];
     static public function connectPage($url,$modifyListsKeys = true){
+
         Page::getListsItems($url,self::$data,$modifyListsKeys);
     }
     static public function setPage($page){

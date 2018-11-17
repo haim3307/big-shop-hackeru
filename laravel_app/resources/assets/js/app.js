@@ -131,7 +131,7 @@ window.VueComponents = function () {
 				return `${this.url}/${!window.categoryImgRoute ? '_img/main-items-by-cates/' : window.categoryImgRoute}${this.it['main_img']}`;
 			},
 			url_shopping_cart: function () {
-				return `${this.url}/_img/Shopping%20Cart%203.png`;
+				return `${this.cdnByType.img}/_img/shopping-cart.png`;
 			},
 			url_item: function () {
 				!this.it['c_name'] && (this.it['c_name'] = selectedCategory);

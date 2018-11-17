@@ -17451,7 +17451,7 @@ window.VueComponents = function () {
 				return this.url + '/' + (!window.categoryImgRoute ? '_img/main-items-by-cates/' : window.categoryImgRoute) + this.it['main_img'];
 			},
 			url_shopping_cart: function url_shopping_cart() {
-				return this.url + '/_img/Shopping%20Cart%203.png';
+				return this.cdnByType.img + '/_img/shopping-cart.png';
 			},
 			url_item: function url_item() {
 				!this.it['c_name'] && (this.it['c_name'] = selectedCategory);
@@ -29309,37 +29309,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-// asset('_img/Shopping%20Cart%203.png') src="{{}}"
 /* harmony default export */ __webpack_exports__["default"] = ({
-	mounted: function mounted() {
-		console.log('Component mounted124.');
-	},
+    mounted: function mounted() {
+        console.log('Component mounted124.');
+    },
 
-	props: ['it'],
-	data: function data() {
-		return {
-			loadedItem: false
-		};
-	},
-	methods: {
-		loadItem: function loadItem() {
-			this.loadedItem = true;
-		}
-	},
-	computed: {
-		// a computed getter
-		url_main_img: function url_main_img() {
-			return this.url + '/' + (!window.categoryImgRoute ? '_img/main-items-by-cates/' : window.categoryImgRoute) + this.it['main_img'];
-		},
-		url_shopping_cart: function url_shopping_cart() {
-			return this.url + '/_img/Shopping%20Cart%203.png';
-		},
-		url_item: function url_item() {
-			/*				!this.it['c_name'] && (this.it['c_name'] = selectedCategory);
-   				!this.it['sc_name'] && (this.it['sc_name'] = selectedSubCategory);*/
-			return this.url + '/shop/' + this.it['c_name'] + '/' + this.it['sc_name'] + '/' + this.it['url'];
-		}
-	}
+    props: ['it'],
+    data: function data() {
+        return {
+            loadedItem: false
+        };
+    },
+    methods: {
+        loadItem: function loadItem() {
+            this.loadedItem = true;
+        }
+    },
+    computed: {
+        // a computed getter
+        url_main_img: function url_main_img() {
+            return this.cdnByType.img + '/' + (!window.categoryImgRoute ? '_img/main-items-by-cates/' : window.categoryImgRoute) + this.it['main_img'];
+        },
+        url_shopping_cart: function url_shopping_cart() {
+            return this.cdnByType.img + '/_img/shopping-cart.png';
+        },
+        url_item: function url_item() {
+            /*				!this.it['c_name'] && (this.it['c_name'] = selectedCategory);
+                            !this.it['sc_name'] && (this.it['sc_name'] = selectedSubCategory);*/
+            return this.url + '/shop/' + this.it['c_name'] + '/' + this.it['sc_name'] + '/' + this.it['url'];
+        }
+    }
 });
 
 /***/ }),
@@ -29403,7 +29402,10 @@ var render = function() {
               },
               [
                 _c("div", { staticClass: "allCentered buyIconFrame " }, [
-                  _c("img", { attrs: { alt: "", src: _vm.url_shopping_cart } })
+                  _c("img", {
+                    staticClass: "Sirv",
+                    attrs: { alt: "", "data-src": _vm.url_shopping_cart }
+                  })
                 ]),
                 _vm._v(" "),
                 _c("span", [_vm._v("Add to cart")])
@@ -29590,7 +29592,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-// asset('_img/Shopping%20Cart%203.png') src="{{}}"
 /* harmony default export */ __webpack_exports__["default"] = ({
 	mounted: function mounted() {
 		/*			$('.addToCartB').on('click', updateCartedButtons);
@@ -29614,10 +29615,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	computed: {
 		// a computed getter
 		url_main_img: function url_main_img() {
-			return this.url + '/_img/products/' + this.it['c_url'] + '/' + this.it['main_img'];
+			return this.cdnByType.img + '/_img/products/' + this.it['c_url'] + '/' + this.it['main_img'] + '?scale.width=231';
 		},
 		url_shopping_cart: function url_shopping_cart() {
-			return this.url + '/_img/Shopping%20Cart%203.png';
+			return this.cdnByType.img + '/_img/shopping-cart.png';
 		},
 		url_item: function url_item() {
 			!this.it['c_url'] && (this.it['c_url'] = typeof this.selectedCategory == "undefined" ? this.it.main_category.url : this.selectedCategory);
@@ -29698,8 +29699,12 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "partB" }, [
                 _c("img", {
-                  staticClass: "img-fluid",
-                  attrs: { src: _vm.url_main_img, alt: "" },
+                  staticClass: "Sirv",
+                  attrs: {
+                    "data-src": _vm.url_main_img,
+                    width: "231",
+                    alt: ""
+                  },
                   on: {
                     load: function($event) {
                       _vm.loadItem()
@@ -29845,7 +29850,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-// asset('_img/Shopping%20Cart%203.png') src="{{}}"
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
 		return {
@@ -30024,7 +30028,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-// asset('_img/Shopping%20Cart%203.png') src="{{}}"
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
 		return {
@@ -31916,7 +31919,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	computed: {
 		category_img: function category_img() {
-			var path = this.url + '/_img/';
+			var path = this.cdnByType.img + '/_img/';
 			if (this.category.img) {
 				path += 'categories/' + this.category.img;
 			} else if (this.category.product_img) {

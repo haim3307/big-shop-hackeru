@@ -10,7 +10,7 @@
                 </div>
 
                 <div class="partB">
-                    <img :src="url_main_img" @load="loadItem()" class="img-fluid" alt="">
+                    <img :data-src="url_main_img" @load="loadItem()" class="Sirv" width="231" alt="">
                 </div>
                 <div class="partA">
                     <h4 class="h5">{{it['title'] | capitalize}}</h4>
@@ -33,7 +33,6 @@
     </li>
 </template>
 <script>
-	// asset('_img/Shopping%20Cart%203.png') src="{{}}"
 	export default {
 		mounted() {
 			/*			$('.addToCartB').on('click', updateCartedButtons);
@@ -56,10 +55,10 @@
 		computed: {
 			// a computed getter
 			url_main_img() {
-				return `${this.url}/_img/products/${this.it['c_url']}/${this.it['main_img']}`;
+				return `${this.cdnByType.img}/_img/products/${this.it['c_url']}/${this.it['main_img']}?scale.width=231`;
 			},
 			url_shopping_cart() {
-				return `${this.url}/_img/Shopping%20Cart%203.png`;
+				return `${this.cdnByType.img}/_img/shopping-cart.png`;
 			},
 			url_item() {
 				!this.it['c_url'] && (this.it['c_url'] = typeof this.selectedCategory == "undefined"?this.it.main_category.url:this.selectedCategory);

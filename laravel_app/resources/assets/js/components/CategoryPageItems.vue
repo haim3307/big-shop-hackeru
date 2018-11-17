@@ -13,7 +13,6 @@
     }
 </style>
 <script>
-	// asset('_img/Shopping%20Cart%203.png') src="{{}}"
 	export default {
 		data: function () {
 			return {

@@ -3,6 +3,17 @@
 return [
 
     /*
+     *  Sirv CDN
+     * */
+    'cdn' => array(
+        "localhost/big-shop-upload/public_html/big-shop" => "css|js|eot|woff|ttf",
+        "bigshop-cdn.sirv.com" => "jpg|jpeg|png|gif|svg",
+        "localhost/big-shop-upload/public_html/big-shop" => ""
+    ),
+    'cdnByType' => array(
+        'img' => '//bigshop.sirv.com'
+    ),
+    /*
     |--------------------------------------------------------------------------
     | Application Name
     |--------------------------------------------------------------------------

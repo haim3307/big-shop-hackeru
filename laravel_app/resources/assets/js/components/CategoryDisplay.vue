@@ -24,7 +24,7 @@
 
 		computed: {
 			category_img() {
-				let path = `${this.url}/_img/`;
+				let path = `${this.cdnByType.img}/_img/`;
 				if (this.category.img) {
 					path += `categories/${this.category.img}`;
 				} else if (this.category.product_img) {

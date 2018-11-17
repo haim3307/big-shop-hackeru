@@ -20,7 +20,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
         \Illuminate\Session\Middleware\StartSession::class,
-
+        \App\Http\Middleware\CacheControl::class,
     ];
 
     /**
@@ -62,5 +62,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'cms'=> \App\Http\Middleware\CMS::class,
         'cms.admin' => \App\Http\Middleware\CMSAdmin::class,
+        'CacheControl' => \App\Http\Middleware\CacheControl::class,
     ];
 }

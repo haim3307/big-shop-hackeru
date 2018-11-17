@@ -10,7 +10,7 @@
                 $path = 'http://via.placeholder.com/600x600?text=' . $category->name;
             }
         ?>
-        <img src="{{asset($path)}}" alt="">
+        <img src="{{img($path)}}" alt="">
     </a>
     <a href="{{url("/shop/$category->url")}}" class="categoryInfo">
         <span class="linkToCategory">

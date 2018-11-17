@@ -14,7 +14,8 @@ const minifier = require('minifier');
 mix.setPublicPath('../public_html/big-shop');
 const base = '../public_html/big-shop/';
 mix.options({
-    processCssUrls: false
+    processCssUrls: false,
+    purifyCss: true
 });
 mix.js('resources/assets/js/app.js', 'js/app.js')
 	.sass('resources/assets/sass/app.scss', 'css/app.css')

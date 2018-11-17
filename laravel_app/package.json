@@ -20,6 +20,8 @@
     "lodash": "^4.17.4",
     "minifier": "^0.8.1",
     "popper.js": "^1.12",
+    "purify-css": "^1.2.5",
+    "purifycss-webpack": "^0.7.0",
     "vue": "^2.5.7"
   },
   "dependencies": {

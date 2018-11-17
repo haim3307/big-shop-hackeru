@@ -55,44 +55,41 @@
     load.js('https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js')
         .then(function () {
             //console.log('1.jquery here');
-            setTimeout(function () {
-                load.js('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js').then(function () {
-                    load.js('https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js').then(function () {
-                        jQuery(function ($) {
-                            tplJQBT();
-                            @if(Session::has('ms')) $('#addedToCartModal').modal('show'); @endif
-                            $('#translateLi>a').on('click',function (e) {
-                                //e.preventDefault();
-                            });
-                            $('#translateLi').find('i.fa-language,i.fa-angle-down').on('click',function (e) {
-                                e.preventDefault();
-                                $("#google_translate_element .goog-te-menu-value > span").click();
-                            });
-                            $('.quickViewB').on('click', function (e) {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                var $el = $(this);
-                                var id = $el.data('id');
-                                var categoryId = $el.data('category-id');
-                                var $btn = $el;
-                                var product = $btn.data('product') || $btn.get()[0].dataset;
-                                //console.log(product);
-                                product.quantity = product.quantity ? Number(product.quantity) : 1;
-                                $('#product_view').modal('show');
-                                shopAppOBJ.data.quickProduct = product;
-                            });
+            load.js('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js').then(function () {
+                load.js('https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js').then(function () {
+                    jQuery(function ($) {
+                        tplJQBT();
+                        @if(Session::has('ms')) $('#addedToCartModal').modal('show'); @endif
+                        $('#translateLi>a').on('click',function (e) {
+                            //e.preventDefault();
+                        });
+                        $('#translateLi').find('i.fa-language,i.fa-angle-down').on('click',function (e) {
+                            e.preventDefault();
+                            $("#google_translate_element .goog-te-menu-value > span").click();
+                        });
+                        $('.quickViewB').on('click', function (e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            var $el = $(this);
+                            var id = $el.data('id');
+                            var categoryId = $el.data('category-id');
+                            var $btn = $el;
+                            var product = $btn.data('product') || $btn.get()[0].dataset;
+                            //console.log(product);
+                            product.quantity = product.quantity ? Number(product.quantity) : 1;
+                            $('#product_view').modal('show');
+                            shopAppOBJ.data.quickProduct = product;
                         });
                     });
                 });
-                load.js('//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js').then(function () {
-                    {!! strip_tags(Toastr::render()) !!}
-                });
+            });
+            load.js('//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js').then(function () {
+                {!! strip_tags(Toastr::render()) !!}
             });
             jQuery(function ($) {
                 tplJQ();
                 load.js('https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js').then(function () {
-                    var $footerCarousel = $('#footer-carousel');
-                    $footerCarousel.owlCarousel({
+                    var $footerCarousel =  $('#footer-carousel').owlCarousel({
                         loop:true,
                         margin:10,
                         nav:true,
@@ -111,7 +108,8 @@
                         dots: false
 
                     });
-                    $('#mainSlideOwl').owlCarousel({
+
+                    var $mainSlideOwl =  $('#mainSlideOwl').owlCarousel({
                         loop:true,
                         animateOut: 'slideOutDown',
                         animateIn: 'flipInX',
@@ -121,7 +119,15 @@
                         nav:true,
                         dots: false,
                         autoplayTimeout:5000,
+/*
                         autoplay: true
+*/
+                    });
+                    $mainSlideOwl.on('changed.owl.carousel',function () {
+                        setTimeout(function () {
+                            $mainSlideOwl.find('.owl-item.active img').addClass('Sirv');
+                            reloadSirv();
+                        })
                     });
                     $('.owl-hide').removeClass('owl-hide');
                     $('#postcarousel-DU3uE .owl-carousel').owlCarousel({
@@ -147,10 +153,11 @@
                 $('.addToCartB').on('click', addToCartEvent);
 
                 load.js('https://code.jquery.com/ui/1.12.1/jquery-ui.min.js')
-                    .then(function () {
-                        tplJQUI();
+                .then(function () {
+                    tplJQUI();
 
-                    }).catch(function (e) {
+                })
+                .catch(function (e) {
                     console.log(e);
                     console.log('Oh no, epic failure!1');
                 });
@@ -199,13 +206,6 @@
             });
             load.js('https://cdnjs.cloudflare.com/ajax/libs/flickity/2.1.2/flickity.pkgd.min.js')
                 .then(function () {
-/*                    window.addEventListener('load', function() {
-                        var elements = document.getElementsByClassName('js-flickity');
-                        for (var i = 0; i < elements.length; i++) {
-                            var flkty = Flickity.data(elements[i]);
-                            flkty.resize();
-                        }
-                    });*/
                     load.js('https://unpkg.com/flickity-bg-lazyload@1/bg-lazyload.js').then(function () {
                         jQuery(function ($) {
                             tplFlick();
@@ -217,11 +217,7 @@
                         tplFlickJQ();
 
                         (function mainJs() {
-                            setTimeout(function () {
-                                //window.dispatchEvent(new Event('resize'));
-                                $('.carousel-cell').css('opacity', '1');
-
-                            });
+                            $('.carousel-cell').css('opacity', '1');
 
                             function toggleThirdNav(e) {
                                 if (window.scrollY > 200) $('.thirdNav').addClass('fixedBar');
@@ -281,26 +277,22 @@
                                     }
                                 });
                             };
-                            jQuery(function ($) {
-                                $('.menuBoard').menuBoard($('.mainNav ul li'));
-                                $(window).on('resize', function () {
-                                    if (window.innerWidth >= 1112) $('.mainNav').children('ul').css('display', 'flex');
-                                    else $('.mainNav').children('ul').css('display', 'grid');
-                                });
+                            $('.menuBoard').menuBoard($('.mainNav ul li'));
+                            $(window).on('resize', function () {
+                                if (window.innerWidth >= 1112) $('.mainNav').children('ul').css('display', 'flex');
+                                else $('.mainNav').children('ul').css('display', 'grid');
+                            });
 
-                                setTimeout(function () {
-                                    let fc = true;
-                                    $('#mobileHamburger').on('click', function (e) {
-                                        if (fc) {
-                                            $(this).siblings('.mainNav').children('ul').removeClass('hideMenu').hide().slideToggle();
-                                            fc = false;
-                                        }
-                                        else {
-                                            $(this).siblings('.mainNav').children('ul').slideToggle();
-                                        }
+                            let fc = true;
+                            $('#mobileHamburger').on('click', function (e) {
+                                if (fc) {
+                                    $(this).siblings('.mainNav').children('ul').removeClass('hideMenu').hide().slideToggle();
+                                    fc = false;
+                                }
+                                else {
+                                    $(this).siblings('.mainNav').children('ul').slideToggle();
+                                }
 
-                                    });
-                                })
                             });
                             //dropdown(jQuery, this);
                             $(window).on('load', function () {

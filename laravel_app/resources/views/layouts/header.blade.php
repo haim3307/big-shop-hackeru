@@ -11,23 +11,23 @@
                 @foreach($masterLayout->brands as $brand)
                     <a style="padding: 20px 37px;" class="allCentered"><img class=""
                                                                             style="max-height: 50px; width: 100%"
-                                                                            src="{{asset('_img/brands/'.$brand['main_img'])}}"></a>
+                                                                            src="{{img('_img/brands/'.$brand['main_img'])}}"></a>
                 @endforeach
             </div>
         </div>
-        <div class="mainLogo"><a href="{{url('')}}"><img src="{{asset('_img/logo.png')}}" alt=""></a></div>
+        <div class="mainLogo"><a href="{{url('')}}"><img src="{{img('_img/logo.png')}}" alt=""></a></div>
         <div id="mobileHamburger" class="allCentered">
             <i><img style="height: 40px;
-    padding-top: 2px;" src="{{asset('_img/header/bars.svg')}}" alt=""></i>
+    padding-top: 2px;" src="{{img('_img/header/bars.svg')}}" alt=""></i>
         </div>
         <nav class="searchAndShare">
             <ul class="" style="margin-right: 10px;">
-                <li><a href="https://twitter.com/BigShop14"><img src="{{asset('_img/header/twiter.png')}}" alt=""></a></li>
-                <li><a href="https://www.facebook.com/Big-Shop-2019449578308589/?modal=admin_todo_tour"><img src="{{asset('_img/header/facebook.png')}}" alt=""></a></li>
-                <li><a href=""><img src="{{asset('_img/header/Dribbble.png')}}" alt=""></a></li>
-                <li><a href=""><img src="{{asset('_img/header/last-fm.png')}}" alt=""></a></li>
-                <li><a href=""><img src="{{asset('_img/header/linked-in.png')}}" alt=""></a></li>
-                <li><a href=""><img src="{{asset('_img/header/tumblir.png')}}" alt=""></a></li>
+                <li><a href="https://twitter.com/BigShop14"><img src="{{img('_img/header/twiter.png')}}" alt=""></a></li>
+                <li><a href="https://www.facebook.com/Big-Shop-2019449578308589/?modal=admin_todo_tour"><img src="{{img('_img/header/facebook.png')}}" alt=""></a></li>
+                <li><a href=""><img src="{{img('_img/header/Dribbble.png')}}" alt=""></a></li>
+                <li><a href=""><img src="{{img('_img/header/last-fm.png')}}" alt=""></a></li>
+                <li><a href=""><img src="{{img('_img/header/linked-in.png')}}" alt=""></a></li>
+                <li><a href=""><img src="{{img('_img/header/tumblir.png')}}" alt=""></a></li>
 
             </ul>
             <div class="input-group2 d-flex align-items-center" style="position: relative; flex: 1;">
@@ -242,7 +242,7 @@
                                 </span>
 
                                 <span class="redOpenArrow" style="">
-                                     <img src="{{asset('_img/header/arrow-down.png')}}" alt="">
+                                     <img src="{{img('_img/header/arrow-down.png')}}" alt="">
                                 </span>
                             </a>
                             <ul class="dropdown-menu cart w-250" role="menu">

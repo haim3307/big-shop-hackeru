@@ -2185,7 +2185,7 @@
 
                                                     <div class="post-thumbnail">
                                                         <img width="1665" height="1143"
-                                                             src="{{asset("_img/posts/$post->main_img")}}"
+                                                             src="{{img("_img/posts/$post->main_img")}}"
                                                              sizes="(max-width: 1665px) 100vw, 1665px"></div>
 
 

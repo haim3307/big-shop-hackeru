@@ -1,5 +1,5 @@
 <li class="catesItem">
-    <img src="{{asset('_img/main-items-by-cates/'.$cateItem['main_img'])}}" alt="">
+    <img data-src="{{img('_img/main-items-by-cates/'.$cateItem['main_img'])}}" class="Sirv" alt="">
     <div class="innerCatesItem">
         <div class="partA">
             <h3>{{$cateItem['title']}}</h3>
@@ -10,8 +10,8 @@
             </div>
             <div class="allCentered buyNowWideButton" data-id="{{$cateItem['id']}}" style="
                                             ">
-                <div class="allCentered buyIconFrame "><img
-                            src="{{asset('_img/Shopping%20Cart%203.png')}}" alt=""></div>
+                <div class="allCentered buyIconFrame "><img class="Sirv"
+                            data-src="{{img('_img/shopping-cart.png')}}" alt=""></div>
                 <span>Add to cart</span>
             </div>
         </div>

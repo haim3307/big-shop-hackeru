@@ -6,7 +6,7 @@
                 @include('items.buttons.quick-view')
             </div>
             <div class="partB">
-                <img src="{{asset("/_img/products/$product->c_url/$product->main_img")}}"{{-- @load="loadItem()"--}} class="img-fluid" alt="">
+                <img data-src="{{img("/_img/products/$product->c_url/$product->main_img")}}" class="Sirv" alt="">
             </div>
             <div class="partA">
                 <h3>{{ucwords($product->title)}}</h3>

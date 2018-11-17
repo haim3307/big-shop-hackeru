@@ -21,8 +21,8 @@
                             <div class="frameItem gallery-cell carousel-cell"
                                  onclick="window.location = '{{url("$cubeItem->base_url$cubeItem->url")}}'">
                                 <div class="frameItemOverflow">
-                                    <img data-flickity-lazyload="{{asset("_img/{$cubeItem->img_path}/$cubeItem->main_img")}}"
-                                         alt="">
+                                    <img class="Sirv" data-src="{{img("_img/{$cubeItem->img_path}/$cubeItem->main_img")}}"
+                                         alt="{{$cubeItem->title??$cubeItem->name}}">
                                 </div>
                                 <h3 class="frameItemTitle">{{$cubeItem->title??$cubeItem->name}}</h3>
                                 <div class="frameItemPrices">
@@ -31,7 +31,7 @@
                                             style="text-decoration: line-through;">${{$cubeItem->prev_price}}</span>@endisset
                                 </div>
                                 <a class="allCentered addToCartB" @include('inc.print-object',['product'=>$cubeItem->getAttributes()])>
-                                    <div class="allCentered"><img src="{{asset('_img/Shopping%20Cart%203.png')}}"
+                                    <div class="allCentered"><img class="Sirv" data-src="{{img('_img/shopping-cart.png')}}"
                                                                   alt="">
                                     </div>
                                 </a>
@@ -132,6 +132,7 @@
                     Vue.nextTick(function () {
                         var $els = document.querySelectorAll('.animate-loaded-hide');
                         if($els.length) shopAppOBJ.methods.animatedLoop($els[0]);
+                        reloadSirv();
                     });
 
                 }, function (e) {

@@ -12,13 +12,13 @@
                         <div class="productImages container col-md-6">
                             <div class="productImgStage p-md-4">
                                 <div class="frameMy" style="position: absolute; z-index: 2;">
-                                    <img src="{{asset('_img/layout/price.png')}}" alt="">
+                                    <img src="{{img('_img/layout/price.png')}}" alt="">
                                     <p class="text-white" style="position: relative; top: -50px; left: 20px;">
                                         ${{$item->price}}</p>
                                 </div>
                                 <div style="border: 1px lightgrey solid;      margin: 10px;">
                                     <img width="500"
-                                         src="{{isset($item->main_img)?asset('_img/products/'. $category->name .'/'.$item->main_img):'http://via.placeholder.com/1100x700?text=No Product Image'}}"
+                                         src="{{isset($item->main_img)?img('_img/products/'. $category->name .'/'.$item->main_img):'http://via.placeholder.com/1100x700?text=No Product Image'}}"
                                          class="img-fluid" alt="">
                                 </div>
                                 {{--                            <div class="carousel carousel-main" style="border: 1px lightgrey solid;"
@@ -45,7 +45,7 @@
                                                                             <div class="carousel-cell">
                                                                                 <div class="productImageSquare">
                                                                                     <img class="img-fluid"
-                                                                                         src="{{asset('_img/products/'. $category->name .'/'.$item->main_img)}}"
+                                                                                         src="{{img('_img/products/'. $category->name .'/'.$item->main_img)}}"
                                                                                          alt="">
                                                                                 </div>
                                                                             </div>
@@ -103,12 +103,12 @@
                                         @endpush
                                         <button class="btn allCentered addToCartProductPage storeBTN mr-md-2">
                                             <div class="allCentered">
-                                                <img src="{{asset('_img/Shopping Cart 3.png')}}" alt=""></div>
+                                                <img src="{{img('_img/Shopping Cart 3.png')}}" alt=""></div>
                                             <span class="allCentered btnTitle">Add to cart</span>
                                         </button>
                                         <button class="btn allCentered buyNow storeBTN">
                                             <div class="allCentered">
-                                                <img src="{{asset('_img/Shopping Cart 3.png')}}" alt=""></div>
+                                                <img src="{{img('_img/Shopping Cart 3.png')}}" alt=""></div>
                                             <span class="allCentered buyNow">Buy Now</span>
                                         </button>
                                     </div>
@@ -199,7 +199,7 @@
                 <div class="d-grid relatedProducts">
                     <div class="innerRelatedProducts">
                         <div class="threeDTitle allCentered" style=" position: relative;">
-                            <img src="{{asset('_img/layout/titleBarGrey.png')}}" alt=""
+                            <img src="{{img('_img/layout/titleBarGrey.png')}}" alt=""
                                  style="width: 100%; max-width: 224px;  position: relative;top: -10px;">
                             <h2 class="h5 text-center">
                                 <span>Related Products</span>

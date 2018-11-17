@@ -21,7 +21,7 @@
 
                 @foreach ($masterLayout->brands as $brandItem)
                     <div class="carousel-cell d-flex justify-content-center align-items-center" style="padding: 10px;min-height: 100px;">
-                        <img class="" style="max-height: 50px; " src="{{asset('_img/brands/'.$brandItem['main_img'])}}">
+                        <img class="" style="max-height: 50px; " src="{{img('_img/brands/'.$brandItem['main_img'])}}">
                     </div>
                 @endforeach
             </div>
@@ -81,9 +81,9 @@
                     of type and scrambled it to make a type specimen book. It has
                 </p>
                 <ul>
-                    <li><i><img src="{{asset('_img/Flag.png')}}" alt=""></i><span>Address 123, Country</span></li>
-                    <li><i><img src="{{asset('_img/iPad.png')}}" alt=""></i><span>(043) 875-9211</span></li>
-                    <li><i><img src="{{asset('_img/Mail.png')}}" alt=""></i><span>info@kopasoft.com</span></li>
+                    <li><i><img src="{{img('_img/Flag.png')}}" alt=""></i><span>Address 123, Country</span></li>
+                    <li><i><img src="{{img('_img/iPad.png')}}" alt=""></i><span>(043) 875-9211</span></li>
+                    <li><i><img src="{{img('_img/Mail.png')}}" alt=""></i><span>info@kopasoft.com</span></li>
                 </ul>
             </section>
             <section class="Categories">
@@ -102,15 +102,15 @@
             <section class="Tweets">
                 <h3>Latest Tweet</h3>
                 <ul>
-                    <li><img src="{{asset('_img/twitter.png')}}" alt="">
+                    <li><img src="{{img('_img/twitter.png')}}" alt="">
                         <p>Check out this great #themeforest item for you 'Simpler Landing</p>
                         <small>2 Hours ago</small>
                     </li>
-                    <li><img src="{{asset('_img/twitter.png')}}" alt="">
+                    <li><img src="{{img('_img/twitter.png')}}" alt="">
                         <p>Check out this great #themeforest item for you 'Simpler Landing</p>
                         <small>2 Hours ago</small>
                     </li>
-                    <li><img src="{{asset('_img/twitter.png')}}" alt="">
+                    <li><img src="{{img('_img/twitter.png')}}" alt="">
                         <p>Check out this great #themeforest item for you 'Simpler Landing</p>
                         <small>2 Hours ago</small>
                     </li>
@@ -132,7 +132,7 @@
                         @endif
                     @endforeach
                 </ul>
-                <a class="backToTop" href=""><img height="53" src="{{asset('_img/back%20to%20top.png')}}" alt=""></a>
+                <a class="backToTop" href=""><img height="53" src="{{img('_img/back%20to%20top.png')}}" alt=""></a>
 
             </div>
         </div>
