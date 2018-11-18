@@ -1,6 +1,6 @@
 {"name" : "BigShop",
   "short_name" : "BigShop",
-  "start_url" : "/",
+  "start_url" : "/big-shop/index.php",
   "display" : "standalone",
   "background_color" : "#EAEBEF",
   "theme_color" : "#FE1F1F",

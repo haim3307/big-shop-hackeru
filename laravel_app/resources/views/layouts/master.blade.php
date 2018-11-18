@@ -86,8 +86,7 @@
 			window.token = '{{ csrf_token() }}';
 			window.categoriesWithFilters = {!! \App\Category::with('filters')->get() !!};
 			console.log(categoriesWithFilters);
-			window.BASEURL = '{{url('')}}';
-			window.BASE_URL = window.BASEURL;
+			window.BASE_URL = '{{url('/')}}'.replace('index.php','');
 			window.loggedIn = '{{Auth::check()?1:0}}';
             @if(Session::has('clear_cart')) window.clearCart = true; @endif
 

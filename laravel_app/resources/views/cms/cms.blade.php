@@ -49,10 +49,12 @@
     <link rel="stylesheet" href="{{asset('css/app.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/partials/items.css')}}">
 
+{{--
 
     <script>
-        var BASE_URL = '{{url('')}}';
+        var BASE_URL = '{{url('/')}}';
     </script>
+--}}
 
     @yield('head')
 
