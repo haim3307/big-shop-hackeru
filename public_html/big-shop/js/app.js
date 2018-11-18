@@ -17340,7 +17340,7 @@ String.prototype.capitalize = function () {
 };
 if ('serviceWorker' in navigator) {
 	window.addEventListener('load', function () {
-		navigator.serviceWorker.register(BASE_URL + '/js/sw_cached_site.js').then(function (reg) {
+		navigator.serviceWorker.register('sw_cached_site.js').then(function (reg) {
 			return console.log('Service Worker: Registered (Pages)');
 		}).catch(function (err) {
 			return console.log('Service Worker: Error: ' + err);
@@ -29600,6 +29600,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	mounted: function mounted() {
@@ -29657,136 +29658,124 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "li",
-    { staticClass: "catesItemR animate-loaded-hide animated zoomIn" },
-    [
-      _c(
-        "a",
-        {
-          staticStyle: { "text-decoration": "none", color: "black" },
-          attrs: { href: _vm.url_item }
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass: "innerCatesItemR",
-              staticStyle: { "background-size": "cover" },
-              style: { backgroundImage: _vm.make_bgi }
-            },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "quickViewWrap",
-                  staticStyle: {
-                    position: "absolute",
-                    top: "10px",
-                    left: "10px"
-                  }
-                },
-                [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-light quickViewB",
-                      attrs: {
-                        id: "quickView" + _vm.it.id,
-                        "data-product": _vm.jsonProduct
-                      }
-                    },
-                    [
-                      _c("i", {
-                        staticClass: "fa fa-eye",
-                        attrs: { title: "Quick View" }
-                      })
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "partB" }, [
-                _c("img", {
-                  staticClass: "Sirv",
-                  attrs: {
-                    "data-src": _vm.url_main_img,
-                    width: "231",
-                    alt: ""
-                  },
-                  on: {
-                    load: function($event) {
-                      _vm.loadItem()
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "partA" }, [
-                _c("h4", { staticClass: "h5" }, [
-                  _vm._v(_vm._s(_vm._f("capitalize")(_vm.it["title"])))
-                ]),
-                _vm._v(" "),
-                _c("div", {
-                  staticClass: "desc my-text-overflow",
-                  staticStyle: { "max-height": "90px" },
-                  domProps: { innerHTML: _vm._s(_vm.it["description"]) }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "frameItemPrices" }, [
-                  _vm.it["prev_price"]
-                    ? _c(
-                        "span",
-                        {
-                          staticStyle: {
-                            "text-decoration": "line-through",
-                            "margin-right": "20px"
-                          }
-                        },
-                        [_vm._v("$" + _vm._s(_vm.it["prev_price"]))]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("span", { staticStyle: { color: "#d70a0a" } }, [
-                    _vm._v("$" + _vm._s(_vm.it["price"]))
-                  ])
-                ]),
-                _vm._v(" "),
+  return _c("li", { staticClass: "catesItemR" }, [
+    _c(
+      "a",
+      {
+        staticStyle: { "text-decoration": "none", color: "black" },
+        attrs: { href: _vm.url_item }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "innerCatesItemR",
+            staticStyle: { "background-size": "cover" },
+            style: { backgroundImage: _vm.make_bgi }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "quickViewWrap",
+                staticStyle: { position: "absolute", top: "10px", left: "10px" }
+              },
+              [
                 _c(
                   "button",
                   {
-                    staticClass: "buyNowWideButton addToCartB",
+                    staticClass: "btn btn-light quickViewB",
                     attrs: {
-                      "data-product": _vm.jsonProduct,
-                      "data-toggle": "modal",
-                      "data-target": "#product_view",
-                      "data-id": _vm.it["id"]
-                    },
-                    on: {
-                      click: function($event) {
-                        _vm.addToCartEvent($event)
-                      }
+                      id: "quickView" + _vm.it.id,
+                      "data-product": _vm.jsonProduct
                     }
                   },
                   [
-                    _c("span", { staticClass: "allCentered buyIconFrame " }, [
-                      _c("img", {
-                        attrs: { alt: "", src: _vm.url_shopping_cart }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "btnTitle" }, [
-                      _vm._v("Add to cart")
-                    ])
+                    _c("i", {
+                      staticClass: "fa fa-eye",
+                      attrs: { title: "Quick View" }
+                    })
                   ]
                 )
-              ])
-            ]
-          )
-        ]
-      )
-    ]
-  )
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "partB" }, [
+              _c("img", {
+                staticClass: "Sirv",
+                attrs: { "data-src": _vm.url_main_img, width: "231", alt: "" },
+                on: {
+                  load: function($event) {
+                    _vm.loadItem()
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "partA" }, [
+              _c("h4", { staticClass: "h5" }, [
+                _vm._v(_vm._s(_vm._f("capitalize")(_vm.it["title"])))
+              ]),
+              _vm._v(" "),
+              _c("div", {
+                staticClass: "desc my-text-overflow",
+                staticStyle: { "max-height": "90px" },
+                domProps: { innerHTML: _vm._s(_vm.it["description"]) }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "frameItemPrices" }, [
+                _vm.it["prev_price"]
+                  ? _c(
+                      "span",
+                      {
+                        staticStyle: {
+                          "text-decoration": "line-through",
+                          "margin-right": "20px"
+                        }
+                      },
+                      [_vm._v("$" + _vm._s(_vm.it["prev_price"]))]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("span", { staticStyle: { color: "#d70a0a" } }, [
+                  _vm._v("$" + _vm._s(_vm.it["price"]))
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "buyNowWideButton addToCartB",
+                  attrs: {
+                    "data-product": _vm.jsonProduct,
+                    "data-toggle": "modal",
+                    "data-target": "#product_view",
+                    "data-id": _vm.it["id"]
+                  },
+                  on: {
+                    click: function($event) {
+                      _vm.addToCartEvent($event)
+                    }
+                  }
+                },
+                [
+                  _c("span", { staticClass: "allCentered buyIconFrame " }, [
+                    _c("img", {
+                      attrs: { alt: "", src: _vm.url_shopping_cart }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "btnTitle" }, [
+                    _vm._v("Add to cart")
+                  ])
+                ]
+              )
+            ])
+          ]
+        )
+      ]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

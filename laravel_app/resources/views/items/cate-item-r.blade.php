@@ -1,4 +1,5 @@
-<li class="catesItemR animate-loaded-hide animated zoomIn"{{-- v-show="loadedItem"--}}>
+{{--animate-loaded-hide animated zoomIn--}}
+<li class="catesItemR"{{-- v-show="loadedItem"--}}>
     @php($product->c_url = $product->c_url??$category->url)
     <a href="{{url("shop/$product->c_url/$product->url")}}" class="text-dark" style="text-decoration: none;">
         <div class="innerCatesItemR" style="background-image: url('{{asset("/_img/bg_items_white.png")}}');    background-size: cover;">

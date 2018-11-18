@@ -30,8 +30,7 @@
         @endforeach
     </div>
 </div>--}}
-<div class="owl-carousel owl-theme owl-hide beforeLoad" id="mainSlideOwl" style="max-width: 100vw;
-">
+<div class="owl-carousel owl-theme owl-hide beforeLoad" id="mainSlideOwl">
     @foreach ($lists['main_slide'] as $headItem)
         @isset($headItem->id)
             @php($headEntityItem = $headItem->entityItem)

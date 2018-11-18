@@ -123,6 +123,8 @@
     <script src="{{asset('js/lib/http_use.fontawesome.com_07b0ce5d10.js')}}" defer async></script>
 
     <style>
+        html{overflow-x: hidden;}
+        ::-webkit-scrollbar { width: 0 !important }
         .carousel-cell {
             opacity: 0;
             transition: 1.5s opacity;

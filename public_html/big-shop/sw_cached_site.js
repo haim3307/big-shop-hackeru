@@ -1,4 +1,4 @@
-const cacheName = 'v2';
+const cacheName = 'v6';
 
 // Call Install Event
 self.addEventListener('install', e => {
@@ -31,7 +31,7 @@ self.addEventListener('fetch', e => {
       .then(res => {
         // Make copy/clone of response
         const resClone = res.clone();
-        // Open cahce
+        // Open cache
         caches.open(cacheName).then(cache => {
           // Add response to cache
           cache.put(e.request, resClone);

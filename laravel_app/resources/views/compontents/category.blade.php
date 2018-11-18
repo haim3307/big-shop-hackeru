@@ -1,6 +1,6 @@
-<li class="categoryModelItem fade animated fadeInUp">
+<li class="categoryModelItem">{{-- fade animated fadeInUp--}}
     <a href="{{url("/shop/$category->url")}}" class="categoryFrame allCentered">
-        <?php
+        @php
             $path = "/_img/";
             if ($category->img) {
                 $path .= "categories/$category->img";
@@ -9,7 +9,7 @@
             } else {
                 $path = 'http://via.placeholder.com/600x600?text=' . $category->name;
             }
-        ?>
+        @endphp
         <img src="{{img($path)}}" alt="">
     </a>
     <a href="{{url("/shop/$category->url")}}" class="categoryInfo">

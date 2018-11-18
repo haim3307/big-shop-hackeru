@@ -29,7 +29,7 @@ String.prototype.capitalize = function () { return this.charAt(0).toUpperCase() 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker
-            .register(BASE_URL+'/js/sw_cached_site.js')
+            .register('sw_cached_site.js')
             .then(reg => console.log('Service Worker: Registered (Pages)'))
             .catch(err => console.log(`Service Worker: Error: ${err}`));
     });

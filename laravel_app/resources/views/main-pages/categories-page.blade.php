@@ -50,40 +50,12 @@
                         </nav>
                     </li>
 
-                    {{--                   <li>
-                                           <div class="filterUnit">
-                                               <h4 class="toggleFilterDrop"><i class="fa fa-angle-down"
-                                                                               style="margin-right: 10px;"></i><strong>Color</strong></h4>
-                                               <div class="colorsFilter dropFilter">
-                                                   <ul>
-                                                       @php($allColors = [(Object)['hex'=>'ffffff'],(Object)['hex'=>'e5e5e5'],(Object)['hex'=>'feb312'],(Object)['hex'=>'f36b26'],(Object)['hex'=>'e7352b'],(Object)['hex'=>'8d429f'],(Object)['hex'=>'3a54d6'],(Object)['hex'=>'23a5e8'],(Object)['hex'=>'5bb22c']])
-                                                       @foreach($allColors as $allColor)
-                                                           <li>
-                                                               <input id="checkBox{{$allColor->hex}}" name="check-box-{{$allColor->hex}}"
-                                                                      class="hiddenCheckbox"
-                                                                      type="checkbox"
-                                                                      @if(old('check-box-'.$allColor->hex) == 'on') checked @endif>
-                                                               <label for="checkBox{{$allColor->hex}}"
-                                                                      class="allCentered customCheckbox"
-                                                                      style="background-color: {{'#'.$allColor->hex}}; border-radius: 100%;
-                                                                              width: 100%;height: 100%; margin-bottom: 0">
-                                                                   <img src="{{asset('_img/Shape_21.png')}}"
-                                                                        class="@if(old('check-box-'.$allColor->hex) == 'on') d-block @else d-none-unimportant @endif"
-                                                                        alt="">
-                                                               </label>
-                                                           </li>
-                                                       @endforeach
-                                                   </ul>
-                                               </div>
-                                           </div>
-                                       </li>
-                   --}}
                 </ul>
 
             </nav>
             <main class="d-grid" style="grid-template-rows: 1fr auto;">
-                <div class="items" style="min-height: 95vh">
-                    <ul class="grid-items-4 animated-loop" v-if="items && items.length && itemsAvail">
+                <div class="items" style="min-height: 95vh">{{-- animated-loop--}}
+                    <ul class="grid-items-4" v-if="items && items.length && itemsAvail">
                         @foreach($main_items as $product)
                             @include('items.cate-item-r',['product'=>$product])
                         @endforeach

@@ -73,9 +73,9 @@
 
             </div>
             <div class="trendingItems">
-                <div class="cate-items">
+                <div class="cate-items">{{-- animated-loop--}}
                     @verbatim
-                        <ul class="grid-items-4 animated-loop" v-if="items && items.length && itemsAvail">
+                        <ul class="grid-items-4" v-if="items && items.length && itemsAvail">
                             <cate-item-r v-for="item in items" :key="item.id" :it="item"></cate-item-r>
                         </ul>
                         <h2 style="text-align: center; color: grey; text-transform: uppercase; padding: 30px 10px;"
@@ -119,7 +119,7 @@
             }
         }
     </style>
-    <script>
+    <script defer async>
         function tpl() {
             window.items = {!! $cateItems !!};
             shopAppOBJ.data.items = window.items;
