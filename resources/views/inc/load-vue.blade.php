@@ -42,7 +42,7 @@
         Vue.prototype.cdnByType = {!! json_encode(Config::get('app.cdnByType')) !!};
         //if(typeof beforeApp !== "undefined"){        }
         load.js('https://js.stripe.com/v3/').then(function () {
-            load.js(BASE_URL + '/js/app.js').then(function () {
+            load.js(window.location.protocol + BASE_URL + '/js/app.js').then(function () {
                 VueComponents();
                 tpl();
                 tplVue();
