@@ -84,11 +84,11 @@
 			var addonsJQ = [];// array of own plugin functions
     </script>
     <script>
-			window.url = '{{url('')}}';
+			window.url = '{{remove_http(url(''))}}';
 			window.token = '{{ csrf_token() }}';
 			window.categoriesWithFilters = {!! \App\Category::with('filters')->get() !!};
 			console.log(categoriesWithFilters);
-			window.BASE_URL = '{{url('/')}}'.replace('index.php','');
+			window.BASE_URL = '{{remove_http(url(''))}}'.replace('index.php','');
 			window.loggedIn = '{{Auth::check()?1:0}}';
             @if(Session::has('clear_cart')) window.clearCart = true; @endif
 

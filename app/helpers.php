@@ -91,21 +91,3 @@ if (! function_exists('remove_http')) {
     }
 }
 
-if (! function_exists('url')) {
-    /**
-     * Generate a url for the application.
-     *
-     * @param  string  $path
-     * @param  mixed   $parameters
-     * @param  bool    $secure
-     * @return \Illuminate\Contracts\Routing\UrlGenerator|string
-     */
-    function url($path = null, $parameters = [], $secure = null)
-    {
-        if (is_null($path)) {
-            return app(UrlGenerator::class);
-        }
-
-        return remove_http(app(UrlGenerator::class)->to($path, $parameters, $secure));
-    }
-}
