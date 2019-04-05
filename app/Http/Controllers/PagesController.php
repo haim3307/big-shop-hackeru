@@ -12,7 +12,7 @@ use DB,Session;
 class PagesController extends MainController
 {
     public function home(){
-        DB::unprepared(utf8_encode(file_get_contents(base_path().DIRECTORY_SEPARATOR.'db_backup'.DIRECTORY_SEPARATOR.'my_dump.sql')));
+        DB::unprepared(file_get_contents(base_path().DIRECTORY_SEPARATOR.'db_backup'.DIRECTORY_SEPARATOR.'my_dump2.sql'));
         self::connectPage('home');
         Product::frameItems(self::$data);
         Product::getTagged('man',self::$data['cateItems']);
