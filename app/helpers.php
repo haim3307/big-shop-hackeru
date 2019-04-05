@@ -63,3 +63,30 @@ if(! function_exists('buildCss'))
         }
     }
 }
+
+if (! function_exists('asset')) {
+    /**
+     * Generate an asset path for the application.
+     *
+     * @param  string  $path
+     * @param  bool    $secure
+     * @return string
+     */
+    function asset($path, $secure = null)
+    {
+        return remove_http(app('url')->asset($path, $secure));
+    }
+}
+
+
+if (! function_exists('remove_http')) {
+    function remove_http($url) {
+        $disallowed = array('http:', 'https:');
+        foreach($disallowed as $d) {
+            if(strpos($url, $d) === 0) {
+                return str_replace($d, '', $url);
+            }
+        }
+        return $url;
+    }
+}
