@@ -179,6 +179,7 @@ return [
         'Intervention\Image\ImageServiceProvider',
         'Kamaln7\Toastr\ToastrServiceProvider',
         Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
+        \Ecrmnn\LaravelHttps\Providers\ServiceProvider::class,
 
 
     ],
