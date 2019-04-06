@@ -56,6 +56,7 @@ class Product extends CMSModel
     }
     public function setExtraProps(){
         $this->inWishList =  WishListItem::inWishList($this->id);
+        $this->main_category =  $this->mainCategory()->first(['id','url']);
     }
     static function setExtraPropsAll($data){
         foreach ($data as $item){
@@ -107,7 +108,7 @@ class Product extends CMSModel
 
     static public function frameItems(&$data)
     {
-        $data['frameItems'] = self::withMainCategory()->limit(10)->get();
+        $data['frameItems'] = self::with('mainCategory:id,url')->limit(10)->get();
     }
     static public function createNew($request)
     {

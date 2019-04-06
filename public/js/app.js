@@ -329,8 +329,8 @@ __webpack_require__.r(__webpack_exports__);
       //!this.cartItem['c_name'] && (this.cartItem['c_name'] = selectedCategory);
 
       /*console.log('cartItem:',this.cartItem['main_category']);
-      return `${this.url}/shop/${this.cartItem['c_url']?this.cartItem['c_url']:this.cartItem['main_category'].url}/${this.cartItem['url']}`;*/
-      return '';
+      */
+      return "".concat(this.url, "/shop/").concat(this.cartItem['c_url'] ? this.cartItem['c_url'] : this.cartItem['main_category'].url, "/").concat(this.cartItem['url']);
     }
   },
   methods: {
@@ -666,7 +666,7 @@ __webpack_require__.r(__webpack_exports__);
       this.loadedItem = true;
     },
     addToCartEvent: function addToCartEvent($event) {
-      window.addToCartEvent($event);
+      window.addToCartEvent.call(this.$refs.addToCart, $event);
     }
   },
   computed: {
@@ -23684,6 +23684,7 @@ var render = function() {
               _c(
                 "button",
                 {
+                  ref: "addToCart",
                   staticClass: "buyNowWideButton addToCartB",
                   attrs: {
                     "data-product": _vm.jsonProduct,
@@ -37601,6 +37602,15 @@ window.VueComponents = function () {
   Vue.component('star-rating', vue_star_rating__WEBPACK_IMPORTED_MODULE_2___default.a);
   Vue.component('cate-item', __webpack_require__(/*! ./components/CateItem */ "./resources/assets/js/components/CateItem.vue").default);
   Vue.component('cate-item-r', __webpack_require__(/*! ./components/CategoryItemR */ "./resources/assets/js/components/CategoryItemR.vue").default);
+  Vue.component('frame-item', {
+    props: ['product'],
+    methods: {
+      addToCartEvent: function addToCartEvent(e) {
+        debugger;
+        window.addToCartEvent.call(this.$refs.addToCart, e);
+      }
+    }
+  });
   Vue.component('cate-items', __webpack_require__(/*! ./components/CateItemsCont */ "./resources/assets/js/components/CateItemsCont.vue").default);
   Vue.component('category-page-items', __webpack_require__(/*! ./components/CategoryPageItems */ "./resources/assets/js/components/CategoryPageItems.vue").default);
   Vue.component('categories-display', __webpack_require__(/*! ./components/CategoriesDisplay */ "./resources/assets/js/components/CategoriesDisplay.vue").default);

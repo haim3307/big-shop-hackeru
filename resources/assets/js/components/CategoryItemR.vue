@@ -19,7 +19,7 @@
                         <span style="text-decoration: line-through; margin-right: 20px;" v-if="it['prev_price']">${{it['prev_price']}}</span>
                         <span style="color: #d70a0a">${{it['price']}}</span>
                     </div>
-                    <button class="buyNowWideButton addToCartB" v-on:click="addToCartEvent($event)"
+                    <button class="buyNowWideButton addToCartB" v-on:click="addToCartEvent($event)" ref="addToCart"
                             :data-product="jsonProduct" data-toggle="modal" data-target="#product_view"
                             :data-id="it['id']">
                         <span class="allCentered buyIconFrame ">
@@ -50,7 +50,7 @@
 				this.loadedItem = true;
 			},
 			addToCartEvent($event) {
-              window.addToCartEvent($event);
+              window.addToCartEvent.call(this.$refs.addToCart,$event);
 			}
 		},
 		computed: {

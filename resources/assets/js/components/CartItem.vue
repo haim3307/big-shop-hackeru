@@ -33,8 +33,8 @@
 			url_item() {
 				//!this.cartItem['c_name'] && (this.cartItem['c_name'] = selectedCategory);
                 /*console.log('cartItem:',this.cartItem['main_category']);
-				return `${this.url}/shop/${this.cartItem['c_url']?this.cartItem['c_url']:this.cartItem['main_category'].url}/${this.cartItem['url']}`;*/
-				return '';
+				*/
+                return `${this.url}/shop/${this.cartItem['c_url']?this.cartItem['c_url']:this.cartItem['main_category'].url}/${this.cartItem['url']}`;
 			}
 		},
 		methods: {

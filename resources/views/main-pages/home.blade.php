@@ -18,24 +18,27 @@
                     @foreach ($lists['featured'] as $cubeItem)
                         @isset($cubeItem->id,$cubeItem->entityItem)
                             @php($cubeItem = $cubeItem->entityItem)
-                            <div class="frameItem gallery-cell carousel-cell"
-                                 onclick="window.location = '{{url("$cubeItem->base_url$cubeItem->url")}}'">
-                                <div class="frameItemOverflow">
-                                    <img class="Sirv" data-src="{{img("_img/{$cubeItem->img_path}/$cubeItem->main_img")}}"
-                                         alt="{{$cubeItem->title??$cubeItem->name}}">
-                                </div>
-                                <h3 class="frameItemTitle">{{$cubeItem->title??$cubeItem->name}}</h3>
-                                <div class="frameItemPrices">
-                                    <span style="color: #d70a0a">${{$cubeItem->price}}</span>
-                                    @isset($cubeItem->prev_price)<span
-                                            style="text-decoration: line-through;">${{$cubeItem->prev_price}}</span>@endisset
-                                </div>
-                                <a class="allCentered  addToCartB" @include('inc.print-object',['product'=>$cubeItem->getAttributes()])>
-                                    <div class="allCentered">
-                                        <i class="fa fa-cart-plus text-white"></i>
+                            <div is="frame-item" :product='{!! $cubeItem !!}' inline-template>
+                                <div class="frameItem gallery-cell carousel-cell"
+                                     onclick="window.location = '{{url("$cubeItem->base_url$cubeItem->url")}}'">
+                                    <div class="frameItemOverflow">
+                                        <img class="Sirv" data-src="{{img("_img/{$cubeItem->img_path}/$cubeItem->main_img")}}"
+                                             alt="{{$cubeItem->title??$cubeItem->name}}">
                                     </div>
-                                </a>
+                                    <h3 class="frameItemTitle">{{$cubeItem->title??$cubeItem->name}}</h3>
+                                    <div class="frameItemPrices">
+                                        <span style="color: #d70a0a">${{$cubeItem->price}}</span>
+                                        @isset($cubeItem->prev_price)<span
+                                                style="text-decoration: line-through;">${{$cubeItem->prev_price}}</span>@endisset
+                                    </div>
+                                    <a class="allCentered  addToCartB" @click="addToCartEvent" ref="addToCart" data-product='{!! $cubeItem !!}' data-toggle="modal" data-target="#product_view"
+                                       :data-id="{!! $cubeItem->id !!}">
+                                        <div class="allCentered">
+                                            <i class="fa fa-cart-plus text-white"></i>
+                                        </div>
+                                    </a>
 
+                                </div>
                             </div>
                         @endisset
                     @endforeach

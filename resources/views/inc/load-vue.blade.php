@@ -1,15 +1,21 @@
 <script>
-    //load-vue\
     function addToCartEvent(e) {
+        debugger;
+        addToCartEventJQ.call(e.currentTarget,e)
+    }
+    //load-vue\
+    function addToCartEventJQ(e) {
+        debugger;
         e.preventDefault();
         e.stopPropagation();
         var id = $(this).data('id');
-        var categoryId = $(this).data('category-id');
         var $btn = $(this);
         var product = $btn.data('product') || $btn.get()[0].dataset;
+        debugger;
         if (!product) return;
         product.quantity = typeof product.quantity !== "undefined" ? Number(product.quantity) : 1;
         var isExistCartItem = false;
+        debugger;
         for (var existingItem in shopAppOBJ.data.cartItems) {
             var item = shopAppOBJ.data.cartItems[existingItem];
             if (item.hasOwnProperty('id') && item.id == id) {
@@ -28,10 +34,10 @@
                 $('#addedToCartModal').modal('show');
                 updateCartedButtons(e);
             } else {
-                window.location = BASEURL + '/cart';
+                window.location = BASE_URL + '/cart';
             }
         } else if ($(e.target).hasClass('buyNow')) {
-            window.location = BASEURL + '/cart';
+            window.location = BASE_URL + '/cart';
 
         }
 

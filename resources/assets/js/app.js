@@ -55,6 +55,15 @@ window.VueComponents = function () {
 
 	Vue.component('cate-item', require('./components/CateItem').default);
 	Vue.component('cate-item-r', require('./components/CategoryItemR').default);
+	Vue.component('frame-item', {
+		props:['product'],
+		methods:{
+            addToCartEvent(e){
+            	debugger;
+            	window.addToCartEvent.call(this.$refs.addToCart,e);
+			}
+		}
+	});
 	Vue.component('cate-items', require('./components/CateItemsCont').default);
 	Vue.component('category-page-items', require('./components/CategoryPageItems').default);
 	Vue.component('categories-display', require('./components/CategoriesDisplay').default);

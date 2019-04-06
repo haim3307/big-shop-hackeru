@@ -83,7 +83,7 @@
                                 <div class="callToAction f-row">
                                     {{--                                <input type="number" min="1" value="1"
                                                                            style="text-align: center; margin-right: 14px; width: 46px;">--}}
-                                    <div style="margin-right: 10px;" @include('inc.print-object',['product'=>(object) $item->toArray()]) class="addToCartB buyPageButtons d-flex mb-md-2 mb-lg-0">
+                                    <div style="margin-right: 10px;"  class="addToCartB buyPageButtons d-flex mb-md-2 mb-lg-0">
                                         @push('styles')
                                             <style>
                                                 .storeBTN{
@@ -101,12 +101,13 @@
                                                 }
                                             </style>
                                         @endpush
-                                        <button class="btn allCentered addToCartProductPage storeBTN mr-md-2">
+                                        <button class="btn allCentered addToCartProductPage storeBTN mr-md-2" @click="addToCartEvent" ref="addToCart" data-product='{!! $item !!}' data-toggle="modal" data-target="#product_view"
+                                                :data-id="{!! $item->id !!}">
                                             <div class="allCentered">
                                                 <img src="{{img('_img/Shopping Cart 3.png')}}" alt=""></div>
                                             <span class="allCentered btnTitle">Add to cart</span>
                                         </button>
-                                        <button class="btn allCentered buyNow storeBTN">
+                                        <button class="btn allCentered buyNow storeBTN"  @click="buyNow">
                                             <div class="allCentered">
                                                 <img src="{{img('_img/Shopping Cart 3.png')}}" alt=""></div>
                                             <span class="allCentered buyNow">Buy Now</span>
@@ -225,6 +226,45 @@
         </div>
     </div>
 @endsection
+@section('script')
+    <script>
+        function tpl() {
+            shopAppOBJ.data.rating = 3;
+            shopAppOBJ.methods.buyNow = function (e) {
+                addToCartEventJQ.call(this.$refs.addToCart,e);
+                window.location = BASE_URL + '/cart';
+            }
+        }
+
+        function tplJQUI() {
+            $('#publicTabs').tabs().removeClass('ui-widget ui-widget-content ui-widget-header ui-tabs-panel');
+            $('[role="tablist"]').removeClass('ui-widget ui-widget-content ui-widget-header ui-tabs-panel ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix');
+
+        }
+
+        function tplFlickJQ() {
+            $('.productImgStage .carousel-main').width($('.productImages').width() - 70);
+            $('.productImgStage .carousel-main-nav').width($('.productImages').width() - 70);
+            $(window).on('resize', function () {
+                $('.productImgStage .carousel-main').width($('.productImages').width() - 70);
+                $('.productImgStage .carousel-main-nav').width($('.productImages').width() - 70);
+
+            });
+            $('.carousel-main').flickity({
+                pageDots: false,
+                imagesLoaded: true,
+                "prevNextButtons": false
+            });
+            /*
+            // 2nd carousel, navigation
+                            $('.carousel-nav').flickity({
+                                asNavFor: '.carousel-main',
+                                contain: true,
+                                pageDots: false
+                            });*/
+        }
+    </script>
+@endsection
 @section('style')
     <style>
         .ui-widget-content a {
@@ -318,39 +358,4 @@
         }
 
     </style>
-@endsection
-@section('script')
-    <script>
-        function tpl() {
-            shopAppOBJ.data.rating = 3;
-        }
-
-        function tplJQUI() {
-            $('#publicTabs').tabs().removeClass('ui-widget ui-widget-content ui-widget-header ui-tabs-panel');
-            $('[role="tablist"]').removeClass('ui-widget ui-widget-content ui-widget-header ui-tabs-panel ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix');
-
-        }
-
-        function tplFlickJQ() {
-            $('.productImgStage .carousel-main').width($('.productImages').width() - 70);
-            $('.productImgStage .carousel-main-nav').width($('.productImages').width() - 70);
-            $(window).on('resize', function () {
-                $('.productImgStage .carousel-main').width($('.productImages').width() - 70);
-                $('.productImgStage .carousel-main-nav').width($('.productImages').width() - 70);
-
-            });
-            $('.carousel-main').flickity({
-                pageDots: false,
-                imagesLoaded: true,
-                "prevNextButtons": false
-            });
-            /*
-            // 2nd carousel, navigation
-                            $('.carousel-nav').flickity({
-                                asNavFor: '.carousel-main',
-                                contain: true,
-                                pageDots: false
-                            });*/
-        }
-    </script>
 @endsection
