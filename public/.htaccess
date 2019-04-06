@@ -1511,7 +1511,6 @@ zyte\
 RewriteRule .* - [F]
 #bad bots end
 
-
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
