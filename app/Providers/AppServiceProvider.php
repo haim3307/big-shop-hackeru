@@ -24,15 +24,6 @@ class AppServiceProvider extends ServiceProvider
                 'defaultMetaDesc'=>"Life Style Store with sports , camping ,gaming and playground products , Choose Your life style at big store",
             ]);
         });
-        if (!config('app.is_local') && strpos($request->url(), 'http:') !== false)
-        {
-            $url = str_replace('http:', 'https:', $request->fullUrl());
-            $request = Request::create($url);
-        }
-
-        if (!$request->hasValidSignature()) {
-            return abort(403);
-        }
     }
 
     /**
